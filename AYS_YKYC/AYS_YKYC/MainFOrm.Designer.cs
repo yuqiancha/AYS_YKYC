@@ -74,11 +74,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_SendYC = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView_VCDU = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +87,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_SendYC = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -122,7 +122,8 @@
             this.运行日志ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1076, 32);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1614, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,7 +131,7 @@
             // 
             this.启动toolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_start;
             this.启动toolStripMenuItem.Name = "启动toolStripMenuItem";
-            this.启动toolStripMenuItem.Size = new System.Drawing.Size(68, 28);
+            this.启动toolStripMenuItem.Size = new System.Drawing.Size(82, 28);
             this.启动toolStripMenuItem.Text = "启动";
             this.启动toolStripMenuItem.Click += new System.EventHandler(this.启动toolStripMenuItem_Click);
             // 
@@ -138,7 +139,7 @@
             // 
             this.系统设置ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_setting;
             this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
             this.系统设置ToolStripMenuItem.Text = "系统设置";
             this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
             // 
@@ -146,7 +147,7 @@
             // 
             this.数据查询和回放ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_query;
             this.数据查询和回放ToolStripMenuItem.Name = "数据查询和回放ToolStripMenuItem";
-            this.数据查询和回放ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.数据查询和回放ToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
             this.数据查询和回放ToolStripMenuItem.Text = "数据查询";
             this.数据查询和回放ToolStripMenuItem.Click += new System.EventHandler(this.数据查询和回放ToolStripMenuItem_Click);
             // 
@@ -157,20 +158,20 @@
             this.遥控日志ToolStripMenuItem});
             this.运行日志ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_running;
             this.运行日志ToolStripMenuItem.Name = "运行日志ToolStripMenuItem";
-            this.运行日志ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.运行日志ToolStripMenuItem.Size = new System.Drawing.Size(118, 28);
             this.运行日志ToolStripMenuItem.Text = "日志查询";
             // 
             // 运行日志ToolStripMenuItem1
             // 
             this.运行日志ToolStripMenuItem1.Name = "运行日志ToolStripMenuItem1";
-            this.运行日志ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.运行日志ToolStripMenuItem1.Size = new System.Drawing.Size(164, 30);
             this.运行日志ToolStripMenuItem1.Text = "运行日志";
             this.运行日志ToolStripMenuItem1.Click += new System.EventHandler(this.运行日志ToolStripMenuItem_Click);
             // 
             // 遥控日志ToolStripMenuItem
             // 
             this.遥控日志ToolStripMenuItem.Name = "遥控日志ToolStripMenuItem";
-            this.遥控日志ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.遥控日志ToolStripMenuItem.Size = new System.Drawing.Size(164, 30);
             this.遥控日志ToolStripMenuItem.Text = "遥控日志";
             this.遥控日志ToolStripMenuItem.Click += new System.EventHandler(this.遥控日志ToolStripMenuItem_Click);
             // 
@@ -184,55 +185,57 @@
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5,
             this.toolStripStatusLabel6});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 705);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1021);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1076, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1614, 29);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(43, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(62, 24);
             this.toolStripStatusLabel1.Text = "本机IP";
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(82, 24);
             this.toolStripStatusLabel2.Text = "存盘路径";
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(82, 24);
             this.toolStripStatusLabel3.Text = "剩余空间";
             // 
             // toolStripStatusLabel4
             // 
             this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            this.toolStripStatusLabel4.Size = new System.Drawing.Size(782, 17);
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(1183, 24);
             this.toolStripStatusLabel4.Spring = true;
             this.toolStripStatusLabel4.Text = " ";
             // 
             // toolStripStatusLabel5
             // 
             this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(56, 17);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(82, 24);
             this.toolStripStatusLabel5.Text = "本地时间";
             // 
             // toolStripStatusLabel6
             // 
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(68, 17);
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(100, 24);
             this.toolStripStatusLabel6.Text = "已运行时间";
             // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(171, 662);
+            this.richTextBox1.Size = new System.Drawing.Size(257, 993);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -247,22 +250,23 @@
             this.tableLayoutPanel10.Controls.Add(this.pictureBox_ZK1, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.btn_ZK1_Open, 1, 1);
             this.tableLayoutPanel10.Controls.Add(this.label26, 0, 0);
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(16, 16);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(24, 24);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 3;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(118, 74);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(177, 111);
             this.tableLayoutPanel10.TabIndex = 7;
             // 
             // btn_ZK1_Close
             // 
             this.btn_ZK1_Close.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_ZK1_Close.Location = new System.Drawing.Point(60, 49);
-            this.btn_ZK1_Close.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_ZK1_Close.Location = new System.Drawing.Point(91, 74);
+            this.btn_ZK1_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ZK1_Close.Name = "btn_ZK1_Close";
-            this.btn_ZK1_Close.Size = new System.Drawing.Size(56, 23);
+            this.btn_ZK1_Close.Size = new System.Drawing.Size(83, 34);
             this.btn_ZK1_Close.TabIndex = 9;
             this.btn_ZK1_Close.Text = "断开";
             this.btn_ZK1_Close.UseVisualStyleBackColor = true;
@@ -272,11 +276,11 @@
             // 
             this.pictureBox_ZK1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_ZK1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1.Image")));
-            this.pictureBox_ZK1.Location = new System.Drawing.Point(2, 24);
-            this.pictureBox_ZK1.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_ZK1.Location = new System.Drawing.Point(3, 36);
+            this.pictureBox_ZK1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox_ZK1.Name = "pictureBox_ZK1";
             this.tableLayoutPanel10.SetRowSpan(this.pictureBox_ZK1, 2);
-            this.pictureBox_ZK1.Size = new System.Drawing.Size(55, 48);
+            this.pictureBox_ZK1.Size = new System.Drawing.Size(83, 72);
             this.pictureBox_ZK1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_ZK1.TabIndex = 10;
             this.pictureBox_ZK1.TabStop = false;
@@ -284,10 +288,10 @@
             // btn_ZK1_Open
             // 
             this.btn_ZK1_Open.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_ZK1_Open.Location = new System.Drawing.Point(60, 24);
-            this.btn_ZK1_Open.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_ZK1_Open.Location = new System.Drawing.Point(91, 36);
+            this.btn_ZK1_Open.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ZK1_Open.Name = "btn_ZK1_Open";
-            this.btn_ZK1_Open.Size = new System.Drawing.Size(56, 22);
+            this.btn_ZK1_Open.Size = new System.Drawing.Size(83, 33);
             this.btn_ZK1_Open.TabIndex = 7;
             this.btn_ZK1_Open.Text = "监听";
             this.btn_ZK1_Open.UseVisualStyleBackColor = true;
@@ -302,7 +306,7 @@
             this.label26.Location = new System.Drawing.Point(1, 1);
             this.label26.Margin = new System.Windows.Forms.Padding(0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(116, 21);
+            this.label26.Size = new System.Drawing.Size(175, 32);
             this.label26.TabIndex = 0;
             this.label26.Text = "USRP（遥控）";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -318,13 +322,14 @@
             this.tableLayoutPanel12.Controls.Add(this.btn_CRTa_Close, 0, 2);
             this.tableLayoutPanel12.Controls.Add(this.btn_CRTa_Open, 0, 1);
             this.tableLayoutPanel12.Controls.Add(this.pictureBox_CRTa, 1, 1);
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(724, 18);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(1086, 27);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 3;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(118, 73);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(177, 110);
             this.tableLayoutPanel12.TabIndex = 6;
             // 
             // label28
@@ -336,7 +341,7 @@
             this.label28.Location = new System.Drawing.Point(1, 1);
             this.label28.Margin = new System.Windows.Forms.Padding(0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(116, 17);
+            this.label28.Size = new System.Drawing.Size(175, 26);
             this.label28.TabIndex = 0;
             this.label28.Text = "瑞信丰";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -344,10 +349,10 @@
             // btn_CRTa_Close
             // 
             this.btn_CRTa_Close.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_CRTa_Close.Location = new System.Drawing.Point(2, 46);
-            this.btn_CRTa_Close.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_CRTa_Close.Location = new System.Drawing.Point(3, 70);
+            this.btn_CRTa_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_CRTa_Close.Name = "btn_CRTa_Close";
-            this.btn_CRTa_Close.Size = new System.Drawing.Size(55, 25);
+            this.btn_CRTa_Close.Size = new System.Drawing.Size(83, 37);
             this.btn_CRTa_Close.TabIndex = 5;
             this.btn_CRTa_Close.Text = "断开";
             this.btn_CRTa_Close.UseVisualStyleBackColor = true;
@@ -356,10 +361,10 @@
             // btn_CRTa_Open
             // 
             this.btn_CRTa_Open.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_CRTa_Open.Location = new System.Drawing.Point(2, 20);
-            this.btn_CRTa_Open.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_CRTa_Open.Location = new System.Drawing.Point(3, 30);
+            this.btn_CRTa_Open.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_CRTa_Open.Name = "btn_CRTa_Open";
-            this.btn_CRTa_Open.Size = new System.Drawing.Size(55, 23);
+            this.btn_CRTa_Open.Size = new System.Drawing.Size(83, 35);
             this.btn_CRTa_Open.TabIndex = 1;
             this.btn_CRTa_Open.Text = "连接";
             this.btn_CRTa_Open.UseVisualStyleBackColor = true;
@@ -369,11 +374,11 @@
             // 
             this.pictureBox_CRTa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_CRTa.Image = global::H07_YKYC.Properties.Resources.red2;
-            this.pictureBox_CRTa.Location = new System.Drawing.Point(60, 20);
-            this.pictureBox_CRTa.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_CRTa.Location = new System.Drawing.Point(91, 30);
+            this.pictureBox_CRTa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox_CRTa.Name = "pictureBox_CRTa";
             this.tableLayoutPanel12.SetRowSpan(this.pictureBox_CRTa, 2);
-            this.pictureBox_CRTa.Size = new System.Drawing.Size(56, 51);
+            this.pictureBox_CRTa.Size = new System.Drawing.Size(83, 77);
             this.pictureBox_CRTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_CRTa.TabIndex = 6;
             this.pictureBox_CRTa.TabStop = false;
@@ -396,12 +401,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(166, 16);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(249, 24);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 192);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(381, 288);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // label1
@@ -412,7 +418,7 @@
             this.label1.Location = new System.Drawing.Point(1, 1);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 37);
+            this.label1.Size = new System.Drawing.Size(379, 57);
             this.label1.TabIndex = 0;
             this.label1.Text = "本机与USRP解调计算机";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -424,11 +430,12 @@
             this.Column1,
             this.Column2});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 42);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 63);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(246, 146);
+            this.dataGridView1.Size = new System.Drawing.Size(371, 220);
             this.dataGridView1.TabIndex = 10;
             // 
             // Column1
@@ -452,13 +459,14 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView2, 0, 1);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(450, 17);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(675, 26);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.18182F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.81818F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(254, 191);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(381, 286);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
             // label4
@@ -469,7 +477,7 @@
             this.label4.Location = new System.Drawing.Point(1, 1);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(252, 34);
+            this.label4.Size = new System.Drawing.Size(379, 51);
             this.label4.TabIndex = 0;
             this.label4.Text = "本机与瑞信丰";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -481,11 +489,12 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(4, 39);
+            this.dataGridView2.Location = new System.Drawing.Point(5, 57);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(246, 148);
+            this.dataGridView2.Size = new System.Drawing.Size(371, 224);
             this.dataGridView2.TabIndex = 11;
             // 
             // dataGridViewTextBoxColumn5
@@ -512,22 +521,23 @@
             this.tableLayoutPanel2.Controls.Add(this.pictureBox_ZK1_YC, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btn_ZK1_YC_Open, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(17, 105);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 158);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(118, 74);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(177, 111);
             this.tableLayoutPanel2.TabIndex = 15;
             // 
             // btn_ZK1_YC_Close
             // 
             this.btn_ZK1_YC_Close.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_ZK1_YC_Close.Location = new System.Drawing.Point(60, 49);
-            this.btn_ZK1_YC_Close.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_ZK1_YC_Close.Location = new System.Drawing.Point(91, 74);
+            this.btn_ZK1_YC_Close.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ZK1_YC_Close.Name = "btn_ZK1_YC_Close";
-            this.btn_ZK1_YC_Close.Size = new System.Drawing.Size(56, 23);
+            this.btn_ZK1_YC_Close.Size = new System.Drawing.Size(83, 34);
             this.btn_ZK1_YC_Close.TabIndex = 9;
             this.btn_ZK1_YC_Close.Text = "断开";
             this.btn_ZK1_YC_Close.UseVisualStyleBackColor = true;
@@ -537,11 +547,11 @@
             // 
             this.pictureBox_ZK1_YC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox_ZK1_YC.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1_YC.Image")));
-            this.pictureBox_ZK1_YC.Location = new System.Drawing.Point(2, 24);
-            this.pictureBox_ZK1_YC.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_ZK1_YC.Location = new System.Drawing.Point(3, 36);
+            this.pictureBox_ZK1_YC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox_ZK1_YC.Name = "pictureBox_ZK1_YC";
             this.tableLayoutPanel2.SetRowSpan(this.pictureBox_ZK1_YC, 2);
-            this.pictureBox_ZK1_YC.Size = new System.Drawing.Size(55, 48);
+            this.pictureBox_ZK1_YC.Size = new System.Drawing.Size(83, 72);
             this.pictureBox_ZK1_YC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_ZK1_YC.TabIndex = 10;
             this.pictureBox_ZK1_YC.TabStop = false;
@@ -549,10 +559,10 @@
             // btn_ZK1_YC_Open
             // 
             this.btn_ZK1_YC_Open.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_ZK1_YC_Open.Location = new System.Drawing.Point(60, 24);
-            this.btn_ZK1_YC_Open.Margin = new System.Windows.Forms.Padding(1);
+            this.btn_ZK1_YC_Open.Location = new System.Drawing.Point(91, 36);
+            this.btn_ZK1_YC_Open.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_ZK1_YC_Open.Name = "btn_ZK1_YC_Open";
-            this.btn_ZK1_YC_Open.Size = new System.Drawing.Size(56, 22);
+            this.btn_ZK1_YC_Open.Size = new System.Drawing.Size(83, 33);
             this.btn_ZK1_YC_Open.TabIndex = 7;
             this.btn_ZK1_YC_Open.Text = "监听";
             this.btn_ZK1_YC_Open.UseVisualStyleBackColor = true;
@@ -567,14 +577,15 @@
             this.label2.Location = new System.Drawing.Point(1, 1);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 21);
+            this.label2.Size = new System.Drawing.Size(175, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "USRP（遥测）";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 40);
+            this.splitContainer1.Location = new System.Drawing.Point(18, 60);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -584,14 +595,16 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1052, 662);
-            this.splitContainer1.SplitterDistance = 877;
+            this.splitContainer1.Size = new System.Drawing.Size(1578, 993);
+            this.splitContainer1.SplitterDistance = 1315;
+            this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 17;
             // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -611,56 +624,51 @@
             this.splitContainer2.Panel2.Controls.Add(this.textBox2);
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView_VCDU);
             this.splitContainer2.Panel2.Controls.Add(this.btn_SendYC);
-            this.splitContainer2.Size = new System.Drawing.Size(877, 662);
-            this.splitContainer2.SplitterDistance = 225;
+            this.splitContainer2.Size = new System.Drawing.Size(1315, 993);
+            this.splitContainer2.SplitterDistance = 337;
+            this.splitContainer2.SplitterWidth = 6;
             this.splitContainer2.TabIndex = 0;
             // 
-            // textBox1
+            // button3
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 29);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(679, 37);
-            this.textBox1.TabIndex = 19;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            // 
-            // btn_SendYC
-            // 
-            this.btn_SendYC.Location = new System.Drawing.Point(18, 29);
-            this.btn_SendYC.Name = "btn_SendYC";
-            this.btn_SendYC.Size = new System.Drawing.Size(117, 37);
-            this.btn_SendYC.TabIndex = 18;
-            this.btn_SendYC.Text = "手动发送遥控";
-            this.btn_SendYC.UseVisualStyleBackColor = true;
-            this.btn_SendYC.Click += new System.EventHandler(this.btn_SendYC_Click);
+            this.button3.Location = new System.Drawing.Point(1089, 278);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(178, 34);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "计数清零";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(16, 185);
+            this.button2.Location = new System.Drawing.Point(24, 278);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.Size = new System.Drawing.Size(178, 45);
             this.button2.TabIndex = 17;
             this.button2.Text = "计数清零";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(249, 44);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1016, 54);
+            this.textBox1.TabIndex = 19;
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(18, 156);
+            this.textBox2.Location = new System.Drawing.Point(27, 234);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(827, 260);
+            this.textBox2.Size = new System.Drawing.Size(1238, 388);
             this.textBox2.TabIndex = 19;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(726, 185);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 23);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "计数清零";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView_VCDU
             // 
@@ -674,11 +682,12 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridView_VCDU.Location = new System.Drawing.Point(18, 95);
+            this.dataGridView_VCDU.Location = new System.Drawing.Point(27, 142);
+            this.dataGridView_VCDU.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView_VCDU.Name = "dataGridView_VCDU";
             this.dataGridView_VCDU.RowHeadersVisible = false;
             this.dataGridView_VCDU.RowTemplate.Height = 23;
-            this.dataGridView_VCDU.Size = new System.Drawing.Size(827, 55);
+            this.dataGridView_VCDU.Size = new System.Drawing.Size(1240, 82);
             this.dataGridView_VCDU.TabIndex = 17;
             // 
             // Column3
@@ -734,16 +743,28 @@
             this.Column10.HeaderText = "数据域(206B)";
             this.Column10.Name = "Column10";
             // 
+            // btn_SendYC
+            // 
+            this.btn_SendYC.Location = new System.Drawing.Point(27, 44);
+            this.btn_SendYC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_SendYC.Name = "btn_SendYC";
+            this.btn_SendYC.Size = new System.Drawing.Size(176, 56);
+            this.btn_SendYC.TabIndex = 18;
+            this.btn_SendYC.Text = "手动发送遥控";
+            this.btn_SendYC.UseVisualStyleBackColor = true;
+            this.btn_SendYC.Click += new System.EventHandler(this.btn_SendYC_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1076, 727);
+            this.ClientSize = new System.Drawing.Size(1614, 1050);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(857, 465);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1274, 670);
             this.Name = "MainForm";
             this.Text = "总控软件";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
