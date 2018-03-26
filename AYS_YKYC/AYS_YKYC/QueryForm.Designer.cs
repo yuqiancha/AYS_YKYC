@@ -159,13 +159,12 @@
             this.comboBox2.Enabled = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "总控设备（遥控）",
-            "总控设备（遥测）"});
+            "USRP"});
             this.comboBox2.Location = new System.Drawing.Point(122, 34);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(153, 23);
             this.comboBox2.TabIndex = 178;
-            this.comboBox2.Text = "总控设备（遥控）";
+            this.comboBox2.Text = "USRP";
             // 
             // button1
             // 

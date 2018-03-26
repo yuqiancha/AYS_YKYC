@@ -17,6 +17,8 @@ namespace H07_YKYC
 {
     class Data
     {
+        public static SqLiteHelper sql;
+
         public static TextBox TelemetryRealShowBox;
 
         public static DataTable dtVCDU = new DataTable();

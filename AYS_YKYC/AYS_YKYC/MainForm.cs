@@ -192,6 +192,12 @@ namespace H07_YKYC
 
             Data.TelemetryRealShowBox = this.textBox2;
 
+            Data.sql = new SqLiteHelper("data source=mydb.db");
+            //创建名为table数据表
+            Data.sql.CreateTable("table_Telemetry", new string[] { "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Telecmd", new string[] { "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT" });
+
+
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

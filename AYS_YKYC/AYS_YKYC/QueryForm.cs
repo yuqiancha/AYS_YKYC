@@ -37,28 +37,12 @@ namespace H07_YKYC
             {
                 case "接收":
                     comboBox2.Items.Clear();
-                    comboBox2.Items.Add("总控设备（主）");
-                    comboBox2.Items.Add("总控设备（备）");
-                    comboBox2.Items.Add("外系统接口计算机");
+                    comboBox2.Items.Add("USRP"); 
                     comboBox2.SelectedIndex = 0;
                     break;
                 case "发送":
                     comboBox2.Items.Clear();
-                    comboBox2.Items.Add("应答机a");
-                    comboBox2.Items.Add("应答机b");
-                    comboBox2.Items.Add("窄波束SSA");
-                    comboBox2.Items.Add("宽波束SSA");
-                    comboBox2.Items.Add("中继KSA");
-                    comboBox2.Items.Add("空空");
-                    comboBox2.Items.Add("其它舱（总控）");
-                    comboBox2.SelectedIndex = 0;
-                    break;
-                case "小回路闭环":
-                    comboBox2.Items.Clear();
-                    comboBox2.Items.Add("应答机a");
-                    comboBox2.Items.Add("应答机b");
-                    comboBox2.Items.Add("窄波束SSA");
-                    comboBox2.Items.Add("宽波束SSA");
+                    comboBox2.Items.Add("USRP");
                     comboBox2.SelectedIndex = 0;
                     break;
                 default:
@@ -74,7 +58,20 @@ namespace H07_YKYC
             ListViewItem.ListViewSubItem subitem2;
 
             listView1.Items.Clear();
-            string path = Program.GetStartupPath() + comboBox1.Text + "\\" + comboBox2.Text + '\\';
+
+            string path = Program.GetStartupPath() + comboBox1.Text;
+            switch (comboBox1.Text)
+            {
+                case "接收":
+                    path += "\\" + comboBox2.Text + "\\Telemetry";
+                    break;
+                case "发送":
+                    path += "\\" + comboBox2.Text + "\\Telecmd";
+                    break;
+                default:
+                    break;
+            }
+            
             DirectoryInfo folder = new DirectoryInfo(path);
 
             try
