@@ -37,6 +37,7 @@
             this.运行日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.运行日志ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.遥控日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据库查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -93,7 +94,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.数据库查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -182,6 +182,13 @@
             this.遥控日志ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.遥控日志ToolStripMenuItem.Text = "遥控日志";
             this.遥控日志ToolStripMenuItem.Click += new System.EventHandler(this.遥控日志ToolStripMenuItem_Click);
+            // 
+            // 数据库查询ToolStripMenuItem
+            // 
+            this.数据库查询ToolStripMenuItem.Name = "数据库查询ToolStripMenuItem";
+            this.数据库查询ToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
+            this.数据库查询ToolStripMenuItem.Text = "数据库查询";
+            this.数据库查询ToolStripMenuItem.Click += new System.EventHandler(this.数据库查询ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -797,12 +804,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "数传收发";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // 数据库查询ToolStripMenuItem
-            // 
-            this.数据库查询ToolStripMenuItem.Name = "数据库查询ToolStripMenuItem";
-            this.数据库查询ToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
-            this.数据库查询ToolStripMenuItem.Text = "数据库查询";
             // 
             // MainForm
             // 

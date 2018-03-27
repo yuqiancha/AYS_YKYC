@@ -24,7 +24,7 @@ namespace H07_YKYC
         public SettingForm mySettingForm;
         public QueryForm myQueryForm;
         public SaveFile mySaveFileThread;
-
+        public QueryMyDB mySqlForm;
 
         ServerAPP myServer = new ServerAPP();
         public int TagLock;
@@ -88,13 +88,10 @@ namespace H07_YKYC
                 Data.DealCRTa.Led = pictureBox_CRTa;
                 Data.DealCRTa.init();
 
-
                 toolStripStatusLabel2.Text = "存储路径" + Path;
-
                 mySaveFileThread = new SaveFile();
                 mySaveFileThread.FileInit();
                 mySaveFileThread.FileSaveStart();
-
             }
             catch (Exception ex)
             {
@@ -194,8 +191,8 @@ namespace H07_YKYC
 
             Data.sql = new SqLiteHelper("data source=mydb.db");
             //创建名为table数据表
-            Data.sql.CreateTable("table_Telemetry", new string[] { "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT" });
-            Data.sql.CreateTable("table_Telecmd", new string[] { "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Telemetry", new string[] { "InfoType","CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye","CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
 
 
         }
@@ -744,6 +741,19 @@ namespace H07_YKYC
                 myFrameProdeceForm = new TelecmdProduce(this);
             }
             myFrameProdeceForm.ShowDialog();
+        }
+
+        private void 数据库查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(mySqlForm!=null)
+            {
+                mySqlForm.Activate();
+            }
+            else
+            {
+                mySqlForm = new QueryMyDB();
+            }
+            mySqlForm.ShowDialog();
         }
     }
 }

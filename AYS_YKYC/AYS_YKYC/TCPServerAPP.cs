@@ -561,7 +561,7 @@ namespace H07_YKYC
                         }
                         Trace.WriteLine(tempstr);
 
-                        string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}：{4:D2}：{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                        string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
                         Data.TelemetryRealShowBox.BeginInvoke(
                             new Action(() => { Data.TelemetryRealShowBox.AppendText(timestr+":"+tempstr+"\n"); }));
@@ -571,7 +571,9 @@ namespace H07_YKYC
 
                         IPEndPoint tmppoint = (IPEndPoint)myClientSocket.RemoteEndPoint;
                         String RemoteIpStr = tmppoint.Address.ToString();
-        
+
+                         Data.sql.InsertValues("table_Telemetry", new string[] { "YK", timestr, RemoteIpStr, tempstr });
+
                         if (RecvNum > 29)
                         {
                             MyLog.Info("收到遥测数据量：" + RecvNum.ToString());
