@@ -28,7 +28,7 @@ namespace H07_YKYC
             dataGridView1.Rows[0].Cells[1].Value = "0";
             dataGridView1.Rows[0].Cells[2].Value = "0";
             dataGridView1.Rows[0].Cells[3].Value = "00";
-            dataGridView1.Rows[0].Cells[4].Value = "6C";
+            dataGridView1.Rows[0].Cells[4].Value = "44";
             dataGridView1.Rows[0].Cells[5].Value = "00";
             dataGridView1.Rows[0].Cells[6].Value = "00";
             dataGridView1.Rows[0].Cells[7].Value = "00";
