@@ -79,7 +79,12 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.dataGridView_yklog = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_SendYC = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView_VCDU = new System.Windows.Forms.DataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,10 +95,11 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_SendYC = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -114,8 +120,10 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_yklog)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).BeginInit();
             this.SuspendLayout();
             // 
@@ -645,13 +653,6 @@
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel4);
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.textBox1);
-            this.splitContainer2.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView_VCDU);
-            this.splitContainer2.Panel2.Controls.Add(this.btn_SendYC);
             this.splitContainer2.Size = new System.Drawing.Size(904, 614);
             this.splitContainer2.SplitterDistance = 232;
             this.splitContainer2.TabIndex = 0;
@@ -676,22 +677,83 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.treeView1);
+            this.tabPage2.Controls.Add(this.dataGridView_yklog);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.btn_SendYC);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(910, 620);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "遥控发送";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.Location = new System.Drawing.Point(3, 3);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(212, 614);
+            this.treeView1.TabIndex = 22;
+            this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
+            // 
+            // dataGridView_yklog
+            // 
+            this.dataGridView_yklog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_yklog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14});
+            this.dataGridView_yklog.Location = new System.Drawing.Point(223, 97);
+            this.dataGridView_yklog.Name = "dataGridView_yklog";
+            this.dataGridView_yklog.RowTemplate.Height = 23;
+            this.dataGridView_yklog.Size = new System.Drawing.Size(681, 517);
+            this.dataGridView_yklog.TabIndex = 21;
+            this.dataGridView_yklog.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_yklog_CellContentDoubleClick);
+            this.dataGridView_yklog.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_yklog_RowStateChanged);
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(166, 29);
+            this.textBox1.Location = new System.Drawing.Point(346, 22);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(679, 37);
-            this.textBox1.TabIndex = 19;
+            this.textBox1.Size = new System.Drawing.Size(561, 37);
+            this.textBox1.TabIndex = 20;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            // 
+            // btn_SendYC
+            // 
+            this.btn_SendYC.Location = new System.Drawing.Point(223, 22);
+            this.btn_SendYC.Name = "btn_SendYC";
+            this.btn_SendYC.Size = new System.Drawing.Size(117, 37);
+            this.btn_SendYC.TabIndex = 19;
+            this.btn_SendYC.Text = "手动发送遥控";
+            this.btn_SendYC.UseVisualStyleBackColor = true;
+            this.btn_SendYC.Click += new System.EventHandler(this.btn_SendYC_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.dataGridView_VCDU);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(910, 620);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "遥测接收";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(18, 156);
+            this.textBox2.Location = new System.Drawing.Point(51, 107);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(827, 210);
-            this.textBox2.TabIndex = 19;
+            this.textBox2.TabIndex = 20;
             // 
             // dataGridView_VCDU
             // 
@@ -705,12 +767,12 @@
             this.Column8,
             this.Column9,
             this.Column10});
-            this.dataGridView_VCDU.Location = new System.Drawing.Point(18, 95);
+            this.dataGridView_VCDU.Location = new System.Drawing.Point(51, 35);
             this.dataGridView_VCDU.Name = "dataGridView_VCDU";
             this.dataGridView_VCDU.RowHeadersVisible = false;
             this.dataGridView_VCDU.RowTemplate.Height = 23;
             this.dataGridView_VCDU.Size = new System.Drawing.Size(827, 55);
-            this.dataGridView_VCDU.TabIndex = 17;
+            this.dataGridView_VCDU.TabIndex = 18;
             // 
             // Column3
             // 
@@ -765,36 +827,6 @@
             this.Column10.HeaderText = "数据域(206B)";
             this.Column10.Name = "Column10";
             // 
-            // btn_SendYC
-            // 
-            this.btn_SendYC.Location = new System.Drawing.Point(18, 29);
-            this.btn_SendYC.Name = "btn_SendYC";
-            this.btn_SendYC.Size = new System.Drawing.Size(117, 37);
-            this.btn_SendYC.TabIndex = 18;
-            this.btn_SendYC.Text = "手动发送遥控";
-            this.btn_SendYC.UseVisualStyleBackColor = true;
-            this.btn_SendYC.Click += new System.EventHandler(this.btn_SendYC_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(910, 620);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "遥控发送";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(910, 620);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "遥测接收";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
@@ -804,6 +836,32 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "数传收发";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "发送时间";
+            this.Column11.HeaderText = "发送时间";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "遥控名称";
+            this.Column12.HeaderText = "遥控名称";
+            this.Column12.Name = "Column12";
+            // 
+            // Column13
+            // 
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column13.DataPropertyName = "遥控源码";
+            this.Column13.HeaderText = "遥控源码";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "发送结果";
+            this.Column14.HeaderText = "发送结果";
+            this.Column14.Name = "Column14";
             // 
             // MainForm
             // 
@@ -846,10 +904,13 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_yklog)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -896,7 +957,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dataGridView_VCDU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.Button button2;
@@ -904,7 +964,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_CRTa_Close;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ToolStripMenuItem 数据库查询ToolStripMenuItem;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_SendYC;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.DataGridView dataGridView_yklog;
         public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView dataGridView_VCDU;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
@@ -913,14 +984,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btn_SendYC;
-        private System.Windows.Forms.ToolStripMenuItem 数据库查询ToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }
 

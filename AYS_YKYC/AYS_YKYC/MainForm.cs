@@ -78,7 +78,6 @@ namespace H07_YKYC
             startDT = System.DateTime.Now;
         }
 
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
@@ -98,8 +97,53 @@ namespace H07_YKYC
                 Trace.WriteLine(ex.Message);
             }
 
+            initTable();//初始化各类DataTable和datagridview
+
+            Data.TelemetryRealShowBox = this.textBox2;
+
+            Data.sql = new SqLiteHelper("data source=mydb.db");
+            //创建名为table数据表
+            Data.sql.CreateTable("table_Telemetry", new string[] { "InfoType", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
+
+
+            TreeNode node1 = new TreeNode("常用指令");
+            treeView1.Nodes.Add(node1);
+            TreeNode node2 = new TreeNode("重要指令");
+            treeView1.Nodes.Add(node2);
+            TreeNode node3 = new TreeNode("其它指令");
+            treeView1.Nodes.Add(node3);
             try
             {
+                List<string> NormalList = Data.GetConfigNormal(Data.YKconfigPath, "Normal");
+                for (int i = 0; i < NormalList.Count(); i++)
+                {
+                    node1.Nodes.Add(new TreeNode(NormalList[i]));
+                }
+                List<string> ImportantList = Data.GetConfigNormal(Data.YKconfigPath, "Important");
+                for (int i = 0; i < ImportantList.Count(); i++)
+                {
+                    node2.Nodes.Add(new TreeNode(ImportantList[i]));
+                }
+                List<string> OtherList = Data.GetConfigNormal(Data.YKconfigPath, "Other");
+                for (int i = 0; i < OtherList.Count(); i++)
+                {
+                    node3.Nodes.Add(new TreeNode(OtherList[i]));
+                }
+                treeView1.ExpandAll();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex.Message);
+            }
+        }
+
+        private void initTable()
+        {
+            #region 初始化DataTable
+            try
+            {
+                #region dtVCDU----dataGridView_VCDU 
                 Data.dtVCDU.Columns.Add("版本号", typeof(string));
                 Data.dtVCDU.Columns.Add("SCID", typeof(string));
                 Data.dtVCDU.Columns.Add("VCID", typeof(string));
@@ -120,8 +164,9 @@ namespace H07_YKYC
 
                 dataGridView_VCDU.DataSource = Data.dtVCDU;
                 dataGridView_VCDU.AllowUserToAddRows = false;
+                #endregion
 
-
+                #region dtUSRP----dataGridView1
                 Data.dtUSRP.Columns.Add("名称", typeof(string));
                 Data.dtUSRP.Columns.Add("数量", typeof(Int32));
 
@@ -149,6 +194,9 @@ namespace H07_YKYC
                 dataGridView1.DataSource = Data.dtUSRP;
                 dataGridView1.AllowUserToAddRows = false;
 
+                #endregion
+
+                #region dtYC----dataGridView2
                 Data.dtYC.Columns.Add("名称", typeof(string));
                 Data.dtYC.Columns.Add("数量", typeof(Int32));
 
@@ -179,21 +227,24 @@ namespace H07_YKYC
 
                 dataGridView2.DataSource = Data.dtYC;
                 dataGridView2.AllowUserToAddRows = false;
+                #endregion
 
+                #region dtYKLog----dataGridView_yklog
 
+                Data.dtYKLog.Columns.Add("发送时间", typeof(string));
+                Data.dtYKLog.Columns.Add("遥控名称", typeof(string));
+                Data.dtYKLog.Columns.Add("遥控源码", typeof(string));
+                Data.dtYKLog.Columns.Add("发送结果", typeof(string));
+
+                dataGridView_yklog.DataSource = Data.dtYKLog;
+                dataGridView_yklog.AllowUserToAddRows = false;
+                #endregion
             }
             catch (Exception ex)
             {
                 Trace.WriteLine("初始化DataTable Failed：" + ex.Message);
             }
-
-            Data.TelemetryRealShowBox = this.textBox2;
-
-            Data.sql = new SqLiteHelper("data source=mydb.db");
-            //创建名为table数据表
-            Data.sql.CreateTable("table_Telemetry", new string[] { "InfoType","CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
-            Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye","CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
-
+            #endregion
 
         }
 
@@ -204,7 +255,7 @@ namespace H07_YKYC
                 if (btn_ZK1_Close.Enabled) btn_ZK1_Close_Click(sender, e);
                 if (btn_ZK1_YC_Close.Enabled) btn_ZK1_YC_Close_Click(sender, e);
 
-                if(btn_CRTa_Open.Enabled ==false)
+                if (btn_CRTa_Open.Enabled == false)
                 {
                     ClientAPP.Disconnect(ref ClientAPP.Server_CRTa);
                     ClientAPP.Disconnect(ref ClientAPP.Server_CRTa_Return);
@@ -698,12 +749,24 @@ namespace H07_YKYC
             int AddAlen = 16 - (Str_Content.Length % 16);
             Str_Content = Str_Content.PadRight(AddAlen, 'A');
 
-            Trace.WriteLine("加扰前：" + Str_Content);
+            Trace.WriteLine("遥控发送数据：" + Str_Content);
 
             byte[] temp = StrToHexByte(Str_Content);
 
-            Data.DataQueue_USRP_telecmd.Enqueue(temp);
-//            Data.DealCRTa.DataQueue_CRT.Enqueue(FinalSend);
+            if(temp.Length==35)
+            {
+                DataRow dr = Data.dtYKLog.NewRow();
+                dr["发送时间"] = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                dr["遥控名称"] = "Undefined";
+                dr["遥控源码"] = Str_Content;
+                dr["发送结果"] = "发送";
+                Data.dtYKLog.Rows.Add(dr);
+                Data.DataQueue_USRP_telecmd.Enqueue(temp);
+            }
+            else
+            {
+                MessageBox.Show("遥控指令格式错误，无法发送！！");
+            }       
         }
 
         TelecmdProduce myFrameProdeceForm;
@@ -722,7 +785,7 @@ namespace H07_YKYC
 
         private void 数据库查询ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(mySqlForm!=null)
+            if (mySqlForm != null)
             {
                 mySqlForm.Activate();
             }
@@ -731,6 +794,52 @@ namespace H07_YKYC
                 mySqlForm = new QueryMyDB();
             }
             mySqlForm.ShowDialog();
+        }
+
+        private void treeView1_DoubleClick(object sender, EventArgs e)
+        {
+            if ((treeView1.SelectedNode != treeView1.Nodes[0])
+                && (treeView1.SelectedNode != treeView1.Nodes[1])
+                && (treeView1.SelectedNode != treeView1.Nodes[2]))
+            {
+                if (treeView1.SelectedNode.Parent == treeView1.Nodes[0])
+                {
+                    String YKCmdStr = Data.GetConfigStr(Data.YKconfigPath, "Normal", treeView1.SelectedNode.Text, "value");
+                    textBox1.Text = YKCmdStr;
+                }
+                else if (treeView1.SelectedNode.Parent == treeView1.Nodes[1])
+                {
+                    String YKCmdStr = Data.GetConfigStr(Data.YKconfigPath, "Important", treeView1.SelectedNode.Text, "value");
+                    textBox1.Text = YKCmdStr;
+                }
+                else
+                {
+                    String YKCmdStr = Data.GetConfigStr(Data.YKconfigPath, "Other", treeView1.SelectedNode.Text, "value");
+                    textBox1.Text = YKCmdStr;
+                }
+            }
+        }
+
+        private void dataGridView_yklog_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            //显示在HeaderCell上
+            for (int i = 0; i < this.dataGridView_yklog.Rows.Count; i++)
+            {
+                DataGridViewRow r = this.dataGridView_yklog.Rows[i];
+                r.HeaderCell.Value = string.Format("{0}", i + 1);
+            }
+            this.dataGridView_yklog.Refresh();
+        }
+
+        private void dataGridView_yklog_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == 2)                        //输出指令
+                {
+                    Trace.WriteLine("333");
+                }
+            }
         }
     }
 }

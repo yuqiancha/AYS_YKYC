@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -24,13 +25,13 @@ namespace H07_YKYC
             dataGridView2.Rows.Add(1);
             dataGridView2.AllowUserToAddRows = false;
 
-            dataGridView1.Rows[0].Cells[0].Value = "01";
+            dataGridView1.Rows[0].Cells[0].Value = "00";
             dataGridView1.Rows[0].Cells[1].Value = "0";
             dataGridView1.Rows[0].Cells[2].Value = "0";
             dataGridView1.Rows[0].Cells[3].Value = "00";
             dataGridView1.Rows[0].Cells[4].Value = "44";
-            dataGridView1.Rows[0].Cells[5].Value = "00";
-            dataGridView1.Rows[0].Cells[6].Value = "00";
+            dataGridView1.Rows[0].Cells[5].Value = "01";
+            dataGridView1.Rows[0].Cells[6].Value = "1E";
             dataGridView1.Rows[0].Cells[7].Value = "00";
             dataGridView1.Rows[0].Cells[8].Value = "";
 
@@ -107,7 +108,7 @@ namespace H07_YKYC
                 String XNTag = Convert.ToString(tempTag2_2, 2).PadLeft(6, '0');
 
                 //ZhenChangTag
-                int tempTagZC = int.Parse(dataGridView1.Rows[0].Cells[6].FormattedValue.ToString());
+                int tempTagZC = Convert.ToInt32(dataGridView1.Rows[0].Cells[6].FormattedValue.ToString(),16);
                 String ZhenChangTag = Convert.ToString(tempTagZC, 2).PadLeft(10, '0');
 
                 //XuLieTag = 8bits帧序列序号
@@ -160,10 +161,49 @@ namespace H07_YKYC
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mform.textBox1.Text = ZhenStr;
+            mform.textBox1.Text = "08547C00"+ZhenStr;
 
             button1.Enabled = false;
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            String Path = mform.Path + @"遥控包\";
+            if (!Directory.Exists(Path))
+                Directory.CreateDirectory(Path);
+
+            saveFileDialog1.InitialDirectory = Path;
+
+            saveFileDialog1.Filter = "文本文件(*.txt)|*.txt|All files(*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string localFilePath = saveFileDialog1.FileName.ToString(); //获得文件路径 
+
+                FileStream file0 = new FileStream(localFilePath, FileMode.Create);
+                StreamWriter sw = new StreamWriter(file0);
+                sw.WriteLine(ZhenStr);
+                sw.Flush();
+                sw.Close();
+                file0.Close();
+                MessageBox.Show("存储文件成功！", "保存文件");
+
+            }
+        }
+
+        int DataCount;
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+            String DataStr = this.textBox9.Text.Replace(" ", "");
+
+            DataCount = DataStr.Length / 2;
+            //            this.dataGridView2.Rows[0].Cells[6].Value = (DataCount - 1).ToString("x4");
+            this.label1.Text = "已输入数据（" + DataCount.ToString().PadLeft(2,'0') + "/22）";
+
         }
     }
 }

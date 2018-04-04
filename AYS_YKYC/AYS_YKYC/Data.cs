@@ -12,6 +12,8 @@ using System.Threading;
 using System.IO;
 using System.Configuration;
 using System.Net.Sockets;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace H07_YKYC
 {
@@ -24,7 +26,7 @@ namespace H07_YKYC
         public static DataTable dtVCDU = new DataTable();
         public static DataTable dtUSRP = new DataTable();//总控-->遥控服务器
         public static DataTable dtYC = new DataTable();//CRT-->遥测服务器
-
+        public static DataTable dtYKLog = new DataTable();//遥控日志
         //创建K令码表源文件数组
         public static byte[] KcmdText;
 
@@ -143,8 +145,154 @@ namespace H07_YKYC
         public static byte[] TCF = new byte[3] { (byte)'T', (byte)'C', (byte)'F' };//遥控前端设备
         public static byte[] IPC = new byte[3] { (byte)'I', (byte)'P', (byte)'C' };//外系统接口计算机
         
-        public static byte[] IMAGE = new byte[3] { (byte)'V', (byte)'I', (byte)'D' };//图像处理设备
-        public static byte[] GT    = new byte[3] { (byte)'G', (byte)'H', (byte)'E' };//高通
-        public static byte[] KKT   = new byte[3] { (byte)'K', (byte)'K', (byte)'T' };//空空通信模拟器        
+
+
+        public static string YKconfigPath = Program.GetStartupPath() + @"配置文件\遥控指令配置.xml";
+
+
+        public static void SaveConfig(string Path, string key, string value)
+        {
+            XDocument xDoc = XDocument.Load(Path);
+            XmlReader reader = xDoc.CreateReader();
+
+            bool Matched = false;//是否已在XML中
+
+            foreach (var p in xDoc.Root.Elements("add"))
+            {
+                if (p.Attribute("key").Value == key)
+                {
+                    p.Attribute("value").Value = value;
+                    Matched = true;
+                }
+            }
+            if (Matched == false)
+            {
+                XElement element = new XElement("add", new XAttribute("key", key), new XAttribute("value", value));
+                xDoc.Root.Add(element);
+            }
+
+            xDoc.Save(Path);
+            //var query = from p in xDoc.Root.Elements("add")
+            //            where p.Attribute("key").Value == "DAModifyA1"
+            //            orderby p.Value
+            //            select p.Value;
+
+            //foreach (string s in query)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+        }
+
+        public static string GetConfig(string Path, string key)
+        {
+            XDocument xDoc = XDocument.Load(Path);
+            XmlReader reader = xDoc.CreateReader();
+            string value = "Error";
+
+            var query = from p in xDoc.Root.Elements("add")
+                        where p.Attribute("key").Value == key
+                        select p.Attribute("value").Value;
+
+            foreach (string s in query)
+            {
+                value = s;
+            }
+
+            //foreach (var p in xDoc.Root.Elements("add"))
+            //{
+            //    if (p.Attribute("key").Value == key)
+            //    {
+            //        value = p.Attribute("value").Value;
+            //    }
+            //}
+            return value;
+
+        }
+
+        public static List<string> GetConfigNormal(string Path,string type)
+        {
+            XDocument xDoc = XDocument.Load(Path);
+            XmlReader reader = xDoc.CreateReader();
+
+            var query = from p in xDoc.Root.Elements(type)
+                        select p.Attribute("key").Value;
+
+            List<string> list = new List<string>();
+            foreach (string s in query)
+            {
+                list.Add(s);
+            }
+            return list;
+        }
+
+        public static string GetConfigStr(string Path, string type,string key, string name)
+        {
+            XDocument xDoc = XDocument.Load(Path);
+            XmlReader reader = xDoc.CreateReader();
+            string value = "Error";
+            var query = from p in xDoc.Root.Elements(type)
+                        where p.Attribute("key").Value == key
+                        select p.Attribute(name).Value;
+
+            foreach (string s in query)
+            {
+                value = s;
+            }
+
+            return value;
+        }
+
+        //public static string GetConfigStr(string Path, string key, string name)
+        //{
+        //    XDocument xDoc = XDocument.Load(Path);
+        //    XmlReader reader = xDoc.CreateReader();
+        //    string value = "Error";
+        //    var query = from p in xDoc.Root.Elements("add")
+        //                where p.Attribute("key").Value == key
+        //                select p.Attribute(name).Value;
+
+        //    foreach (string s in query)
+        //    {
+        //        value = s;
+        //    }
+
+        //    return value;
+        //}
+
+        public static void SaveConfigStr(string Path, string key, string name, string value)
+        {
+            XDocument xDoc = XDocument.Load(Path);
+            XmlReader reader = xDoc.CreateReader();
+
+            bool Matched = false;//是否已在XML中
+
+            foreach (var p in xDoc.Root.Elements("add"))
+            {
+                if (p.Attribute("key").Value == key)
+                {
+                    p.Attribute(name).Value = value;
+                    Matched = true;
+                }
+            }
+            if (Matched == false)
+            {
+                XElement element = new XElement("add", new XAttribute("key", key), new XAttribute("name", value));
+                xDoc.Root.Add(element);
+            }
+
+            xDoc.Save(Path);
+            //var query = from p in xDoc.Root.Elements("add")
+            //            where p.Attribute("key").Value == "DAModifyA1"
+            //            orderby p.Value
+            //            select p.Value;
+
+            //foreach (string s in query)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+        }
+
     }
 }
