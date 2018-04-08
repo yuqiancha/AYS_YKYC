@@ -136,6 +136,7 @@ namespace H07_YKYC
             {
                 Trace.WriteLine(ex.Message);
             }
+            Trace.WriteLine("完成初始化！");
         }
 
         private void initTable()
@@ -757,11 +758,18 @@ namespace H07_YKYC
             {
                 DataRow dr = Data.dtYKLog.NewRow();
                 dr["发送时间"] = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-                dr["遥控名称"] = "Undefined";
+                dr["遥控名称"] = label_ykname.Text;
                 dr["遥控源码"] = Str_Content;
-                dr["发送结果"] = "发送";
+                if (Data.USRP_telecmd_IsConnected)
+                {
+                    dr["发送结果"] = "发送成功";
+                    Data.DataQueue_USRP_telecmd.Enqueue(temp);
+                }
+                else
+                {
+                    dr["发送结果"] = "发送失败，网络未连接";
+                }
                 Data.dtYKLog.Rows.Add(dr);
-                Data.DataQueue_USRP_telecmd.Enqueue(temp);
             }
             else
             {
@@ -817,6 +825,7 @@ namespace H07_YKYC
                     String YKCmdStr = Data.GetConfigStr(Data.YKconfigPath, "Other", treeView1.SelectedNode.Text, "value");
                     textBox1.Text = YKCmdStr;
                 }
+                label_ykname.Text = treeView1.SelectedNode.Text;
             }
         }
 

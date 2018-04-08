@@ -75,3 +75,4 @@ C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debu
 C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.exe
 C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\遥控指令配置.xml
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache

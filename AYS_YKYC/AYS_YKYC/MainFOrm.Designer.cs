@@ -96,6 +96,8 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label_ykname = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_yklog)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -679,10 +682,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel3);
             this.tabPage2.Controls.Add(this.treeView1);
-            this.tabPage2.Controls.Add(this.dataGridView_yklog);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.btn_SendYC);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -708,28 +709,34 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dataGridView_yklog.Location = new System.Drawing.Point(223, 97);
+            this.tableLayoutPanel3.SetColumnSpan(this.dataGridView_yklog, 2);
+            this.dataGridView_yklog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_yklog.Location = new System.Drawing.Point(3, 75);
             this.dataGridView_yklog.Name = "dataGridView_yklog";
+            this.tableLayoutPanel3.SetRowSpan(this.dataGridView_yklog, 4);
             this.dataGridView_yklog.RowTemplate.Height = 23;
-            this.dataGridView_yklog.Size = new System.Drawing.Size(681, 517);
+            this.dataGridView_yklog.Size = new System.Drawing.Size(686, 536);
             this.dataGridView_yklog.TabIndex = 21;
             this.dataGridView_yklog.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_yklog_CellContentDoubleClick);
             this.dataGridView_yklog.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_yklog_RowStateChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(346, 22);
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.textBox1.Location = new System.Drawing.Point(141, 39);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(561, 37);
+            this.textBox1.Size = new System.Drawing.Size(548, 30);
             this.textBox1.TabIndex = 20;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // btn_SendYC
             // 
-            this.btn_SendYC.Location = new System.Drawing.Point(223, 22);
+            this.btn_SendYC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_SendYC.Location = new System.Drawing.Point(3, 39);
             this.btn_SendYC.Name = "btn_SendYC";
-            this.btn_SendYC.Size = new System.Drawing.Size(117, 37);
+            this.btn_SendYC.Size = new System.Drawing.Size(132, 30);
             this.btn_SendYC.TabIndex = 19;
             this.btn_SendYC.Text = "手动发送遥控";
             this.btn_SendYC.UseVisualStyleBackColor = true;
@@ -837,11 +844,45 @@
             this.tabPage4.Text = "数传收发";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label_ykname
+            // 
+            this.label_ykname.AutoSize = true;
+            this.label_ykname.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label_ykname.Font = new System.Drawing.Font("宋体", 11F);
+            this.label_ykname.Location = new System.Drawing.Point(141, 21);
+            this.label_ykname.Name = "label_ykname";
+            this.label_ykname.Size = new System.Drawing.Size(548, 15);
+            this.label_ykname.TabIndex = 23;
+            this.label_ykname.Text = "遥控名称";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.Controls.Add(this.dataGridView_yklog, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btn_SendYC, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label_ykname, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(215, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 6;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 614);
+            this.tableLayoutPanel3.TabIndex = 24;
+            // 
             // Column11
             // 
             this.Column11.DataPropertyName = "发送时间";
             this.Column11.HeaderText = "发送时间";
             this.Column11.Name = "Column11";
+            this.Column11.Width = 200;
             // 
             // Column12
             // 
@@ -862,6 +903,7 @@
             this.Column14.DataPropertyName = "发送结果";
             this.Column14.HeaderText = "发送结果";
             this.Column14.Name = "Column14";
+            this.Column14.Width = 200;
             // 
             // MainForm
             // 
@@ -907,11 +949,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_yklog)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -984,6 +1027,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        public System.Windows.Forms.Label label_ykname;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;

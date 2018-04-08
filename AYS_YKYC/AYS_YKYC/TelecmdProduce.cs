@@ -162,7 +162,7 @@ namespace H07_YKYC
         private void button1_Click(object sender, EventArgs e)
         {
             mform.textBox1.Text = "08547C00"+ZhenStr;
-
+            mform.label_ykname.Text = "自定义";
             button1.Enabled = false;
             this.Close();
         }
@@ -200,9 +200,16 @@ namespace H07_YKYC
         {
             String DataStr = this.textBox9.Text.Replace(" ", "");
 
-            DataCount = DataStr.Length / 2;
-            //            this.dataGridView2.Rows[0].Cells[6].Value = (DataCount - 1).ToString("x4");
-            this.label1.Text = "已输入数据（" + DataCount.ToString().PadLeft(2,'0') + "/22）";
+            if (DataStr.Length % 2 == 0)
+            {
+                DataCount = DataStr.Length / 2;
+                this.label1.Text = "已输入数据（" + DataCount.ToString().PadLeft(2, '0') + ".0/22.0）";
+            }
+            else
+            {
+                DataCount = DataStr.Length / 2;
+                this.label1.Text = "已输入数据（" + DataCount.ToString().PadLeft(2, '0') + ".5/22.0）";
+            }
 
         }
     }

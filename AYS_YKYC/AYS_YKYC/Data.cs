@@ -93,6 +93,8 @@ namespace H07_YKYC
         public static Queue<byte[]> DataQueue_GT = new Queue<byte[]>();            //用于转发给高通地测，即KSA中继
         public static Queue<byte[]> DataQueue_USRP_telecmd = new Queue<byte[]>();        //用于给USRP发送遥控
 
+        public static bool USRP_telecmd_IsConnected = false;
+
         //------------------------IP地址及端口号--------------------------
         public static string ZK_IP_Z = "10.65.33.1";//总控服务器IP地址(主)
         public static int ZK_PORT_Z = 5001;

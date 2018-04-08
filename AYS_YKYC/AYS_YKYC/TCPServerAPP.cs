@@ -91,6 +91,8 @@ namespace H07_YKYC
         {
             Trace.WriteLine("------------------------进入ServerStop");
             ServerOn = false;
+            Data.USRP_telecmd_IsConnected = false;
+
             ClientAPP.ClientUSRP_Telecmd.IsConnected = false;
             Data.ServerConnectEvent.Set();
             try
@@ -161,6 +163,8 @@ namespace H07_YKYC
 
                             new Thread(() => { RecvFromUSRP(ClientSocket); }).Start();
                             new Thread(() => { SendToUSRP(ClientSocket); }).Start();
+
+                            Data.USRP_telecmd_IsConnected = true;
 
                             ClientSocketList.Add(ClientSocket);
                         }
