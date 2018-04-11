@@ -573,15 +573,15 @@ namespace H07_YKYC
                         //存储从USRP发来的遥测数据
                         SaveFile.DataQueue_out1.Enqueue(RecvBufToFile);
 
+                        //数据库存储
                         IPEndPoint tmppoint = (IPEndPoint)myClientSocket.RemoteEndPoint;
                         String RemoteIpStr = tmppoint.Address.ToString();
-
-                         Data.sql.InsertValues("table_Telemetry", new string[] { "YK", timestr, RemoteIpStr, tempstr });
+                        Data.sql.InsertValues("table_Telemetry", new string[] { "YK", timestr, RemoteIpStr, tempstr });
 
                         if (RecvNum > 29)
                         {
                             MyLog.Info("收到遥测数据量：" + RecvNum.ToString());
-                            ////Trace.WriteLine("网络收到数据量" + RecvNum.ToString());
+                            //Trace.WriteLine("网络收到数据量" + RecvNum.ToString());
                             //deal_zk_data(RecvBufZK1, RecvNum);
 
                             Data.dtUSRP.Rows[0][1] = (int)Data.dtUSRP.Rows[0][1] + 1;

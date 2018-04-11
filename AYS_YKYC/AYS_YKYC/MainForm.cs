@@ -152,6 +152,8 @@ namespace H07_YKYC
                 Data.dtVCDU.Columns.Add("回放", typeof(string));
                 Data.dtVCDU.Columns.Add("保留", typeof(string));
                 Data.dtVCDU.Columns.Add("插入域", typeof(string));
+                Data.dtVCDU.Columns.Add("备用", typeof(string));
+                Data.dtVCDU.Columns.Add("首导头指针", typeof(string));
 
                 DataRow dr = Data.dtVCDU.NewRow();
                 dr["版本号"] = "01";
@@ -160,7 +162,9 @@ namespace H07_YKYC
                 dr["虚拟信道帧计数"] = "000000";
                 dr["回放"] = "00";
                 dr["保留"] = "00";
-                dr["插入域"] = "000000000000";
+                dr["插入域"] = "00000000";
+                dr["备用"] = "00000";
+                dr["首导头指针"] = "00000000000";
                 Data.dtVCDU.Rows.Add(dr);
 
                 dataGridView_VCDU.DataSource = Data.dtVCDU;
