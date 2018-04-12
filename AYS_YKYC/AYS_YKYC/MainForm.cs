@@ -107,6 +107,16 @@ namespace H07_YKYC
             Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
 
 
+            List<string> APIDList = Data.GetConfigNormal(Data.YCconfigPath, "add");
+            for(int i=0;i<APIDList.Count();i++)
+            {
+                DataRow dr = Data.dtAPID.NewRow();
+                dr["APID"] = APIDList[i];
+                dr["名称"] = Data.GetConfig(Data.YCconfigPath, APIDList[i]);
+                dr["数量"] = 0;
+                Data.dtAPID.Rows.Add(dr);
+            }
+
             TreeNode node1 = new TreeNode("常用指令");
             treeView1.Nodes.Add(node1);
             TreeNode node2 = new TreeNode("重要指令");
@@ -244,6 +254,18 @@ namespace H07_YKYC
                 dataGridView_yklog.DataSource = Data.dtYKLog;
                 dataGridView_yklog.AllowUserToAddRows = false;
                 #endregion
+
+
+                #region dtAPID----dataGridView3
+
+                Data.dtAPID.Columns.Add("APID", typeof(string));
+                Data.dtAPID.Columns.Add("名称", typeof(string));
+                Data.dtAPID.Columns.Add("数量", typeof(int));
+
+                dataGridView3.DataSource = Data.dtAPID;
+                dataGridView3.AllowUserToAddRows = false;
+                #endregion
+
             }
             catch (Exception ex)
             {
@@ -853,6 +875,13 @@ namespace H07_YKYC
                     Trace.WriteLine("333");
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show(this.dockPanel1);
+            form1.DockTo(this.dockPanel1, DockStyle.Fill);
         }
     }
 }

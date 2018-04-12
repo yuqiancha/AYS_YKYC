@@ -27,6 +27,8 @@ namespace H07_YKYC
         public static DataTable dtUSRP = new DataTable();//总控-->遥控服务器
         public static DataTable dtYC = new DataTable();//CRT-->遥测服务器
         public static DataTable dtYKLog = new DataTable();//遥控日志
+        public static DataTable dtAPID = new DataTable();//APID列表
+
         //创建K令码表源文件数组
         public static byte[] KcmdText;
 
@@ -151,7 +153,7 @@ namespace H07_YKYC
 
         public static string YKconfigPath = Program.GetStartupPath() + @"配置文件\遥控指令配置.xml";
 
-
+        public static string YCconfigPath = Program.GetStartupPath() + @"配置文件\遥测APID配置.xml";
         public static void SaveConfig(string Path, string key, string value)
         {
             XDocument xDoc = XDocument.Load(Path);
