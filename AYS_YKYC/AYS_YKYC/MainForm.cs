@@ -881,7 +881,37 @@ namespace H07_YKYC
         {
             Form1 form1 = new Form1();
             form1.Show(this.dockPanel1);
-            form1.DockTo(this.dockPanel1, DockStyle.Fill);
+            form1.DockTo(this.dockPanel1, DockStyle.Left);
+
+            APIDForm form = new APIDForm("遥控日志");
+            form.Show(this.dockPanel1);
+            form.DockTo(this.dockPanel1, DockStyle.Right);
+        }
+
+        private void dataGridView3_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dataGridView3.Rows[e.RowIndex].Cells[0];
+                if ((bool)checkCell.EditedFormattedValue == true)     // 
+                {
+                    APIDForm form = new APIDForm((string)Data.dtAPID.Rows[e.RowIndex]["名称"]);
+                    form.Show(this.dockPanel1);
+                    form.DockTo(this.dockPanel1, DockStyle.Top);
+                }
+                else
+                {
+
+                }
+
+
+
+            }
         }
     }
 }

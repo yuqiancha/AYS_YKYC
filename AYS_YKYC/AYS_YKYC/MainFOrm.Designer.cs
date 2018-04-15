@@ -29,29 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin5 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin5 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient13 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient29 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin5 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient30 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient14 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient31 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient32 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient33 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient15 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient34 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient35 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin3 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin3 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient7 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient15 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient16 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient8 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient17 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient3 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient18 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient19 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient9 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient20 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient21 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.启动toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据查询和回放ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.运行日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.运行日志ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.遥控日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -63,14 +57,12 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_ZK1_Close = new System.Windows.Forms.Button();
-            this.pictureBox_ZK1 = new System.Windows.Forms.PictureBox();
             this.btn_ZK1_Open = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.label28 = new System.Windows.Forms.Label();
             this.btn_CRTa_Close = new System.Windows.Forms.Button();
             this.btn_CRTa_Open = new System.Windows.Forms.Button();
-            this.pictureBox_CRTa = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,7 +77,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_ZK1_YC_Close = new System.Windows.Forms.Button();
-            this.pictureBox_ZK1_YC = new System.Windows.Forms.PictureBox();
             this.btn_ZK1_YC_Open = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -106,12 +97,14 @@
             this.label_ykname = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.dataGridView_EPDU = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,20 +126,24 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox_CRTa = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ZK1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_ZK1_YC = new System.Windows.Forms.PictureBox();
+            this.启动toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据查询和回放ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.运行日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.运行日志ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.遥控日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1)).BeginInit();
             this.tableLayoutPanel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CRTa)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1_YC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -163,6 +160,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_EPDU)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CRTa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1_YC)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -180,54 +180,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(1102, 32);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 启动toolStripMenuItem
-            // 
-            this.启动toolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_start;
-            this.启动toolStripMenuItem.Name = "启动toolStripMenuItem";
-            this.启动toolStripMenuItem.Size = new System.Drawing.Size(68, 28);
-            this.启动toolStripMenuItem.Text = "启动";
-            this.启动toolStripMenuItem.Click += new System.EventHandler(this.启动toolStripMenuItem_Click);
-            // 
-            // 系统设置ToolStripMenuItem
-            // 
-            this.系统设置ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_setting;
-            this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
-            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
-            this.系统设置ToolStripMenuItem.Text = "系统设置";
-            this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
-            // 
-            // 数据查询和回放ToolStripMenuItem
-            // 
-            this.数据查询和回放ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_query;
-            this.数据查询和回放ToolStripMenuItem.Name = "数据查询和回放ToolStripMenuItem";
-            this.数据查询和回放ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
-            this.数据查询和回放ToolStripMenuItem.Text = "数据查询";
-            this.数据查询和回放ToolStripMenuItem.Click += new System.EventHandler(this.数据查询和回放ToolStripMenuItem_Click);
-            // 
-            // 运行日志ToolStripMenuItem
-            // 
-            this.运行日志ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.运行日志ToolStripMenuItem1,
-            this.遥控日志ToolStripMenuItem});
-            this.运行日志ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_running;
-            this.运行日志ToolStripMenuItem.Name = "运行日志ToolStripMenuItem";
-            this.运行日志ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
-            this.运行日志ToolStripMenuItem.Text = "日志查询";
-            // 
-            // 运行日志ToolStripMenuItem1
-            // 
-            this.运行日志ToolStripMenuItem1.Name = "运行日志ToolStripMenuItem1";
-            this.运行日志ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.运行日志ToolStripMenuItem1.Text = "运行日志";
-            this.运行日志ToolStripMenuItem1.Click += new System.EventHandler(this.运行日志ToolStripMenuItem_Click);
-            // 
-            // 遥控日志ToolStripMenuItem
-            // 
-            this.遥控日志ToolStripMenuItem.Name = "遥控日志ToolStripMenuItem";
-            this.遥控日志ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.遥控日志ToolStripMenuItem.Text = "遥控日志";
-            this.遥控日志ToolStripMenuItem.Click += new System.EventHandler(this.遥控日志ToolStripMenuItem_Click);
             // 
             // 数据库查询ToolStripMenuItem
             // 
@@ -330,19 +282,6 @@
             this.btn_ZK1_Close.UseVisualStyleBackColor = true;
             this.btn_ZK1_Close.Click += new System.EventHandler(this.btn_ZK1_Close_Click);
             // 
-            // pictureBox_ZK1
-            // 
-            this.pictureBox_ZK1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_ZK1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1.Image")));
-            this.pictureBox_ZK1.Location = new System.Drawing.Point(2, 24);
-            this.pictureBox_ZK1.Margin = new System.Windows.Forms.Padding(1);
-            this.pictureBox_ZK1.Name = "pictureBox_ZK1";
-            this.tableLayoutPanel10.SetRowSpan(this.pictureBox_ZK1, 2);
-            this.pictureBox_ZK1.Size = new System.Drawing.Size(55, 48);
-            this.pictureBox_ZK1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_ZK1.TabIndex = 10;
-            this.pictureBox_ZK1.TabStop = false;
-            // 
             // btn_ZK1_Open
             // 
             this.btn_ZK1_Open.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -426,19 +365,6 @@
             this.btn_CRTa_Open.Text = "连接";
             this.btn_CRTa_Open.UseVisualStyleBackColor = true;
             this.btn_CRTa_Open.Click += new System.EventHandler(this.buttonCRT_Click);
-            // 
-            // pictureBox_CRTa
-            // 
-            this.pictureBox_CRTa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_CRTa.Image = global::H07_YKYC.Properties.Resources.red2;
-            this.pictureBox_CRTa.Location = new System.Drawing.Point(60, 20);
-            this.pictureBox_CRTa.Margin = new System.Windows.Forms.Padding(1);
-            this.pictureBox_CRTa.Name = "pictureBox_CRTa";
-            this.tableLayoutPanel12.SetRowSpan(this.pictureBox_CRTa, 2);
-            this.pictureBox_CRTa.Size = new System.Drawing.Size(56, 51);
-            this.pictureBox_CRTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_CRTa.TabIndex = 6;
-            this.pictureBox_CRTa.TabStop = false;
             // 
             // timer1
             // 
@@ -595,19 +521,6 @@
             this.btn_ZK1_YC_Close.UseVisualStyleBackColor = true;
             this.btn_ZK1_YC_Close.Click += new System.EventHandler(this.btn_ZK1_YC_Close_Click);
             // 
-            // pictureBox_ZK1_YC
-            // 
-            this.pictureBox_ZK1_YC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox_ZK1_YC.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1_YC.Image")));
-            this.pictureBox_ZK1_YC.Location = new System.Drawing.Point(2, 24);
-            this.pictureBox_ZK1_YC.Margin = new System.Windows.Forms.Padding(1);
-            this.pictureBox_ZK1_YC.Name = "pictureBox_ZK1_YC";
-            this.tableLayoutPanel2.SetRowSpan(this.pictureBox_ZK1_YC, 2);
-            this.pictureBox_ZK1_YC.Size = new System.Drawing.Size(55, 48);
-            this.pictureBox_ZK1_YC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_ZK1_YC.TabIndex = 10;
-            this.pictureBox_ZK1_YC.TabStop = false;
-            // 
             // btn_ZK1_YC_Open
             // 
             this.btn_ZK1_YC_Open.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -670,7 +583,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(564, 554);
+            this.tabPage1.Size = new System.Drawing.Size(910, 620);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "信息一览";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -691,8 +604,8 @@
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel4);
             this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer2.Size = new System.Drawing.Size(558, 548);
-            this.splitContainer2.SplitterDistance = 207;
+            this.splitContainer2.Size = new System.Drawing.Size(904, 614);
+            this.splitContainer2.SplitterDistance = 231;
             this.splitContainer2.TabIndex = 0;
             // 
             // button3
@@ -722,7 +635,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(564, 554);
+            this.tabPage2.Size = new System.Drawing.Size(910, 620);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "遥控发送";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -746,7 +659,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(346, 548);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(692, 614);
             this.tableLayoutPanel3.TabIndex = 24;
             // 
             // dataGridView_yklog
@@ -759,11 +672,11 @@
             this.Column14});
             this.tableLayoutPanel3.SetColumnSpan(this.dataGridView_yklog, 2);
             this.dataGridView_yklog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_yklog.Location = new System.Drawing.Point(3, 67);
+            this.dataGridView_yklog.Location = new System.Drawing.Point(3, 75);
             this.dataGridView_yklog.Name = "dataGridView_yklog";
             this.tableLayoutPanel3.SetRowSpan(this.dataGridView_yklog, 4);
             this.dataGridView_yklog.RowTemplate.Height = 23;
-            this.dataGridView_yklog.Size = new System.Drawing.Size(340, 478);
+            this.dataGridView_yklog.Size = new System.Drawing.Size(686, 536);
             this.dataGridView_yklog.TabIndex = 21;
             this.dataGridView_yklog.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_yklog_CellContentDoubleClick);
             this.dataGridView_yklog.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_yklog_RowStateChanged);
@@ -799,9 +712,9 @@
             // btn_SendYC
             // 
             this.btn_SendYC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_SendYC.Location = new System.Drawing.Point(3, 35);
+            this.btn_SendYC.Location = new System.Drawing.Point(3, 39);
             this.btn_SendYC.Name = "btn_SendYC";
-            this.btn_SendYC.Size = new System.Drawing.Size(63, 26);
+            this.btn_SendYC.Size = new System.Drawing.Size(132, 30);
             this.btn_SendYC.TabIndex = 19;
             this.btn_SendYC.Text = "手动发送遥控";
             this.btn_SendYC.UseVisualStyleBackColor = true;
@@ -811,10 +724,10 @@
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Font = new System.Drawing.Font("宋体", 11F);
-            this.textBox1.Location = new System.Drawing.Point(72, 35);
+            this.textBox1.Location = new System.Drawing.Point(141, 39);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 26);
+            this.textBox1.Size = new System.Drawing.Size(548, 30);
             this.textBox1.TabIndex = 20;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
@@ -823,9 +736,9 @@
             this.label_ykname.AutoSize = true;
             this.label_ykname.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label_ykname.Font = new System.Drawing.Font("宋体", 11F);
-            this.label_ykname.Location = new System.Drawing.Point(72, 17);
+            this.label_ykname.Location = new System.Drawing.Point(141, 21);
             this.label_ykname.Name = "label_ykname";
-            this.label_ykname.Size = new System.Drawing.Size(271, 15);
+            this.label_ykname.Size = new System.Drawing.Size(548, 15);
             this.label_ykname.TabIndex = 23;
             this.label_ykname.Text = "遥控名称";
             // 
@@ -834,7 +747,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(212, 548);
+            this.treeView1.Size = new System.Drawing.Size(212, 614);
             this.treeView1.TabIndex = 22;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -853,6 +766,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "遥测接收";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(301, 272);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
@@ -876,6 +799,7 @@
             this.dataGridView3.RowTemplate.Height = 23;
             this.dataGridView3.Size = new System.Drawing.Size(287, 472);
             this.dataGridView3.TabIndex = 18;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -903,6 +827,60 @@
             this.Column17.HeaderText = "详细显示";
             this.Column17.Name = "Column17";
             this.Column17.Width = 80;
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.ActiveAutoHideContent = null;
+            this.dockPanel1.DockBackColor = System.Drawing.Color.Gray;
+            this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
+            this.dockPanel1.Location = new System.Drawing.Point(301, 301);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Size = new System.Drawing.Size(603, 313);
+            dockPanelGradient13.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient13.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin5.DockStripGradient = dockPanelGradient13;
+            tabGradient29.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient29.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient29.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin5.TabGradient = tabGradient29;
+            dockPanelSkin5.AutoHideStripSkin = autoHideStripSkin5;
+            tabGradient30.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient30.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient30.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient5.ActiveTabGradient = tabGradient30;
+            dockPanelGradient14.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient14.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient5.DockStripGradient = dockPanelGradient14;
+            tabGradient31.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient31.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient31.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient5.InactiveTabGradient = tabGradient31;
+            dockPaneStripSkin5.DocumentGradient = dockPaneStripGradient5;
+            tabGradient32.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient32.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient32.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient32.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient5.ActiveCaptionGradient = tabGradient32;
+            tabGradient33.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient33.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient33.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient5.ActiveTabGradient = tabGradient33;
+            dockPanelGradient15.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient15.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient5.DockStripGradient = dockPanelGradient15;
+            tabGradient34.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient34.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient34.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient34.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient5.InactiveCaptionGradient = tabGradient34;
+            tabGradient35.EndColor = System.Drawing.Color.Transparent;
+            tabGradient35.StartColor = System.Drawing.Color.Transparent;
+            tabGradient35.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient5.InactiveTabGradient = tabGradient35;
+            dockPaneStripSkin5.ToolWindowGradient = dockPaneStripToolWindowGradient5;
+            dockPanelSkin5.DockPaneStripSkin = dockPaneStripSkin5;
+            this.dockPanel1.Skin = dockPanelSkin5;
+            this.dockPanel1.TabIndex = 21;
             // 
             // dataGridView_EPDU
             // 
@@ -1069,74 +1047,97 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(564, 554);
+            this.tabPage4.Size = new System.Drawing.Size(910, 620);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "数传收发";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dockPanel1
+            // pictureBox_CRTa
             // 
-            this.dockPanel1.ActiveAutoHideContent = null;
-            this.dockPanel1.DockBackColor = System.Drawing.Color.Gray;
-            this.dockPanel1.DocumentStyle = WeifenLuo.WinFormsUI.Docking.DocumentStyle.DockingWindow;
-            this.dockPanel1.Location = new System.Drawing.Point(301, 301);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(603, 313);
-            dockPanelGradient7.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient7.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin3.DockStripGradient = dockPanelGradient7;
-            tabGradient15.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient15.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient15.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin3.TabGradient = tabGradient15;
-            dockPanelSkin3.AutoHideStripSkin = autoHideStripSkin3;
-            tabGradient16.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient16.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient16.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient3.ActiveTabGradient = tabGradient16;
-            dockPanelGradient8.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient8.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient3.DockStripGradient = dockPanelGradient8;
-            tabGradient17.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient17.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient17.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient3.InactiveTabGradient = tabGradient17;
-            dockPaneStripSkin3.DocumentGradient = dockPaneStripGradient3;
-            tabGradient18.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient18.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient18.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient18.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient3.ActiveCaptionGradient = tabGradient18;
-            tabGradient19.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient19.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient19.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient3.ActiveTabGradient = tabGradient19;
-            dockPanelGradient9.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient9.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient3.DockStripGradient = dockPanelGradient9;
-            tabGradient20.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient20.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient20.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient20.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient3.InactiveCaptionGradient = tabGradient20;
-            tabGradient21.EndColor = System.Drawing.Color.Transparent;
-            tabGradient21.StartColor = System.Drawing.Color.Transparent;
-            tabGradient21.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient3.InactiveTabGradient = tabGradient21;
-            dockPaneStripSkin3.ToolWindowGradient = dockPaneStripToolWindowGradient3;
-            dockPanelSkin3.DockPaneStripSkin = dockPaneStripSkin3;
-            this.dockPanel1.Skin = dockPanelSkin3;
-            this.dockPanel1.TabIndex = 21;
+            this.pictureBox_CRTa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_CRTa.Image = global::H07_YKYC.Properties.Resources.red2;
+            this.pictureBox_CRTa.Location = new System.Drawing.Point(60, 20);
+            this.pictureBox_CRTa.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_CRTa.Name = "pictureBox_CRTa";
+            this.tableLayoutPanel12.SetRowSpan(this.pictureBox_CRTa, 2);
+            this.pictureBox_CRTa.Size = new System.Drawing.Size(56, 51);
+            this.pictureBox_CRTa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_CRTa.TabIndex = 6;
+            this.pictureBox_CRTa.TabStop = false;
             // 
-            // button1
+            // pictureBox_ZK1
             // 
-            this.button1.Location = new System.Drawing.Point(301, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox_ZK1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_ZK1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1.Image")));
+            this.pictureBox_ZK1.Location = new System.Drawing.Point(2, 24);
+            this.pictureBox_ZK1.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_ZK1.Name = "pictureBox_ZK1";
+            this.tableLayoutPanel10.SetRowSpan(this.pictureBox_ZK1, 2);
+            this.pictureBox_ZK1.Size = new System.Drawing.Size(55, 48);
+            this.pictureBox_ZK1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_ZK1.TabIndex = 10;
+            this.pictureBox_ZK1.TabStop = false;
+            // 
+            // pictureBox_ZK1_YC
+            // 
+            this.pictureBox_ZK1_YC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox_ZK1_YC.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_ZK1_YC.Image")));
+            this.pictureBox_ZK1_YC.Location = new System.Drawing.Point(2, 24);
+            this.pictureBox_ZK1_YC.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox_ZK1_YC.Name = "pictureBox_ZK1_YC";
+            this.tableLayoutPanel2.SetRowSpan(this.pictureBox_ZK1_YC, 2);
+            this.pictureBox_ZK1_YC.Size = new System.Drawing.Size(55, 48);
+            this.pictureBox_ZK1_YC.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_ZK1_YC.TabIndex = 10;
+            this.pictureBox_ZK1_YC.TabStop = false;
+            // 
+            // 启动toolStripMenuItem
+            // 
+            this.启动toolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_start;
+            this.启动toolStripMenuItem.Name = "启动toolStripMenuItem";
+            this.启动toolStripMenuItem.Size = new System.Drawing.Size(68, 28);
+            this.启动toolStripMenuItem.Text = "启动";
+            this.启动toolStripMenuItem.Click += new System.EventHandler(this.启动toolStripMenuItem_Click);
+            // 
+            // 系统设置ToolStripMenuItem
+            // 
+            this.系统设置ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_setting;
+            this.系统设置ToolStripMenuItem.Name = "系统设置ToolStripMenuItem";
+            this.系统设置ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.系统设置ToolStripMenuItem.Text = "系统设置";
+            this.系统设置ToolStripMenuItem.Click += new System.EventHandler(this.系统设置ToolStripMenuItem_Click);
+            // 
+            // 数据查询和回放ToolStripMenuItem
+            // 
+            this.数据查询和回放ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_query;
+            this.数据查询和回放ToolStripMenuItem.Name = "数据查询和回放ToolStripMenuItem";
+            this.数据查询和回放ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.数据查询和回放ToolStripMenuItem.Text = "数据查询";
+            this.数据查询和回放ToolStripMenuItem.Click += new System.EventHandler(this.数据查询和回放ToolStripMenuItem_Click);
+            // 
+            // 运行日志ToolStripMenuItem
+            // 
+            this.运行日志ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.运行日志ToolStripMenuItem1,
+            this.遥控日志ToolStripMenuItem});
+            this.运行日志ToolStripMenuItem.Image = global::H07_YKYC.Properties.Resources.icon_running;
+            this.运行日志ToolStripMenuItem.Name = "运行日志ToolStripMenuItem";
+            this.运行日志ToolStripMenuItem.Size = new System.Drawing.Size(92, 28);
+            this.运行日志ToolStripMenuItem.Text = "日志查询";
+            // 
+            // 运行日志ToolStripMenuItem1
+            // 
+            this.运行日志ToolStripMenuItem1.Name = "运行日志ToolStripMenuItem1";
+            this.运行日志ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.运行日志ToolStripMenuItem1.Text = "运行日志";
+            this.运行日志ToolStripMenuItem1.Click += new System.EventHandler(this.运行日志ToolStripMenuItem_Click);
+            // 
+            // 遥控日志ToolStripMenuItem
+            // 
+            this.遥控日志ToolStripMenuItem.Name = "遥控日志ToolStripMenuItem";
+            this.遥控日志ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.遥控日志ToolStripMenuItem.Text = "遥控日志";
+            this.遥控日志ToolStripMenuItem.Click += new System.EventHandler(this.遥控日志ToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -1160,10 +1161,8 @@
             this.statusStrip1.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1)).EndInit();
             this.tableLayoutPanel12.ResumeLayout(false);
             this.tableLayoutPanel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CRTa)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1172,7 +1171,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1_YC)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1191,6 +1189,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_EPDU)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_VCDU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_CRTa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ZK1_YC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
