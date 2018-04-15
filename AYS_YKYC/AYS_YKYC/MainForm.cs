@@ -91,10 +91,13 @@ namespace H07_YKYC
                 mySaveFileThread = new SaveFile();
                 mySaveFileThread.FileInit();
                 mySaveFileThread.FileSaveStart();
+
+                Data.AllThreadTag = true;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine(ex.Message);
+                Data.AllThreadTag = false;
             }
 
             initTable();//初始化各类DataTable和datagridview
@@ -255,7 +258,6 @@ namespace H07_YKYC
                 dataGridView_yklog.AllowUserToAddRows = false;
                 #endregion
 
-
                 #region dtAPID----dataGridView3
 
                 Data.dtAPID.Columns.Add("APID", typeof(string));
@@ -294,21 +296,14 @@ namespace H07_YKYC
 
                 Thread.Sleep(100);
                 mySaveFileThread.FileClose();
+
+                Data.AllThreadTag = false;
             }
             catch (Exception ex)
             {
                 Trace.WriteLine(ex.Message);
             }
         }
-
-
-        #region MainForm_Paint
-        private void MainForm_Paint(object sender, PaintEventArgs e)
-        {
-            Trace.WriteLine("MainForm_Paint");
-
-        }
-        #endregion
 
         public bool Logform_state = true;
         public int LogWaitTime = 600;
@@ -877,21 +872,6 @@ namespace H07_YKYC
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-            form1.Show(this.dockPanel1);
-            form1.DockTo(this.dockPanel1, DockStyle.Left);
-
-            APIDForm form = new APIDForm("遥控日志");
-            form.Show(this.dockPanel1);
-            form.DockTo(this.dockPanel1, DockStyle.Right);
-        }
-
-        private void dataGridView3_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -900,17 +880,50 @@ namespace H07_YKYC
                 DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dataGridView3.Rows[e.RowIndex].Cells[0];
                 if ((bool)checkCell.EditedFormattedValue == true)     // 
                 {
-                    APIDForm form = new APIDForm((string)Data.dtAPID.Rows[e.RowIndex]["名称"]);
+                    string apidName = (string)Data.dtAPID.Rows[e.RowIndex]["名称"];
+
+
+                    APIDForm form = new APIDForm(apidName,this);
                     form.Show(this.dockPanel1);
                     form.DockTo(this.dockPanel1, DockStyle.Top);
+
+                    Data.APID_Struct aPID_Struct = new Data.APID_Struct();
+                    aPID_Struct.apidForm = form;
+                    aPID_Struct.apidName = apidName;
+                    Data.ApidList.Add(aPID_Struct);
                 }
                 else
                 {
+                    for(int i=0;i<Data.ApidList.Count;i++)
+                    {
+                        string apidName = (string)Data.dtAPID.Rows[e.RowIndex]["名称"];
+
+                        if(apidName==Data.ApidList[i].apidName)
+                        {
+                            Data.ApidList[i].apidForm.Close();
+                            Data.ApidList.Remove(Data.ApidList[i]);
+                            break;
+                        }                        
+                    }
 
                 }
 
 
 
+            }
+        }
+
+        private void btn_LogCtr_Click(object sender, EventArgs e)
+        {
+            if(btn_LogCtr.Text =="日志隐藏>>>")
+            {
+                btn_LogCtr.Text = "<<<日志显示";
+                this.splitContainer1.Panel2Collapsed = true;
+            }
+            else
+            {
+                btn_LogCtr.Text = "日志隐藏>>>";
+                this.splitContainer1.Panel2Collapsed = false;
             }
         }
     }

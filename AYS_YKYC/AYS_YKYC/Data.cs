@@ -19,8 +19,17 @@ namespace H07_YKYC
 {
     class Data
     {
-        public static SqLiteHelper sql;
 
+        public static bool AllThreadTag = false;
+        public struct APID_Struct
+        {
+            public APIDForm apidForm;
+            public string apidName; 
+        }
+
+        public static List<APID_Struct> ApidList = new List<APID_Struct>();
+
+        public static SqLiteHelper sql;
         public static TextBox TelemetryRealShowBox;
 
         public static DataTable dtVCDU = new DataTable();
