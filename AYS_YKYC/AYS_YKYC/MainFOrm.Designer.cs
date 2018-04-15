@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin2 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient4 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient8 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient9 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient10 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient11 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient12 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient6 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient13 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient14 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin8 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
+            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin8 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient22 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient50 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin8 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient8 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient51 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient23 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient52 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient8 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient53 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient54 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient24 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient55 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
+            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient56 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.启动toolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.系统设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,12 +121,12 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btn_LogCtr = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btn_LogCtr = new System.Windows.Forms.Button();
+            this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -869,50 +869,50 @@
             this.dockPanel1.Location = new System.Drawing.Point(253, 173);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Size = new System.Drawing.Size(621, 438);
-            dockPanelGradient4.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient4.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin2.DockStripGradient = dockPanelGradient4;
-            tabGradient8.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient8.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient8.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin2.TabGradient = tabGradient8;
-            dockPanelSkin2.AutoHideStripSkin = autoHideStripSkin2;
-            tabGradient9.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.ActiveTabGradient = tabGradient9;
-            dockPanelGradient5.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient5.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient2.DockStripGradient = dockPanelGradient5;
-            tabGradient10.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.InactiveTabGradient = tabGradient10;
-            dockPaneStripSkin2.DocumentGradient = dockPaneStripGradient2;
-            tabGradient11.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient11.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient11.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient2.ActiveCaptionGradient = tabGradient11;
-            tabGradient12.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient12.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient12.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.ActiveTabGradient = tabGradient12;
-            dockPanelGradient6.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient6.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient2.DockStripGradient = dockPanelGradient6;
-            tabGradient13.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient13.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.InactiveCaptionGradient = tabGradient13;
-            tabGradient14.EndColor = System.Drawing.Color.Transparent;
-            tabGradient14.StartColor = System.Drawing.Color.Transparent;
-            tabGradient14.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient2.InactiveTabGradient = tabGradient14;
-            dockPaneStripSkin2.ToolWindowGradient = dockPaneStripToolWindowGradient2;
-            dockPanelSkin2.DockPaneStripSkin = dockPaneStripSkin2;
-            this.dockPanel1.Skin = dockPanelSkin2;
+            dockPanelGradient22.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient22.StartColor = System.Drawing.SystemColors.ControlLight;
+            autoHideStripSkin8.DockStripGradient = dockPanelGradient22;
+            tabGradient50.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient50.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient50.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            autoHideStripSkin8.TabGradient = tabGradient50;
+            dockPanelSkin8.AutoHideStripSkin = autoHideStripSkin8;
+            tabGradient51.EndColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient51.StartColor = System.Drawing.SystemColors.ControlLightLight;
+            tabGradient51.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient8.ActiveTabGradient = tabGradient51;
+            dockPanelGradient23.EndColor = System.Drawing.SystemColors.Control;
+            dockPanelGradient23.StartColor = System.Drawing.SystemColors.Control;
+            dockPaneStripGradient8.DockStripGradient = dockPanelGradient23;
+            tabGradient52.EndColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient52.StartColor = System.Drawing.SystemColors.ControlLight;
+            tabGradient52.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripGradient8.InactiveTabGradient = tabGradient52;
+            dockPaneStripSkin8.DocumentGradient = dockPaneStripGradient8;
+            tabGradient53.EndColor = System.Drawing.SystemColors.ActiveCaption;
+            tabGradient53.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient53.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tabGradient53.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dockPaneStripToolWindowGradient8.ActiveCaptionGradient = tabGradient53;
+            tabGradient54.EndColor = System.Drawing.SystemColors.Control;
+            tabGradient54.StartColor = System.Drawing.SystemColors.Control;
+            tabGradient54.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient8.ActiveTabGradient = tabGradient54;
+            dockPanelGradient24.EndColor = System.Drawing.SystemColors.ControlLight;
+            dockPanelGradient24.StartColor = System.Drawing.SystemColors.ControlLight;
+            dockPaneStripToolWindowGradient8.DockStripGradient = dockPanelGradient24;
+            tabGradient55.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient55.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            tabGradient55.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            tabGradient55.TextColor = System.Drawing.SystemColors.ControlText;
+            dockPaneStripToolWindowGradient8.InactiveCaptionGradient = tabGradient55;
+            tabGradient56.EndColor = System.Drawing.Color.Transparent;
+            tabGradient56.StartColor = System.Drawing.Color.Transparent;
+            tabGradient56.TextColor = System.Drawing.SystemColors.ControlDarkDark;
+            dockPaneStripToolWindowGradient8.InactiveTabGradient = tabGradient56;
+            dockPaneStripSkin8.ToolWindowGradient = dockPaneStripToolWindowGradient8;
+            dockPanelSkin8.DockPaneStripSkin = dockPaneStripSkin8;
+            this.dockPanel1.Skin = dockPanelSkin8;
             this.dockPanel1.TabIndex = 21;
             // 
             // dataGridView_VCDU
@@ -1022,7 +1022,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
-            this.Column17});
+            this.CheckBox});
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 173);
             this.dataGridView3.Name = "dataGridView3";
@@ -1031,33 +1031,7 @@
             this.dataGridView3.Size = new System.Drawing.Size(244, 438);
             this.dataGridView3.TabIndex = 18;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "APID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "APID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "名称";
-            this.dataGridViewTextBoxColumn1.HeaderText = "名称";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "数量";
-            this.dataGridViewTextBoxColumn3.HeaderText = "数量";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 60;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "详细";
-            this.Column17.Name = "Column17";
-            this.Column17.Width = 50;
+            this.dataGridView3.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentDoubleClick);
             // 
             // tabPage4
             // 
@@ -1079,6 +1053,36 @@
             this.btn_LogCtr.Text = "日志隐藏>>>";
             this.btn_LogCtr.UseVisualStyleBackColor = true;
             this.btn_LogCtr.Click += new System.EventHandler(this.btn_LogCtr_Click);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "APID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "APID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "名称";
+            this.dataGridViewTextBoxColumn1.HeaderText = "名称";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "数量";
+            this.dataGridViewTextBoxColumn3.HeaderText = "数量";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.HeaderText = "详细";
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Width = 50;
             // 
             // MainForm
             // 
@@ -1215,12 +1219,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         public WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button btn_LogCtr;
+        public System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column17;
-        private System.Windows.Forms.Button btn_LogCtr;
-        public System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CheckBox;
     }
 }
 

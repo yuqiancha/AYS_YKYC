@@ -111,7 +111,7 @@ namespace H07_YKYC
 
 
             List<string> APIDList = Data.GetConfigNormal(Data.YCconfigPath, "add");
-            for(int i=0;i<APIDList.Count();i++)
+            for (int i = 0; i < APIDList.Count(); i++)
             {
                 DataRow dr = Data.dtAPID.NewRow();
                 dr["APID"] = APIDList[i];
@@ -775,7 +775,7 @@ namespace H07_YKYC
 
             byte[] temp = StrToHexByte(Str_Content);
 
-            if(temp.Length==35)
+            if (temp.Length == 35)
             {
                 DataRow dr = Data.dtYKLog.NewRow();
                 dr["发送时间"] = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
@@ -795,7 +795,7 @@ namespace H07_YKYC
             else
             {
                 MessageBox.Show("遥控指令格式错误，无法发送！！");
-            }       
+            }
         }
 
         TelecmdProduce myFrameProdeceForm;
@@ -872,18 +872,31 @@ namespace H07_YKYC
             }
         }
 
+        private void btn_LogCtr_Click(object sender, EventArgs e)
+        {
+            if (btn_LogCtr.Text == "日志隐藏>>>")
+            {
+                btn_LogCtr.Text = "<<<日志显示";
+                this.splitContainer1.Panel2Collapsed = true;
+            }
+            else
+            {
+                btn_LogCtr.Text = "日志隐藏>>>";
+                this.splitContainer1.Panel2Collapsed = false;
+            }
+        }
+
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
                 DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dataGridView3.Rows[e.RowIndex].Cells[0];
                 if ((bool)checkCell.EditedFormattedValue == true)     // 
                 {
                     string apidName = (string)Data.dtAPID.Rows[e.RowIndex]["名称"];
 
-
-                    APIDForm form = new APIDForm(apidName,this);
+                    APIDForm form = new APIDForm(apidName, this);
                     form.Show(this.dockPanel1);
                     form.DockTo(this.dockPanel1, DockStyle.Top);
 
@@ -894,37 +907,24 @@ namespace H07_YKYC
                 }
                 else
                 {
-                    for(int i=0;i<Data.ApidList.Count;i++)
+                    for (int i = 0; i < Data.ApidList.Count; i++)
                     {
                         string apidName = (string)Data.dtAPID.Rows[e.RowIndex]["名称"];
 
-                        if(apidName==Data.ApidList[i].apidName)
+                        if (apidName == Data.ApidList[i].apidName)
                         {
                             Data.ApidList[i].apidForm.Close();
-                            Data.ApidList.Remove(Data.ApidList[i]);
+                        //    Data.ApidList.Remove(Data.ApidList[i]);
                             break;
-                        }                        
+                        }
                     }
-
                 }
-
-
-
             }
         }
 
-        private void btn_LogCtr_Click(object sender, EventArgs e)
+        private void dataGridView3_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(btn_LogCtr.Text =="日志隐藏>>>")
-            {
-                btn_LogCtr.Text = "<<<日志显示";
-                this.splitContainer1.Panel2Collapsed = true;
-            }
-            else
-            {
-                btn_LogCtr.Text = "日志隐藏>>>";
-                this.splitContainer1.Panel2Collapsed = false;
-            }
+            dataGridView3_CellContentClick(sender, e);
         }
     }
 }

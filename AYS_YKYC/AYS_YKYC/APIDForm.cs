@@ -41,13 +41,21 @@ namespace H07_YKYC
                 if(CurrentApidName==(string)Data.dtAPID.Rows[i]["名称"])
                 {
                     DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)myform.dataGridView3.Rows[i].Cells[0];
-                    checkCell.Value = false;             
+                    checkCell.Value = false;
 
+                    for (int j = 0; j < Data.ApidList.Count; j++)
+                    {
+                        if (CurrentApidName == Data.ApidList[j].apidName)
+                        {
+                            Data.ApidList.Remove(Data.ApidList[j]);
+                            break;
+                        }
+                    }
                     break;
-
                 }
             }
         }
+
 
         private void DealWithEPDU()
         {
@@ -73,13 +81,10 @@ namespace H07_YKYC
                     //this.dataGridView_EPDU.Rows[index].Cells[0].Value = timestr;
                     //this.dataGridView_EPDU.Rows[index].Cells[1].Value = epdustr;
                     this.dataGridView_EPDU.BeginInvoke(new Action(() => { this.dataGridView_EPDU.Refresh(); }));
-
-
-
                 }
                 else
                 {
-                    Thread.Sleep(1000);                    
+                    Thread.Sleep(100);                    
                 }
             }
         }
