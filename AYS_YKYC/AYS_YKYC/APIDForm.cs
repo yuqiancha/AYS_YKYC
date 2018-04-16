@@ -12,8 +12,11 @@ namespace H07_YKYC
     public partial class APIDForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
         MainForm myform;
-        string CurrentApidName;
+        public string CurrentApidName;
+
         DataTable dt = new DataTable();
+        DataTable dtAPid = new DataTable();
+
 
         public Queue<byte[]> DataQueue = new Queue<byte[]>();   //处理APID对应的Queue
         public APIDForm(string apidstr, H07_YKYC.MainForm parent)
@@ -28,8 +31,26 @@ namespace H07_YKYC
         {
             dt.Columns.Add("接收时间", typeof(string));
             dt.Columns.Add("EPDU数据域", typeof(string));
-
             dataGridView_EPDU.DataSource = dt;
+
+            dtAPid.Columns.Add("名称", typeof(string));
+            dtAPid.Columns.Add("占位", typeof(string));
+            dtAPid.Columns.Add("值", typeof(string));
+
+
+            List<string> List = Data.GetConfigNormal(Data.APIDconfigPath, CurrentApidName);
+
+  
+            for (int i =0;i<List.Count;i++)
+            {
+                DataRow dr = dtAPid.NewRow();
+                dr["名称"] = List[i];
+                dr["占位"] = Data.GetConfigStr(Data.APIDconfigPath, CurrentApidName, List[i], "len");
+                dtAPid.Rows.Add(dr);
+            }
+
+            dataGridView1.DataSource = dtAPid;
+
 
             new Thread(() => { DealWithEPDU(); }).Start();
         }

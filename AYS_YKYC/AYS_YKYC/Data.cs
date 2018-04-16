@@ -163,6 +163,8 @@ namespace H07_YKYC
         public static string YKconfigPath = Program.GetStartupPath() + @"配置文件\遥控指令配置.xml";
 
         public static string YCconfigPath = Program.GetStartupPath() + @"配置文件\遥测APID配置.xml";
+
+        public static string APIDconfigPath = Program.GetStartupPath()+ @"配置文件\APID详细配置.xml";
         public static void SaveConfig(string Path, string key, string value)
         {
             XDocument xDoc = XDocument.Load(Path);

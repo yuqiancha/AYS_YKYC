@@ -77,6 +77,6 @@ D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.SelfTest.resourc
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.SettingForm.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.TelecmdProduce.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csproj.GenerateResource.Cache
-D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csproj.CoreCompileInputs.cache
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.exe
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.pdb
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\APID详细配置.xml

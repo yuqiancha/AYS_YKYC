@@ -68,11 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_APID_计算机.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_APID_计算机.Designer.cs">
+      <DependentUpon>Form_APID_计算机.cs</DependentUpon>
     </Compile>
     <Compile Include="APIDForm.cs">
       <SubType>Form</SubType>
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="APIDForm.resx">
       <DependentUpon>APIDForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_APID_计算机.resx">
+      <DependentUpon>Form_APID_计算机.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -261,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="planet.ico" />
+    <Content Include="配置文件\APID详细配置.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="配置文件\遥控指令配置.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
