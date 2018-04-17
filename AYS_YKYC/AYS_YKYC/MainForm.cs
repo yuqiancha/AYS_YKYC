@@ -898,7 +898,7 @@ namespace H07_YKYC
 
                     APIDForm form = new APIDForm(apidName, this);
                     form.Show(this.dockPanel1);
-                    form.DockTo(this.dockPanel1, DockStyle.Top);
+                    form.DockTo(this.dockPanel1, DockStyle.Fill);
 
                     Data.APID_Struct aPID_Struct = new Data.APID_Struct();
                     aPID_Struct.apidForm = form;

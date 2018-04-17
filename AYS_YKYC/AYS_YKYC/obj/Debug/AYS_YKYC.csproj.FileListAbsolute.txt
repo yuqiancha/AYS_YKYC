@@ -53,6 +53,7 @@ C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debu
 C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.exe
 C:\Users\ck\Downloads\AYS_YKYC-master\AYS_YKYC-master\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\遥控指令配置.xml
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\APID详细配置.xml
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\遥测APID配置.xml
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\AYS总控软件.exe.config
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\AYS总控软件.exe
@@ -66,7 +67,6 @@ D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.dll.config
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.EF6.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.Linq.pdb
-D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.APIDForm.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.Form1.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.MainForm.resources
@@ -79,4 +79,3 @@ D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.TelecmdProduce.r
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csproj.GenerateResource.Cache
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.exe
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.pdb
-D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\配置文件\APID详细配置.xml
