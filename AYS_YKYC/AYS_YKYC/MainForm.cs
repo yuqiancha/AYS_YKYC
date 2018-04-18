@@ -852,13 +852,7 @@ namespace H07_YKYC
 
         private void dataGridView_yklog_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
         {
-            //显示在HeaderCell上
-            for (int i = 0; i < this.dataGridView_yklog.Rows.Count; i++)
-            {
-                DataGridViewRow r = this.dataGridView_yklog.Rows[i];
-                r.HeaderCell.Value = string.Format("{0}", i + 1);
-            }
-            this.dataGridView_yklog.Refresh();
+
         }
 
         private void dataGridView_yklog_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -925,6 +919,11 @@ namespace H07_YKYC
         private void dataGridView3_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView3_CellContentClick(sender, e);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
