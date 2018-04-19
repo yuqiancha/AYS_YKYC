@@ -100,3 +100,4 @@ D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csproj.CoreCompil
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csproj.CopyComplete
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.exe
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS总控软件.pdb
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache

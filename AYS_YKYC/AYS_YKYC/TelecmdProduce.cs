@@ -92,7 +92,7 @@ namespace H07_YKYC
                     dataGridView2.Rows[0].Cells[1].FormattedValue.ToString().Substring(0, 2) +      //序列标志
                      dataGridView2.Rows[0].Cells[2].FormattedValue.ToString().Substring(0, 3);      //序列计数
 
-                String temp3 = string.Format("{0:X}", Convert.ToInt32(StrBin, 2));
+                String temp3 = Convert.ToInt32(StrBin, 2).ToString("x4");
                 //完整遥控包
                 String BagStr = temp3+ DataStr;
 
