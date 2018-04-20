@@ -275,14 +275,14 @@ namespace H07_YKYC
         //    return value;
         //}
 
-        public static void SaveConfigStr(string Path, string key, string name, string value)
+        public static void SaveConfigStr(string Path, string type,string key, string name, string value)
         {
             XDocument xDoc = XDocument.Load(Path);
             XmlReader reader = xDoc.CreateReader();
 
             bool Matched = false;//是否已在XML中
 
-            foreach (var p in xDoc.Root.Elements("add"))
+            foreach (var p in xDoc.Root.Elements(type))
             {
                 if (p.Attribute("key").Value == key)
                 {
@@ -292,7 +292,7 @@ namespace H07_YKYC
             }
             if (Matched == false)
             {
-                XElement element = new XElement("add", new XAttribute("key", key), new XAttribute("name", value));
+                XElement element = new XElement(type, new XAttribute("key", key), new XAttribute(name, value));
                 xDoc.Root.Add(element);
             }
 

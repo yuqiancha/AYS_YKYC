@@ -34,7 +34,7 @@ namespace H07_YKYC
             dtAPid.Columns.Add("名称", typeof(string));
             dtAPid.Columns.Add("占位", typeof(string));
             dtAPid.Columns.Add("值", typeof(string));
-
+            dtAPid.Columns.Add("解析值", typeof(string));
 
             List<string> List = Data.GetConfigNormal(Data.APIDconfigPath, CurrentApidName);
 
@@ -122,6 +122,7 @@ namespace H07_YKYC
 
                             dtAPid.Rows[j]["值"] = "0x"+t.ToString("x").PadLeft(padleft,'0');
 
+                            dtAPid.Rows[j]["解析值"] = "0x" + t.ToString("x").PadLeft(padleft, '0');
 
                             tempstr = tempstr.Substring(len, tempstr.Length - len);
                         }

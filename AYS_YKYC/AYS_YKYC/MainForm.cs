@@ -32,6 +32,10 @@ namespace H07_YKYC
         public Queue<string[]> YKQueue = new Queue<string[]>();  //用于转存遥控日志
         public Queue<string[]> YKLogQueue = new Queue<string[]>();  //用于遥控日志显示存储
 
+        TreeNode node1 = new TreeNode("常用指令");
+        TreeNode node2 = new TreeNode("重要指令");
+        TreeNode node3 = new TreeNode("其它指令");
+
 
         public bool ServerLedThreadTag = false;
         public bool ServerLedThreadTag2 = false;
@@ -120,11 +124,11 @@ namespace H07_YKYC
                 Data.dtAPID.Rows.Add(dr);
             }
 
-            TreeNode node1 = new TreeNode("常用指令");
+            //    TreeNode node1 = new TreeNode("常用指令");
             treeView1.Nodes.Add(node1);
-            TreeNode node2 = new TreeNode("重要指令");
+            //    TreeNode node2 = new TreeNode("重要指令");
             treeView1.Nodes.Add(node2);
-            TreeNode node3 = new TreeNode("其它指令");
+            //    TreeNode node3 = new TreeNode("其它指令");
             treeView1.Nodes.Add(node3);
             try
             {
@@ -407,15 +411,32 @@ namespace H07_YKYC
             {
                 case "btn_CRTa_Open":
                     MyLog.Info("尝试连接--瑞信丰...");
-                    ClientAPP.Server_CRTa.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
-                    ClientAPP.Server_CRTa.ServerPORT = ConfigurationManager.AppSettings["Server_CRTa_Port"];
-                    ClientAPP.Connect(ref ClientAPP.Server_CRTa);
-                    if (ClientAPP.Server_CRTa.IsConnected)
+                    //ClientAPP.Server_CRTa.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
+                    //ClientAPP.Server_CRTa.ServerPORT = ConfigurationManager.AppSettings["Server_CRTa_Port"];
+                    //ClientAPP.Connect(ref ClientAPP.Server_CRTa);
+                    //if (ClientAPP.Server_CRTa.IsConnected)
+                    //{
+                    //    DealCRT_On(ref Data.DealCRTa);
+                    //    MyLog.Info("连接成功--" + Data.DealCRTa.CRTName + "--3020端口");
+                    //    new Thread(() => { Fun_Transfer2CRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa, ref SaveFile.DataQueue_out2); }).Start();
+                    //    new Thread(() => { Fun_RecvFromCRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa); }).Start();
+                    //}
+                    //else
+                    //{
+                    //    DealCRT_Off(ref Data.DealCRTa);
+                    //    return;
+                    //}
+                    //btn_CRTa_Open.Enabled = false;
+                    //btn_CRTa_Close.Enabled = true;
+
+                    ClientAPP.Server_CRTa_Return.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
+                    ClientAPP.Server_CRTa_Return.ServerPORT = ConfigurationManager.AppSettings["Server_CRTa_Port2"];
+                    ClientAPP.Connect(ref ClientAPP.Server_CRTa_Return);
+                    if (ClientAPP.Server_CRTa_Return.IsConnected)
                     {
                         DealCRT_On(ref Data.DealCRTa);
-                        MyLog.Info("连接成功--" + Data.DealCRTa.CRTName + "--3020端口");
-                        new Thread(() => { Fun_Transfer2CRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa, ref SaveFile.DataQueue_out2); }).Start();
-                        new Thread(() => { Fun_RecvFromCRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa); }).Start();
+                        MyLog.Info("连接成功--" + Data.DealCRTa.CRTName + "--3070端口");
+                        new Thread(() => { Fun_RecvFromCRT_Return(ref Data.DealCRTa, ref ClientAPP.Server_CRTa_Return); }).Start();
                     }
                     else
                     {
@@ -424,15 +445,6 @@ namespace H07_YKYC
                     }
                     btn_CRTa_Open.Enabled = false;
                     btn_CRTa_Close.Enabled = true;
-
-                    ClientAPP.Server_CRTa_Return.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
-                    ClientAPP.Server_CRTa_Return.ServerPORT = "3070";
-                    ClientAPP.Connect(ref ClientAPP.Server_CRTa_Return);
-                    if (ClientAPP.Server_CRTa_Return.IsConnected)
-                    {
-                        MyLog.Info("连接成功--" + Data.DealCRTa.CRTName + "--3070端口");
-                        new Thread(() => { Fun_RecvFromCRT_Return(ref Data.DealCRTa, ref ClientAPP.Server_CRTa_Return); }).Start();
-                    }
 
                     break;
                 case "btn_CRTa_Close":
@@ -516,7 +528,7 @@ namespace H07_YKYC
             {
                 try
                 {
-                    byte[] RecvBufCRTa = new byte[200];
+                    byte[] RecvBufCRTa = new byte[1024];
                     int RecvNum = Server_CRT.sck.Receive(RecvBufCRTa);
 
                     if (RecvNum > 0)
@@ -535,6 +547,16 @@ namespace H07_YKYC
                             tempstr += TempRecvBuf[i].ToString("x2");
                         }
                         Trace.WriteLine(tempstr);
+                        this.textBox_SCShow.BeginInvoke(
+                            new Action(() =>
+                            {
+                                if(textBox_SCShow.Lines.Count()>10)
+                                    textBox_SCShow.Clear();
+
+                                textBox_SCShow.AppendText(tempstr+"\n");
+                            }
+                            )
+                            );
 
                         Data.dtYC.Rows[0]["数量"] = (int)Data.dtYC.Rows[0]["数量"] + 1; //收到总数
 
@@ -671,7 +693,7 @@ namespace H07_YKYC
             {
                 btn_ZK1_Open_Click(sender, e);
                 btn_ZK1_YC_Open_Click(sender, e);
-                
+
                 buttonCRT_Click(btn_CRTa_Open, e);
                 //     buttonCRT_Click(btn_CRTb_Open, e);
 
@@ -860,10 +882,9 @@ namespace H07_YKYC
         {
             if (e.RowIndex >= 0)
             {
-                if (e.ColumnIndex == 2)                        //输出指令
-                {
-                    Trace.WriteLine("333");
-                }
+                label_ykname.Text = (string)Data.dtYKLog.Rows[e.RowIndex]["遥控名称"];
+                textBox1.Text = (string)Data.dtYKLog.Rows[e.RowIndex]["遥控源码"];
+
             }
         }
 
@@ -909,7 +930,7 @@ namespace H07_YKYC
                         if (apidName == Data.ApidList[i].apidName)
                         {
                             Data.ApidList[i].apidForm.Close();
-                        //    Data.ApidList.Remove(Data.ApidList[i]);
+                            //    Data.ApidList.Remove(Data.ApidList[i]);
                             break;
                         }
                     }
@@ -925,6 +946,36 @@ namespace H07_YKYC
         private void button1_Click(object sender, EventArgs e)
         {
             Data.dtYKLog.Rows.Clear();
+        }
+
+        private void btn_addlist_Click(object sender, EventArgs e)
+        {
+            TreeNode node;
+            string type;
+            switch (comboBox1.Text)
+            {
+                case "常用指令":
+                    node = node1;
+                    type = "Normal";
+                    break;
+                case "重要指令":
+                    node = node2;
+                    type = "Important";
+                    break;
+                case "其它指令":
+                    node = node3;
+                    type = "Other";
+                    break;
+                default:
+                    node = node3;
+                    type = "Other";
+                    break;
+            }
+
+            node.Nodes.Add(new TreeNode(textBox3.Text));
+            Data.SaveConfigStr(Data.YKconfigPath, type, textBox3.Text, "value", textBox1.Text);
+
+
         }
     }
 }
