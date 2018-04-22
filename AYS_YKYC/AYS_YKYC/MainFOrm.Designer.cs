@@ -94,13 +94,21 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox_SCShow = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView_yklog = new System.Windows.Forms.DataGridView();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_SendYC = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label_ykname = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_addlist = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -124,14 +132,6 @@
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btn_LogCtr = new System.Windows.Forms.Button();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_addlist = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox_SCShow = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -717,6 +717,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // textBox_SCShow
+            // 
+            this.textBox_SCShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_SCShow.Location = new System.Drawing.Point(0, 0);
+            this.textBox_SCShow.Multiline = true;
+            this.textBox_SCShow.Name = "textBox_SCShow";
+            this.textBox_SCShow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_SCShow.Size = new System.Drawing.Size(876, 380);
+            this.textBox_SCShow.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
@@ -737,7 +747,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.dataGridView_yklog, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.btn_SendYC, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btn_SendYC, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label_ykname, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button1, 3, 2);
@@ -776,12 +786,44 @@
             this.dataGridView_yklog.TabIndex = 21;
             this.dataGridView_yklog.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_yklog_CellContentDoubleClick);
             // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "发送时间";
+            this.Column11.HeaderText = "发送时间";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 200;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "遥控名称";
+            this.Column12.HeaderText = "遥控名称";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column13.DataPropertyName = "遥控源码";
+            this.Column13.HeaderText = "遥控源码";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "发送结果";
+            this.Column14.HeaderText = "发送结果";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 200;
+            // 
             // btn_SendYC
             // 
             this.btn_SendYC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_SendYC.Location = new System.Drawing.Point(3, 33);
+            this.btn_SendYC.Location = new System.Drawing.Point(3, 3);
             this.btn_SendYC.Name = "btn_SendYC";
-            this.btn_SendYC.Size = new System.Drawing.Size(126, 24);
+            this.tableLayoutPanel3.SetRowSpan(this.btn_SendYC, 2);
+            this.btn_SendYC.Size = new System.Drawing.Size(126, 54);
             this.btn_SendYC.TabIndex = 19;
             this.btn_SendYC.Text = "手动发送遥控";
             this.btn_SendYC.UseVisualStyleBackColor = true;
@@ -822,6 +864,42 @@
             this.button1.Text = "清空遥控日志";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_addlist
+            // 
+            this.btn_addlist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_addlist.Location = new System.Drawing.Point(3, 63);
+            this.btn_addlist.Name = "btn_addlist";
+            this.btn_addlist.Size = new System.Drawing.Size(126, 24);
+            this.btn_addlist.TabIndex = 25;
+            this.btn_addlist.Text = "<<<< 添加至列表";
+            this.btn_addlist.UseVisualStyleBackColor = true;
+            this.btn_addlist.Click += new System.EventHandler(this.btn_addlist_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox1.Font = new System.Drawing.Font("宋体", 11F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "常用指令",
+            "重要指令",
+            "其它指令"});
+            this.comboBox1.Location = new System.Drawing.Point(135, 65);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(126, 23);
+            this.comboBox1.TabIndex = 26;
+            this.comboBox1.Text = "常用指令";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Location = new System.Drawing.Point(267, 63);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(259, 24);
+            this.textBox3.TabIndex = 27;
             // 
             // treeView1
             // 
@@ -1085,83 +1163,6 @@
             this.btn_LogCtr.Text = "日志隐藏>>>";
             this.btn_LogCtr.UseVisualStyleBackColor = true;
             this.btn_LogCtr.Click += new System.EventHandler(this.btn_LogCtr_Click);
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "发送时间";
-            this.Column11.HeaderText = "发送时间";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.Width = 200;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "遥控名称";
-            this.Column12.HeaderText = "遥控名称";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column13
-            // 
-            this.Column13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column13.DataPropertyName = "遥控源码";
-            this.Column13.HeaderText = "遥控源码";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.DataPropertyName = "发送结果";
-            this.Column14.HeaderText = "发送结果";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Width = 200;
-            // 
-            // btn_addlist
-            // 
-            this.btn_addlist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_addlist.Location = new System.Drawing.Point(3, 63);
-            this.btn_addlist.Name = "btn_addlist";
-            this.btn_addlist.Size = new System.Drawing.Size(126, 24);
-            this.btn_addlist.TabIndex = 25;
-            this.btn_addlist.Text = "<<<< 添加至列表";
-            this.btn_addlist.UseVisualStyleBackColor = true;
-            this.btn_addlist.Click += new System.EventHandler(this.btn_addlist_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.Font = new System.Drawing.Font("宋体", 11F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "常用指令",
-            "重要指令",
-            "其它指令"});
-            this.comboBox1.Location = new System.Drawing.Point(135, 65);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 23);
-            this.comboBox1.TabIndex = 26;
-            this.comboBox1.Text = "常用指令";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(267, 63);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(259, 24);
-            this.textBox3.TabIndex = 27;
-            // 
-            // textBox_SCShow
-            // 
-            this.textBox_SCShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_SCShow.Location = new System.Drawing.Point(0, 0);
-            this.textBox_SCShow.Multiline = true;
-            this.textBox_SCShow.Name = "textBox_SCShow";
-            this.textBox_SCShow.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_SCShow.Size = new System.Drawing.Size(876, 380);
-            this.textBox_SCShow.TabIndex = 0;
             // 
             // MainForm
             // 

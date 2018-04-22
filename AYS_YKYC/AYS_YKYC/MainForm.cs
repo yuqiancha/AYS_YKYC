@@ -550,10 +550,10 @@ namespace H07_YKYC
                         this.textBox_SCShow.BeginInvoke(
                             new Action(() =>
                             {
-                                if(textBox_SCShow.Lines.Count()>10)
+                                if (textBox_SCShow.Lines.Count() > 10)
                                     textBox_SCShow.Clear();
 
-                                textBox_SCShow.AppendText(tempstr+"\n");
+                                textBox_SCShow.AppendText(tempstr + "\n");
                             }
                             )
                             );
@@ -950,8 +950,9 @@ namespace H07_YKYC
 
         private void btn_addlist_Click(object sender, EventArgs e)
         {
+
             TreeNode node;
-            string type;
+            string type="False";
             switch (comboBox1.Text)
             {
                 case "常用指令":
@@ -968,13 +969,28 @@ namespace H07_YKYC
                     break;
                 default:
                     node = node3;
-                    type = "Other";
+                    type = "False";
                     break;
             }
+            string str = textBox1.Text.Replace(" ", "");
+            if (str.Length == 70 && comboBox1.Text!="False" &&textBox3.Text!="")
+            {
+                DialogResult dr = MessageBox.Show(this, "是否确定添加：" + comboBox1.Text+":"+textBox3.Text + ":" + textBox1.Text, "添加自定义指令", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
 
-            node.Nodes.Add(new TreeNode(textBox3.Text));
-            Data.SaveConfigStr(Data.YKconfigPath, type, textBox3.Text, "value", textBox1.Text);
+                    node.Nodes.Add(new TreeNode(textBox3.Text));
+                    Data.SaveConfigStr(Data.YKconfigPath, type, textBox3.Text, "value", textBox1.Text);
+                }
+                else
+                {
 
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "自定义指令长度或名称错误，无法添加！", "错误提示", MessageBoxButtons.YesNo);
+            }
 
         }
     }
