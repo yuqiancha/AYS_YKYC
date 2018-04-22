@@ -326,11 +326,14 @@ namespace H07_YKYC
             Data.dtVCDU.Rows[0]["虚拟信道帧计数"] = "0x" + DealData[2].ToString("x2") + DealData[3].ToString("x2") + DealData[4].ToString("x2");
             Data.dtVCDU.Rows[0]["回放"] = Convert.ToString(DealData[5], 2).PadLeft(8, '0').Substring(0, 1);
             Data.dtVCDU.Rows[0]["保留"] = Convert.ToString(DealData[5], 2).PadLeft(8, '0').Substring(1, 7);
-            Data.dtVCDU.Rows[0]["插入域"] = Convert.ToString(DealData[6], 2).PadLeft(8, '0');
-            Data.dtVCDU.Rows[0]["备用"] = Convert.ToString(DealData[7], 2).PadLeft(8, '0').Substring(0, 5);
-            Data.dtVCDU.Rows[0]["首导头指针"] = Convert.ToString(DealData[7], 2).PadLeft(8, '0').Substring(5, 3) + Convert.ToString(DealData[8], 2).PadLeft(8, '0');
+            //            Data.dtVCDU.Rows[0]["插入域"] = Convert.ToString(DealData[6], 2).PadLeft(8, '0');
+            Data.dtVCDU.Rows[0]["插入域"] = DealData[6].ToString("x2")+ DealData[7].ToString("x2") + DealData[8].ToString("x2") 
+                + DealData[9].ToString("x2") + DealData[10].ToString("x2") + DealData[11].ToString("x2") 
+                + DealData[12].ToString("x2") + DealData[13].ToString("x2");
+            Data.dtVCDU.Rows[0]["备用"] = Convert.ToString(DealData[14], 2).PadLeft(8, '0').Substring(0, 5);
+            Data.dtVCDU.Rows[0]["首导头指针"] = Convert.ToString(DealData[14], 2).PadLeft(8, '0').Substring(5, 3) + Convert.ToString(DealData[15], 2).PadLeft(8, '0');
 
-            int temp2 = (int)((DealData[9] & 0x07)<<8) + (int)DealData[10];
+            int temp2 = (int)((DealData[16] & 0x07)<<8) + (int)DealData[17];
             string tempAPID =temp2.ToString("x3");
 
             Trace.WriteLine("tempAPID-------" + tempAPID);
@@ -346,8 +349,8 @@ namespace H07_YKYC
                         if (item.apidName == (string)dr["名称"])
                         {
                             //处理APID小窗口增加行？？
-                            byte[] temp = new byte[RecvNum - 9];
-                            Array.Copy(DealData, 9, temp, 0, RecvNum - 9);
+                            byte[] temp = new byte[RecvNum - 16];
+                            Array.Copy(DealData, 16, temp, 0, RecvNum - 16);
                             item.apidForm.DataQueue.Enqueue(temp);
                         }
                     }

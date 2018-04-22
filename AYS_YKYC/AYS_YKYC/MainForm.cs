@@ -528,7 +528,7 @@ namespace H07_YKYC
             {
                 try
                 {
-                    byte[] RecvBufCRTa = new byte[1024];
+                    byte[] RecvBufCRTa = new byte[1092];
                     int RecvNum = Server_CRT.sck.Receive(RecvBufCRTa);
 
                     if (RecvNum > 0)
@@ -546,17 +546,17 @@ namespace H07_YKYC
                         {
                             tempstr += TempRecvBuf[i].ToString("x2");
                         }
-                        Trace.WriteLine(tempstr);
-                        this.textBox_SCShow.BeginInvoke(
-                            new Action(() =>
-                            {
-                                if (textBox_SCShow.Lines.Count() > 10)
-                                    textBox_SCShow.Clear();
+                        Trace.WriteLine("Recvd:"+RecvNum.ToString()+":"+tempstr);
+                        //this.textBox_SCShow.BeginInvoke(
+                        //    new Action(() =>
+                        //    {
+                        //        if (textBox_SCShow.Lines.Count() > 10)
+                        //            textBox_SCShow.Clear();
 
-                                textBox_SCShow.AppendText(tempstr + "\n");
-                            }
-                            )
-                            );
+                        //        textBox_SCShow.AppendText(tempstr + "\n");
+                        //    }
+                        //    )
+                        //    );
 
                         Data.dtYC.Rows[0]["数量"] = (int)Data.dtYC.Rows[0]["数量"] + 1; //收到总数
 

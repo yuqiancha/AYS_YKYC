@@ -73,7 +73,7 @@
             this.panel3.Controls.Add(this.label46);
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Location = new System.Drawing.Point(218, 50);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(299, 410);
             this.panel3.TabIndex = 60;
@@ -219,7 +219,7 @@
             this.textBox_LocalIP2.Name = "textBox_LocalIP2";
             this.textBox_LocalIP2.Size = new System.Drawing.Size(179, 31);
             this.textBox_LocalIP2.TabIndex = 104;
-            this.textBox_LocalIP2.Text = "192.168.1.4";
+            this.textBox_LocalIP2.Text = "192.168.1.105";
             // 
             // label70
             // 
@@ -267,7 +267,7 @@
             this.textBox_USRP_IP.Name = "textBox_USRP_IP";
             this.textBox_USRP_IP.Size = new System.Drawing.Size(179, 31);
             this.textBox_USRP_IP.TabIndex = 104;
-            this.textBox_USRP_IP.Text = "192.168.1.105";
+            this.textBox_USRP_IP.Text = "192.168.1.6";
             // 
             // label4
             // 
@@ -382,7 +382,7 @@
             // 
             this.pictureBox1.Image = global::H07_YKYC.Properties.Resources.locked;
             this.pictureBox1.Location = new System.Drawing.Point(48, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(112, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -404,7 +404,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingForm";
