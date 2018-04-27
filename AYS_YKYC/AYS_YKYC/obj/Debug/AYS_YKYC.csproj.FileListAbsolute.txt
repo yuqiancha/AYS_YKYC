@@ -81,4 +81,3 @@ D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.pdb
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.dll.config
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.EF6.pdb
 D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.Linq.pdb
-D:\CSharpproject\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache

@@ -136,6 +136,15 @@ namespace H07_YKYC
             if (!Directory.Exists(Path))
                 Directory.CreateDirectory(Path);
 
+            DirectoryInfo di = new DirectoryInfo(Path);
+            foreach (FileInfo fi in di.GetFiles())
+            {
+                if (fi.Length == 0)
+                {
+                    File.Delete(fi.FullName);
+                }
+            }
+
             string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}：{4:D2}：{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             string filename = Path + timestr + ".dat";
             file = new FileStream(filename, FileMode.Create);
@@ -146,6 +155,15 @@ namespace H07_YKYC
         {
             if (!Directory.Exists(Path))
                 Directory.CreateDirectory(Path);
+
+            DirectoryInfo di = new DirectoryInfo(Path);
+            foreach (FileInfo fi in di.GetFiles())
+            {
+                if (fi.Length == 0)
+                {
+                    File.Delete(fi.FullName);
+                }
+            }
 
             string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}：{4:D2}：{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             string filename = Path + timestr + ".txt";

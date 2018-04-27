@@ -507,22 +507,7 @@ namespace H07_YKYC
 
         private void Fun_RecvFromCRT_Return(ref Data.CRT_STRUCT myCRT, ref ClientAPP.TCP_STRUCT Server_CRT)
         {
-            Trace.WriteLine("++++++++++Entering" + myCRT.CRTName + "Fun_RecvFromCRT_Return!!");
-
-            //int[] SendReq;
-            //byte[] SendReqBytes;
-            ////send request
-            //SendReq = new int[16];
-            //SendReq[0] = 1234567890;        //Start of msg
-            //SendReq[1] = 64;                //Size of msg in bytes
-            //SendReq[2] = 0;                 //Size of msg
-            //SendReq[3] = 0;                 //0:channelA 1:channelB
-            //SendReq[4] = 0;                 //Real time telemetry
-            //SendReq[5] = 0;                 //Permanent flow 一次请求
-            //SendReq[15] = -1234567890;
-            //SendReqBytes = Program.IntToBytes(SendReq);
-
-            //int len = Server_CRT.sck.Send(SendReqBytes);
+            Trace.WriteLine("++++++++++Entering" + myCRT.CRTName + "Fun_RecvFromCRT_Return!!");                 
 
             while (Server_CRT.IsConnected)
             {
