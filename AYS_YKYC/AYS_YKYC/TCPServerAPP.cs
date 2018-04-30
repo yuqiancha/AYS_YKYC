@@ -514,8 +514,15 @@ namespace H07_YKYC
                         if (RecvNum > 22)
                         {
                             MyLog.Info("收到遥测数据量：" + RecvNum.ToString());
-                            deal_zk_data(RecvBufZK1, RecvNum, timestr, RemoteIpStr);
+                            try
+                            {
+                                deal_zk_data(RecvBufZK1, RecvNum, timestr, RemoteIpStr);
 
+                            }
+                            catch(Exception e)
+                            {
+                                Trace.WriteLine("RecvFromClientZK_YC--deal_zk_data Exception:" + e.Message);
+                            }
                             Data.dtUSRP.Rows[0][1] = (int)Data.dtUSRP.Rows[0][1] + 1;
                         }
                         else

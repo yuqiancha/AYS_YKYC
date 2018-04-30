@@ -118,6 +118,7 @@
   <重要遥测 key="平台GPS定位位置Y" len="32"/>
   <重要遥测 key="平台GPS定位位置Z" len="32"/>
   <重要遥测 key="错误日志数" len="8"/>
+  
   <计算机 key="3.3V_CPU_YC" len="8"/>
   <计算机 key="3.3V_CPU" len="8"/>
   <计算机 key="3.3V_CPU_B" len="8"/>
