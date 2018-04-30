@@ -19,7 +19,8 @@ namespace H07_YKYC
 {
     class Data
     {
-
+        public static List<byte> EpduBuf_List = new List<byte>();
+        public static bool LastEpduDealed = false;
         public static bool AllThreadTag = false;
         public struct APID_Struct
         {

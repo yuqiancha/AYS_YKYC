@@ -204,6 +204,9 @@ namespace H07_YKYC
                             Data.ServerConnectEvent2.Set();
 
                             new Thread(() => { RecvFromClientUSRP(ClientSocket); }).Start();
+                            Data.EpduBuf_List.Clear();
+                            new Thread(() => { DisPatchEpdu(); }).Start();
+
 
                             ClientSocketList2.Add(ClientSocket);
                         }
@@ -312,13 +315,14 @@ namespace H07_YKYC
         /// 收到总控发来的网络数据包，解析并推入对应的队列中
         /// </summary>
         /// <param name="data"></param>
-        public void deal_zk_data(byte[] data, int RecvNum)
+        public void deal_zk_data(byte[] data, int RecvNum, string timestr, string RemoteIpStr)
         {
             byte[] DealData = new byte[RecvNum];//收到的实际数组，data后面可能包含0？
             Trace.WriteLine("收到数据量" + RecvNum.ToString());
 
             Array.Copy(data, DealData, RecvNum);
 
+            #region 处理VCDU-MPDU
             string VCIDstr = Convert.ToString(DealData[0], 2).PadLeft(8, '0').Substring(0, 2);
             Data.dtVCDU.Rows[0]["版本号"] = Convert.ToString(DealData[0], 2).PadLeft(8, '0').Substring(0, 2);
             Data.dtVCDU.Rows[0]["SCID"] = Convert.ToString(DealData[0], 2).PadLeft(8, '0').Substring(2, 6) + Convert.ToString(DealData[1], 2).PadLeft(8, '0').Substring(0, 2);
@@ -327,195 +331,112 @@ namespace H07_YKYC
             Data.dtVCDU.Rows[0]["回放"] = Convert.ToString(DealData[5], 2).PadLeft(8, '0').Substring(0, 1);
             Data.dtVCDU.Rows[0]["保留"] = Convert.ToString(DealData[5], 2).PadLeft(8, '0').Substring(1, 7);
             //            Data.dtVCDU.Rows[0]["插入域"] = Convert.ToString(DealData[6], 2).PadLeft(8, '0');
-            Data.dtVCDU.Rows[0]["插入域"] = DealData[6].ToString("x2")+ DealData[7].ToString("x2") + DealData[8].ToString("x2") 
-                + DealData[9].ToString("x2") + DealData[10].ToString("x2") + DealData[11].ToString("x2") 
+            Data.dtVCDU.Rows[0]["插入域"] = DealData[6].ToString("x2") + DealData[7].ToString("x2") + DealData[8].ToString("x2")
+                + DealData[9].ToString("x2") + DealData[10].ToString("x2") + DealData[11].ToString("x2")
                 + DealData[12].ToString("x2") + DealData[13].ToString("x2");
             Data.dtVCDU.Rows[0]["备用"] = Convert.ToString(DealData[14], 2).PadLeft(8, '0').Substring(0, 5);
-            Data.dtVCDU.Rows[0]["首导头指针"] = Convert.ToString(DealData[14], 2).PadLeft(8, '0').Substring(5, 3) + Convert.ToString(DealData[15], 2).PadLeft(8, '0');
 
-            int temp2 = (int)((DealData[16] & 0x07)<<8) + (int)DealData[17];
-            string tempAPID =temp2.ToString("x3");
+            //Data.dtVCDU.Rows[0]["首导头指针"] = Convert.ToString(DealData[14], 2).PadLeft(8, '0').Substring(5, 3) + Convert.ToString(DealData[15], 2).PadLeft(8, '0');
+            int mpdu_point = (int)((DealData[14] & 0x07) << 8) + (int)DealData[15];
+            Data.dtVCDU.Rows[0]["首导头指针"] = "0x" + mpdu_point.ToString("x3");
 
-            Trace.WriteLine("tempAPID-------" + tempAPID);
-
-            foreach (DataRow dr in Data.dtAPID.Rows)
+            String epdu_data = "";
+            for (int i = 16; i < RecvNum; i++)
             {
-                if ((string)dr["APID"] == "0x" + tempAPID)
-                {
-                    dr["数量"] = (int)dr["数量"] + 1;
+                epdu_data += DealData[i].ToString("x2");
+            }
 
-                    foreach (Data.APID_Struct item in Data.ApidList)
-                    {
-                        if (item.apidName == (string)dr["名称"])
+            Data.sql.InsertValues("table_Telemetry", new string[] { "YK", timestr, RemoteIpStr,
+                (string)Data.dtVCDU.Rows[0]["版本号"],(string)Data.dtVCDU.Rows[0]["SCID"],(string)Data.dtVCDU.Rows[0]["VCID"],
+                (string)Data.dtVCDU.Rows[0]["虚拟信道帧计数"],(string) Data.dtVCDU.Rows[0]["回放"],(string)Data.dtVCDU.Rows[0]["保留"],(string)Data.dtVCDU.Rows[0]["插入域"],
+            (string)Data.dtVCDU.Rows[0]["备用"] ,(string) Data.dtVCDU.Rows[0]["首导头指针"],epdu_data});
+
+            #endregion 处理VCDU-MPDU
+
+
+            #region 处理EPDU
+
+            if (Data.EpduBuf_List.Count > 0)
+            {
+                byte[] Last_Epdu = new byte[mpdu_point];
+                Array.Copy(DealData, 16, Last_Epdu, 0, mpdu_point);
+                for (int j = 0; j < mpdu_point; j++) Data.EpduBuf_List.Add(Last_Epdu[j]);//将上次剩余数据推入List再解析
+            }
+
+            int Temp_Len = RecvNum - mpdu_point - 16;//EPDU数据域长度
+            byte[] Temp_Epdu = new byte[Temp_Len];
+            Array.Copy(DealData, 16 + mpdu_point, Temp_Epdu, 0, Temp_Len);
+            for (int j = 0; j < Temp_Len; j++) Data.EpduBuf_List.Add(Temp_Epdu[j]);//将数据推入List再解析
+
+            #endregion
+        }
+
+        private void DisPatchEpdu()
+        {
+            while (Data.AllThreadTag)
+            {
+                if (Data.EpduBuf_List.Count > 6)
+                {
+                    int epdu_len = Data.EpduBuf_List[4] * 256 + Data.EpduBuf_List[5];
+
+                    if (Data.EpduBuf_List.Count >= epdu_len + 7)
+                    {                        
+                        byte[] Epdu_Frame = new byte[epdu_len + 7];
+                        Data.EpduBuf_List.CopyTo(0, Epdu_Frame, 0, epdu_len + 7);
+                        Data.EpduBuf_List.RemoveRange(0, epdu_len + 7);
+
+                        #region 处理EPDU
+                        string Version = Convert.ToString(Epdu_Frame[0], 2).PadLeft(8, '0').Substring(0, 3);
+                        string Type = Convert.ToString(Epdu_Frame[0], 2).PadLeft(8, '0').Substring(3, 1);
+                        string DataTag = Convert.ToString(Epdu_Frame[0], 2).PadLeft(8, '0').Substring(4, 1);
+
+                        int apid = (int)((Epdu_Frame[0] & 0x07) << 8) + (int)Epdu_Frame[1];
+                        string APID = "0x" + apid.ToString("x3");
+
+                        string DivTag = Convert.ToString(Epdu_Frame[2], 2).PadLeft(8, '0').Substring(0, 2);
+
+                        int bagcount = (int)((Epdu_Frame[2] & 0x3f) << 8) + (int)Epdu_Frame[3];
+                        string BagCount = "0x" + apid.ToString("x3");
+
+                        string BagLen = "0x" + Epdu_Frame[4].ToString("x2") + Epdu_Frame[5].ToString("x2");
+
+                        String DataStr = "";
+                        for (int i = 6; i < epdu_len + 1; i++)
                         {
-                            //处理APID小窗口增加行？？
-                            byte[] temp = new byte[RecvNum - 16];
-                            Array.Copy(DealData, 16, temp, 0, RecvNum - 16);
-                            item.apidForm.DataQueue.Enqueue(temp);
+                            DataStr += Epdu_Frame[i].ToString("x2");
                         }
+
+                        Data.sql.InsertValues("table_Epdu",
+                            new string[] { Version, Type, DataTag, APID, DivTag, BagCount, BagLen, DataStr });
+
+
+                        Trace.WriteLine("DealEpdu---APID-------" + APID);
+
+                        foreach (DataRow dr in Data.dtAPID.Rows)
+                        {
+                            if ((string)dr["APID"] == APID)
+                            {
+                                dr["数量"] = (int)dr["数量"] + 1;
+
+                                foreach (Data.APID_Struct item in Data.ApidList)
+                                {
+                                    if (item.apidName == (string)dr["名称"])
+                                    {
+                                        item.apidForm.DataQueue.Enqueue(Epdu_Frame);
+                                    }
+                                }
+
+
+                            }
+                        }
+                        #endregion 处理EPDU
                     }
-
-
                 }
-            }
-
-
-
-            switch (tempAPID)
-            {
-                case "CCUA"://总控-->遥控-->USB应答机a(遥控K令及密钥/算法注入)
-                    DealWithZK2CRT_K(DealData, ref Data.DealCRTa);
-                    break;
-
-                case "DCUA"://总控-->遥控-->USB应答机a(遥控注数)
-                    DealWithZK2CRT_PB(DealData, ref Data.DealCRTa);
-                    break;
-
-                case "DCUZ":
-                case "CCUG":
-                    //收到对地测控上行遥控数据
-                    int len = DealData.Length - 45;
-
-                    byte[] MsgHead = new byte[16];
-                    byte[] MsgBody = new byte[len];
-                    Array.Copy(DealData, 29, MsgHead, 0, 16);
-                    Array.Copy(DealData, 45, MsgBody, 0, len);
-
-                    //遥控注数应答
-                    byte[] Return_data = new byte[len + 17];//16head+len(Body)，+1Byte retrun code
-                    MsgHead.CopyTo(Return_data, 0);
-                    MsgBody.CopyTo(Return_data, 4);
-                    Return_data[len + 16] = 0x30;
-
-                    byte[] CmdType = new byte[4];
-                    CmdType[0] = byte.Parse(MsgBody[0].ToString());
-                    CmdType[1] = byte.Parse(MsgBody[1].ToString());
-                    CmdType[2] = byte.Parse(MsgBody[2].ToString());
-                    CmdType[3] = byte.Parse(MsgBody[3].ToString());
-                    string tempCmdTypeStr = Encoding.ASCII.GetString(CmdType);
-                    if (tempCmdTypeStr != "0003")
-                        Return_data[len + 16] = 0x31;
-                    byte[] Return_Send = Function.Make_tozk_frame(Data.Data_Flag_Real, Data.InfoFlag_KACK, Return_data);
-                    Data.DataQueue_USRP_telecmd.Enqueue(Return_Send);
-
-                    break;
-                default:
-
-                    break;
-            }
-        }
-
-        private void DealWithZK2CRT_K(byte[] data, ref Data.CRT_STRUCT myCRT)
-        {
-            //Data.DealKSSA.DataQueue_CRT.Enqueue(FinalSendToCRT);
-            byte[] MsgHead = new byte[4];
-            byte[] MsgBody = new byte[12];
-            Array.Copy(data, 29, MsgHead, 0, 4);
-            Array.Copy(data, 33, MsgBody, 0, 12);
-
-            byte[] KCmdByte = new byte[9];
-            Function.Get_KcmdText(MsgBody[11], ref KCmdByte);
-
-            byte[] ToBeSend = new byte[71];
-            //将K令数据组成遥控帧序列后发送
-            ToBeSend = Function.Make_toCRT_frame(KCmdByte, true);              //明指令
-                                                                               //YKZL = Function.Make_toCRT_frame(temp2, false);                  //密指令
-            byte[] FinalSendToCRT = Function.Make_toCortex_frame(ToBeSend);
-            myCRT.DataQueue_CRT.Enqueue(FinalSendToCRT);
-
-            //遥控指令应答
-            byte[] Return_data = new byte[17];
-            MsgHead.CopyTo(Return_data, 0);
-            MsgBody.CopyTo(Return_data, 4);
-            Return_data[16] = 0x30;
-            byte[] Return_Send = Function.Make_tozk_frame(Data.Data_Flag_Real, Data.InfoFlag_CACK, Return_data);
-            Data.DataQueue_USRP_telecmd.Enqueue(Return_Send);
-
-            byte[] Return_XHL = new byte[Return_Send.Length];
-            Array.Copy(Return_Send, Return_XHL, Return_Send.Length);
-            if (Data.WaitXHL_Return2ZK.WaitOne(500))
-            {
-                Data.WaitXHL_Return2ZK.Reset();
-                Return_XHL[16] = Data.ReturnCode;
-            }
-            else
-            {
-                Return_XHL[16] = 0x37;//超时
-            }
-            Data.DataQueue_USRP_telecmd.Enqueue(Return_XHL);
-
-        }
-
-        private void DealWithZK2CRT_PB(byte[] data, ref Data.CRT_STRUCT myCRT)
-        {
-            //To do here
-            byte[] MsgHead = new byte[17];
-            byte[] MsgBody = new byte[516];
-            Array.Copy(data, 29, MsgHead, 0, 17);
-            Array.Copy(data, 46, MsgBody, 0, 516);
-            //并未对于明密态做出处理
-            //Attention
-            if (Data.MingMiTag)
-            {
-                MsgHead[4] = 0xF0;
-            }
-            else
-            {
-                MsgHead[4] = 0x0F;
-                ushort CRC = 0xffff;
-                ushort genpoly = 0x1021;
-                for (int i = 2; i < 512; i = i + 1)
+                else
                 {
-                    CRC = Function.CRChware(MsgBody[i], genpoly, CRC);
+                    Thread.Sleep(1);
                 }
-                MsgBody[512] = (byte)((CRC & 0xFF00) >> 2);
-                MsgBody[513] = (byte)(CRC & 0x00FF);
             }
-
-            byte[] FinalSendToCRT = Function.Make_toCortex_frame(MsgBody);
-            myCRT.DataQueue_CRT.Enqueue(FinalSendToCRT);
-
-            //遥控注数应答
-            byte[] Return_data = new byte[534];//原数据包为533(4+12+1+516信息体)，+1Byte retrun code
-            MsgHead.CopyTo(Return_data, 0);
-            MsgBody.CopyTo(Return_data, 4);
-            Return_data[533] = 0x30;
-            byte[] Return_Send = Function.Make_tozk_frame(Data.Data_Flag_Real, Data.InfoFlag_KACK, Return_data);
-            Data.DataQueue_USRP_telecmd.Enqueue(Return_Send);
-
-            byte[] Return_XHL = new byte[Return_Send.Length];
-            Array.Copy(Return_Send, Return_XHL, Return_Send.Length);
-            if (Data.WaitXHL_Return2ZK.WaitOne(500))
-            {
-                Data.WaitXHL_Return2ZK.Reset();
-                Return_XHL[Return_XHL.Length - 1] = Data.ReturnCode;
-            }
-            else
-            {
-                Return_XHL[Return_XHL.Length - 1] = 0x37;//超时
-            }
-            Data.DataQueue_USRP_telecmd.Enqueue(Return_XHL);
-        }
-
-
-        private void DealWithZK2CRT_YK(byte[] DealData)
-        {
-            //To do here
-            byte[] MsgHead = new byte[16];
-            int len = DealData.Length - 45;
-            byte[] MsgBody = new byte[len];
-            Array.Copy(DealData, 29, MsgHead, 0, 16);
-            Array.Copy(DealData, 45, MsgBody, 0, len);
-
-            //遥控注数应答
-            byte[] Return_data = new byte[len + 17];//16head+len(Body)，+1Byte retrun code
-            MsgHead.CopyTo(Return_data, 0);
-            MsgBody.CopyTo(Return_data, 4);
-            Return_data[len + 16] = 0x30;
-
-            byte[] Return_Send = Function.Make_tozk_frame(Data.Data_Flag_Real, Data.InfoFlag_KACK, Return_data);
-            Data.DataQueue_USRP_telecmd.Enqueue(Return_Send);
-
         }
 
         #region 遥测端口发送，仅用作参考
@@ -554,7 +475,10 @@ namespace H07_YKYC
                 }
             }
         }
-
+        /// <summary>
+        /// 接受USRP的遥测数据
+        /// </summary>
+        /// <param name="ClientSocket"></param>
         private void RecvFromClientUSRP(object ClientSocket)
         {
             Trace.WriteLine("RecvFromUSRP_telemetry!!");
@@ -577,7 +501,6 @@ namespace H07_YKYC
                         Trace.WriteLine(tempstr);
 
                         string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
                         Data.TelemetryRealShowBox.BeginInvoke(
                             new Action(() => { Data.TelemetryRealShowBox.AppendText(timestr + ":" + tempstr + "\n"); }));
 
@@ -587,15 +510,17 @@ namespace H07_YKYC
                         //数据库存储
                         IPEndPoint tmppoint = (IPEndPoint)myClientSocket.RemoteEndPoint;
                         String RemoteIpStr = tmppoint.Address.ToString();
-                        Data.sql.InsertValues("table_Telemetry", new string[] { "YK", timestr, RemoteIpStr, tempstr });
 
-                        if (RecvNum > 29)
+                        if (RecvNum > 22)
                         {
                             MyLog.Info("收到遥测数据量：" + RecvNum.ToString());
-                            deal_zk_data(RecvBufZK1, RecvNum);
+                            deal_zk_data(RecvBufZK1, RecvNum, timestr, RemoteIpStr);
 
                             Data.dtUSRP.Rows[0][1] = (int)Data.dtUSRP.Rows[0][1] + 1;
-
+                        }
+                        else
+                        {
+                            MyLog.Error("收到遥测数据帧长度异常：" + RecvNum.ToString());
                         }
                     }
                     else

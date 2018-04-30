@@ -102,7 +102,7 @@ namespace H07_YKYC
                     else
                     {
                         string tempstr = "";//将EPDU转化为二进制string
-                        for (int i = 0; i < Epdu.Length; i++) tempstr += Convert.ToString(Epdu[i], 2).PadLeft(8,'0');
+                        for (int i = 6; i < Epdu.Length; i++) tempstr += Convert.ToString(Epdu[i], 2).PadLeft(8,'0');
                         for(int j=0;j<dtAPid.Rows.Count;j++)
                         {
                             int len = int.Parse((string)dtAPid.Rows[j]["占位"]);

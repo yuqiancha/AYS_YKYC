@@ -49,8 +49,10 @@ namespace H07_YKYC
             // 绑定数据到DataGridView
             dataGridView1.DataSource = mTable;
 
+            dataGridView1.Columns[0].Width = 50;
             dataGridView1.Columns[dataGridView1.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[1].Width = 200;
+            dataGridView1.Columns[1].Width = 150;
+          
         }
 
         private void QueryMyDB_Load(object sender, EventArgs e)

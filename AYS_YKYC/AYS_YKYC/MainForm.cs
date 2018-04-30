@@ -110,7 +110,12 @@ namespace H07_YKYC
 
             Data.sql = new SqLiteHelper("data source=mydb.db");
             //创建名为table数据表
-            Data.sql.CreateTable("table_Telemetry", new string[] { "InfoType", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Telemetry",
+                new string[] { "Type", "CreateTime", "IP", "VERSION","SCID","VCID","VCIDCount","ReviewTag","Reserved","InsertValue","MPDU_Head", "MPDU_Point","EPDU_Content" },
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT","TEXT","TEXT" });
+            Data.sql.CreateTable("table_Epdu", 
+                new string[] {"Version","Type","DataTag","APID","DivTag","BagCount","BagLen","Data" }, 
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"});
             Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
 
 
@@ -301,6 +306,11 @@ namespace H07_YKYC
                 Thread.Sleep(100);
                 mySaveFileThread.FileClose();
 
+                ServerLedThreadTag = false;
+                    ServerLedThreadTag2  = false;
+                Data.ServerConnectEvent.Set();
+                Data.ServerConnectEvent2.Set();
+
                 Data.AllThreadTag = false;
             }
             catch (Exception ex)
@@ -402,7 +412,7 @@ namespace H07_YKYC
         void DealCRT_Off(ref Data.CRT_STRUCT myCRT)
         {
             myCRT.LedOff();
-            MyLog.Info("无法连接--" + myCRT.CRTName);
+            MyLog.Error("无法连接--" + myCRT.CRTName);
         }
         private void buttonCRT_Click(object sender, EventArgs e)
         {
@@ -411,23 +421,6 @@ namespace H07_YKYC
             {
                 case "btn_CRTa_Open":
                     MyLog.Info("尝试连接--瑞信丰...");
-                    //ClientAPP.Server_CRTa.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
-                    //ClientAPP.Server_CRTa.ServerPORT = ConfigurationManager.AppSettings["Server_CRTa_Port"];
-                    //ClientAPP.Connect(ref ClientAPP.Server_CRTa);
-                    //if (ClientAPP.Server_CRTa.IsConnected)
-                    //{
-                    //    DealCRT_On(ref Data.DealCRTa);
-                    //    MyLog.Info("连接成功--" + Data.DealCRTa.CRTName + "--3020端口");
-                    //    new Thread(() => { Fun_Transfer2CRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa, ref SaveFile.DataQueue_out2); }).Start();
-                    //    new Thread(() => { Fun_RecvFromCRT(ref Data.DealCRTa, ref ClientAPP.Server_CRTa); }).Start();
-                    //}
-                    //else
-                    //{
-                    //    DealCRT_Off(ref Data.DealCRTa);
-                    //    return;
-                    //}
-                    //btn_CRTa_Open.Enabled = false;
-                    //btn_CRTa_Close.Enabled = true;
 
                     ClientAPP.Server_CRTa_Return.ServerIP = ConfigurationManager.AppSettings["Server_CRTa_Ip"];
                     ClientAPP.Server_CRTa_Return.ServerPORT = ConfigurationManager.AppSettings["Server_CRTa_Port2"];
@@ -453,7 +446,7 @@ namespace H07_YKYC
                     btn_CRTa_Open.Enabled = true;
                     btn_CRTa_Close.Enabled = false;
                     Data.DealCRTa.LedOff();
-                    MyLog.Info("关闭连接--USB应答机A");
+                    MyLog.Info("关闭连接--瑞信丰");
                     break;
 
                 default:
