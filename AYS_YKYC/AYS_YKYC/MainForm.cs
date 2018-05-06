@@ -25,6 +25,7 @@ namespace H07_YKYC
         public QueryForm myQueryForm;
         public SaveFile mySaveFileThread;
         public QueryMyDB mySqlForm;
+        public ChartForm myChartForm;
 
         ServerAPP myServer = new ServerAPP();
         public int TagLock;
@@ -111,12 +112,12 @@ namespace H07_YKYC
             Data.sql = new SqLiteHelper("data source=mydb.db");
             //创建名为table数据表
             Data.sql.CreateTable("table_Telemetry",
-                new string[] { "Type", "CreateTime", "IP", "VERSION","SCID","VCID","VCIDCount","ReviewTag","Reserved","InsertValue","MPDU_Head", "MPDU_Point","EPDU_Content" },
+                new string[] { "InfoType", "CreateTime", "IP", "VERSION","SCID","VCID","VCIDCount","ReviewTag","Reserved","InsertValue","MPDU_Head", "MPDU_Point","EPDU_Content" },
                 new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT","TEXT","TEXT" });
             Data.sql.CreateTable("table_Epdu", 
-                new string[] {"Version","Type","DataTag","APID","DivTag","BagCount","BagLen","Data" }, 
-                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"});
-            Data.sql.CreateTable("table_Telecmd", new string[] { "InfoTye", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
+                new string[] { "InfoType", "CreateTime","Version","Type","DataTag","APID","DivTag","BagCount","BagLen","Data" }, 
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"});
+            Data.sql.CreateTable("table_Telecmd", new string[] { "InfoType", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
 
 
             List<string> APIDList = Data.GetConfigNormal(Data.YCconfigPath, "add");
@@ -671,7 +672,6 @@ namespace H07_YKYC
             {
                 btn_ZK1_Open_Click(sender, e);
                 btn_ZK1_YC_Open_Click(sender, e);
-
                 buttonCRT_Click(btn_CRTa_Open, e);
                 //     buttonCRT_Click(btn_CRTb_Open, e);
 
@@ -872,11 +872,13 @@ namespace H07_YKYC
             {
                 btn_LogCtr.Text = "<<<日志显示";
                 this.splitContainer1.Panel2Collapsed = true;
+                this.btn_LogClear.Visible = false;
             }
             else
             {
                 btn_LogCtr.Text = "日志隐藏>>>";
                 this.splitContainer1.Panel2Collapsed = false;
+                this.btn_LogClear.Visible = true;
             }
         }
 
@@ -970,6 +972,24 @@ namespace H07_YKYC
                 MessageBox.Show(this, "自定义指令长度或名称错误，无法添加！", "错误提示", MessageBoxButtons.YesNo);
             }
 
+        }
+
+        private void 数据分析ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (myChartForm != null)
+            {
+                myChartForm.Activate();
+            }
+            else
+            {
+                myChartForm = new ChartForm();
+            }
+            myChartForm.ShowDialog();
+        }
+
+        private void btn_LogClear_Click(object sender, EventArgs e)
+        {
+            this.richTextBox1.Clear();
         }
     }
 }

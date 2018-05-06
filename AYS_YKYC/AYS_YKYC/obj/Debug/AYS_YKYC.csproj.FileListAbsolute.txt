@@ -91,13 +91,14 @@ D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.dll
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.EF6.dll
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.Linq.dll
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\ZedGraph.dll
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\EntityFramework.dll
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.dll.config
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.EF6.pdb
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\bin\Debug\System.Data.SQLite.Linq.pdb
-D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.APIDForm.resources
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.ChartForm.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.Form1.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.MainForm.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\H07_YKYC.Properties.Resources.resources

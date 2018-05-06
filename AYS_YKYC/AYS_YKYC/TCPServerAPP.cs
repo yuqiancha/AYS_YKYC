@@ -203,8 +203,11 @@ namespace H07_YKYC
                             ClientAPP.ClientUSRP_Telemetry.IsConnected = true;
                             Data.ServerConnectEvent2.Set();
 
+                            lock (Data.EpduBuf_List)
+                                Data.EpduBuf_List.Clear();
+
                             new Thread(() => { RecvFromClientUSRP(ClientSocket); }).Start();
-                            Data.EpduBuf_List.Clear();
+
                             new Thread(() => { DisPatchEpdu(); }).Start();
 
 
@@ -356,18 +359,21 @@ namespace H07_YKYC
 
             #region 处理EPDU
 
-            if (Data.EpduBuf_List.Count > 0)
+            lock (Data.EpduBuf_List)
             {
-                byte[] Last_Epdu = new byte[mpdu_point];
-                Array.Copy(DealData, 16, Last_Epdu, 0, mpdu_point);
-                for (int j = 0; j < mpdu_point; j++) Data.EpduBuf_List.Add(Last_Epdu[j]);//将上次剩余数据推入List再解析
+                if (Data.EpduBuf_List.Count > 0)
+                {
+                    byte[] Last_Epdu = new byte[mpdu_point];
+                    Array.Copy(DealData, 16, Last_Epdu, 0, mpdu_point);
+                    for (int j = 0; j < mpdu_point; j++) Data.EpduBuf_List.Add(Last_Epdu[j]);//将上次剩余数据推入List再解析
+                }
+
+                int Temp_Len = RecvNum - mpdu_point - 16;//EPDU数据域长度
+                byte[] Temp_Epdu = new byte[Temp_Len];
+                Array.Copy(DealData, 16 + mpdu_point, Temp_Epdu, 0, Temp_Len);
+                for (int j = 0; j < Temp_Len; j++) Data.EpduBuf_List.Add(Temp_Epdu[j]);//将数据推入List再解析
+
             }
-
-            int Temp_Len = RecvNum - mpdu_point - 16;//EPDU数据域长度
-            byte[] Temp_Epdu = new byte[Temp_Len];
-            Array.Copy(DealData, 16 + mpdu_point, Temp_Epdu, 0, Temp_Len);
-            for (int j = 0; j < Temp_Len; j++) Data.EpduBuf_List.Add(Temp_Epdu[j]);//将数据推入List再解析
-
             #endregion
         }
 
@@ -379,12 +385,38 @@ namespace H07_YKYC
                 {
                     int epdu_len = Data.EpduBuf_List[4] * 256 + Data.EpduBuf_List[5];
 
+                    int epdu_apid = (int)((Data.EpduBuf_List[0] & 0x07) << 8) + (int)Data.EpduBuf_List[1];
+                    string epdu_APID = "0x" + epdu_apid.ToString("x3");
+
+                    bool NeedClearTag = true;//若List头位置不是合理的APID，则清空List
+                    foreach (DataRow dr in Data.dtAPID.Rows)
+                    {
+                        if ((string)dr["APID"] == epdu_APID)
+                        {
+                            NeedClearTag = false;
+                            break;
+                        }
+                    }
+
+
+                    if (NeedClearTag)
+                    {
+                        MyLog.Error("不连续EPDU检测到，清空缓存");
+                        lock (Data.EpduBuf_List)
+                        {
+                            Data.EpduBuf_List.Clear();
+                        }
+                    }
+
                     if (Data.EpduBuf_List.Count >= epdu_len + 7)
-                    {                        
+                    {
                         byte[] Epdu_Frame = new byte[epdu_len + 7];
                         Data.EpduBuf_List.CopyTo(0, Epdu_Frame, 0, epdu_len + 7);
-                        Data.EpduBuf_List.RemoveRange(0, epdu_len + 7);
 
+                        lock (Data.EpduBuf_List)
+                        {
+                            Data.EpduBuf_List.RemoveRange(0, epdu_len + 7);
+                        }
                         #region 处理EPDU
                         string Version = Convert.ToString(Epdu_Frame[0], 2).PadLeft(8, '0').Substring(0, 3);
                         string Type = Convert.ToString(Epdu_Frame[0], 2).PadLeft(8, '0').Substring(3, 1);
@@ -406,8 +438,10 @@ namespace H07_YKYC
                             DataStr += Epdu_Frame[i].ToString("x2");
                         }
 
+                        string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+
                         Data.sql.InsertValues("table_Epdu",
-                            new string[] { Version, Type, DataTag, APID, DivTag, BagCount, BagLen, DataStr });
+                            new string[] { "EPDU", timestr, Version, Type, DataTag, APID, DivTag, BagCount, BagLen, DataStr });
 
 
                         Trace.WriteLine("DealEpdu---APID-------" + APID);
@@ -425,8 +459,6 @@ namespace H07_YKYC
                                         item.apidForm.DataQueue.Enqueue(Epdu_Frame);
                                     }
                                 }
-
-
                             }
                         }
                         #endregion 处理EPDU
@@ -502,7 +534,7 @@ namespace H07_YKYC
 
                         string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                         Data.TelemetryRealShowBox.BeginInvoke(
-                            new Action(() => { Data.TelemetryRealShowBox.AppendText(timestr + ":" + tempstr + "\n"); }));
+                            new Action(() => { Data.TelemetryRealShowBox.AppendText(timestr + "\n" + tempstr + "\n"); }));
 
                         //存储从USRP发来的遥测数据
                         SaveFile.DataQueue_out1.Enqueue(RecvBufToFile);
@@ -519,7 +551,7 @@ namespace H07_YKYC
                                 deal_zk_data(RecvBufZK1, RecvNum, timestr, RemoteIpStr);
 
                             }
-                            catch(Exception e)
+                            catch (Exception e)
                             {
                                 Trace.WriteLine("RecvFromClientZK_YC--deal_zk_data Exception:" + e.Message);
                             }

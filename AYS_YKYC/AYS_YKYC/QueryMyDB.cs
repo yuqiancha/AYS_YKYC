@@ -22,20 +22,21 @@ namespace H07_YKYC
         private void button1_Click(object sender, EventArgs e)
         {
             string TableName = "table_Telemetry";
-            //switch (comboBox1.Text)
-            //{
-            //    case "全部记录":
-            //        TableName = "table_All";
-            //        break;
-            //    case "测试通过记录":
-            //        TableName = "table_Right";
-            //        break;
-            //    case "测试失败记录":
-            //        TableName = "table_Error";
-            //        break;
-            //    default:
-            //        break;
-            //}
+            switch (comboBox1.Text)
+            {
+                case "接收遥测VCDU":
+                    TableName = "table_Telemetry";
+                    break;
+                case "解析EPDU":
+                    TableName = "table_Epdu";
+                    break;
+                case "发送遥控":
+                    TableName = "table_Telecmd";
+                    break;
+                default:
+                    TableName = "table_Telecmd";
+                    break;
+            }
 
             //select * from table_All where CreateTime >= '2018-03-23 17:07:19' and CreateTime < '2019-08-02 00:00:00'
 
@@ -59,6 +60,8 @@ namespace H07_YKYC
         {
             dateTimePicker2.Value = DateTime.Now;
             dateTimePicker1.Value = DateTime.Now.AddDays(-1);
+
+            comboBox1.SelectedIndex = comboBox1.Items.IndexOf("解析EPDU");
         }
     }
 }
