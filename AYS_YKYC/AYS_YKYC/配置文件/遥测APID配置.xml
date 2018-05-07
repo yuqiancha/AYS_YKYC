@@ -13,7 +13,7 @@
   <add key="0x40b" value="搭载1"/>
   <add key="0x40c" value="搭载2"/>
   <add key="0x40d" value="GNSS"/>
-  <add key="0x40e" value="OBC-B"/>
+  <add key="0x40e" value="OBC_B"/>
   <add key="0x501" value="系统延时遥测"/>
   <add key="0x502" value="GNC延时遥测"/>
   <add key="0x601" value="错误日志"/>

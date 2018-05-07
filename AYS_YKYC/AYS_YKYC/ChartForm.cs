@@ -25,10 +25,10 @@ namespace H07_YKYC
         TreeNode node9 = new TreeNode("数传");
         TreeNode node10 = new TreeNode("载荷3S");
         TreeNode node11 = new TreeNode("GNSS");
-        TreeNode node12 = new TreeNode("OBC-B");
+        TreeNode node12 = new TreeNode("OBC_B");
         TreeNode node13 = new TreeNode("系统延时遥测");
         TreeNode node14 = new TreeNode("GNC延时遥测");
-
+        TreeNode[] NodeList;
         public ChartForm()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace H07_YKYC
 
         private void ChartForm_Load(object sender, EventArgs e)
         {
-            TreeNode[] NodeList = new TreeNode[] { node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14 };
+            NodeList = new TreeNode[] { node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14 };
             try
             {
                 for (int i = 0; i < NodeList.Count(); i++)
@@ -76,5 +76,17 @@ namespace H07_YKYC
 
         }
 
+        private void treeView1_DoubleClick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < NodeList.Count(); i++)
+            {
+                if (treeView1.SelectedNode.Parent == NodeList[i])
+                {
+                    Trace.WriteLine(treeView1.SelectedNode.Text); 
+                    //根据此处的APID-内容，进行下一步解析和处理
+
+                }             
+            }
+        }
     }
 }

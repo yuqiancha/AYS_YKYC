@@ -368,9 +368,9 @@
   <测控 key="CAN接收错误计数" len="16" fmul="DEC"/>
   <测控 key="指令计数" len="32" fmul="DEC"/>
   <测控 key="TC通道直流偏置" len="16" fmul="DEC"/>
-  <测控 key="HAM通道直流偏置" len="32" fmul="DEC"/>
+  <测控 key="HAM通道直流偏置1" len="32" fmul="DEC"/>
   <测控 key="TC通道RSSI" len="32" fmul="DEC"/>
-  <测控 key="HAM通道直流偏置" len="32" fmul="DEC"/>
+  <测控 key="HAM通道直流偏置2" len="32" fmul="DEC"/>
   <测控 key="复位标识" len="8" fmul="HEX"/>
   <测控 key="系统状态标识" len="8" fmul="HEX"/>
   <测控 key="DMA溢出标识" len="16" fmul="DEC"/>
@@ -460,14 +460,14 @@
   <GNSS key="平台GPS定位速度Vy" len="32" fmul="0.01m/s"/>
   <GNSS key="平台GPS定位速度Vz" len="32" fmul="0.01m/s"/>
   <GNSS key="平台GPS 千周设置" len="8" fmul="0x01，0x02"/>
-  <OBC-B key="射频功率" len="3" fmul="十进制显示"/>
-  <OBC-B key="射频码速率" len="2" fmul="0:1.2Kbps，1:2.4Kbps，2:4.8Kbps，3:9.6Kbps"/>
-  <OBC-B key="射频频点" len="2" fmul="0：频点1,1：频点2，2：频点3,3：频点4"/>
-  <OBC-B key="射频正确遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC-B key="射频错误遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC-B key="CAN接收正确遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC-B key="CAN接收错误遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC-B key="CAN转发遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="射频功率" len="3" fmul="十进制显示"/>
+  <OBC_B key="射频码速率" len="2" fmul="0:1.2Kbps，1:2.4Kbps，2:4.8Kbps，3:9.6Kbps"/>
+  <OBC_B key="射频频点" len="2" fmul="0：频点1,1：频点2，2：频点3,3：频点4"/>
+  <OBC_B key="射频正确遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="射频错误遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="CAN接收正确遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="CAN接收错误遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="CAN转发遥控指令计数" len="8" fmul="十进制显示"/>
   <系统延时遥测 key="母线电流" len="16" fmul="电流1方式显示"/>
   <系统延时遥测 key="母线电压" len="8" fmul="电压1方式显示"/>
   <系统延时遥测 key="软件启动计数" len="8" fmul="十进制显示"/>

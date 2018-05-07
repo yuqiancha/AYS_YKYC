@@ -39,27 +39,43 @@ namespace H07_YKYC
 
             List<string> List = Data.GetConfigNormal(Data.APIDconfigPath, CurrentApidName);
 
-            TotalLen = 0;
-
-            for (int i = 0; i < List.Count; i++)
+            if (List.Count >= 1)
             {
-                DataRow dr = dtAPid.NewRow();
-                dr["序号"] = i+1;
-                dr["名称"] = List[i];
-                dr["占位"] = Data.GetConfigStr(Data.APIDconfigPath, CurrentApidName, List[i], "len");
-                dtAPid.Rows.Add(dr);
+                TotalLen = 0;
 
-                TotalLen += int.Parse((string)dr["占位"]);//这里算出来总共多少位
+                string[] StringList1 = new string[List.Count+1];
+                string[] StringList2 = new string[List.Count+1];
+                StringList1[0] = "CreateTime";
+                StringList2[0] = "TEXT";
+                for (int i = 0; i < List.Count; i++)
+                {
+                    DataRow dr = dtAPid.NewRow();
+                    dr["序号"] = i + 1;
+                    dr["名称"] = List[i];
+                    dr["占位"] = Data.GetConfigStr(Data.APIDconfigPath, CurrentApidName, List[i], "len");
+                    dtAPid.Rows.Add(dr);
+                    TotalLen += int.Parse((string)dr["占位"]);//这里算出来总共多少位
+
+                    StringList1[i+1] = "'" + List[i] + "'";
+
+
+                    StringList2[i+1] = "TEXT";
+                }
+
+                Trace.WriteLine("占位TotlaLen=" + TotalLen.ToString());
+
+                TotalLen = TotalLen / 8;//算出来多少Byte
+
+                dataGridView1.DataSource = dtAPid;
+
+                Data.sql.CreateTable("table_"+CurrentApidName, StringList1, StringList2);
+
+                new Thread(() => { DealWithEPDU(); }).Start();
             }
-
-            Trace.WriteLine("占位TotlaLen=" + TotalLen.ToString());
-
-            TotalLen = TotalLen / 8;//算出来多少Byte
- 
-            dataGridView1.DataSource = dtAPid;
-
-
-            new Thread(() => { DealWithEPDU(); }).Start();
+            else
+            {
+                Trace.WriteLine("尚未配置此APID");
+            }
         }
 
         private void APIDForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -111,6 +127,9 @@ namespace H07_YKYC
 
                         Trace.WriteLine(tempstr.Length);
 
+                        string[] TempStringList = new string[dtAPid.Rows.Count+1];
+                        string timestr = string.Format("{0}-{1:D2}-{2:D2} {3:D2}:{4:D2}:{5:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                        TempStringList[0] = timestr;
                         for (int j = 0; j < dtAPid.Rows.Count; j++)
                         {
                             int len = int.Parse((string)dtAPid.Rows[j]["占位"]);
@@ -134,9 +153,13 @@ namespace H07_YKYC
                             dtAPid.Rows[j]["解析值"] = "0x" + t.ToString("x").PadLeft(padleft, '0');
 
                             tempstr = tempstr.Substring(len, tempstr.Length - len);
+
+                            TempStringList[j + 1] = (string)dtAPid.Rows[j]["值"];
                         }
 
+                        
 
+                        Data.sql.InsertValues("table_" + CurrentApidName, TempStringList);
                     }
 
                     //int index = this.dataGridView_EPDU.Rows.Add();

@@ -67,6 +67,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
@@ -131,7 +132,6 @@
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_LogCtr = new System.Windows.Forms.Button();
             this.btn_LogClear = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -351,6 +351,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "信息一览";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 234);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(789, 383);
+            this.textBox2.TabIndex = 21;
             // 
             // tableLayoutPanel6
             // 
@@ -1159,15 +1168,6 @@
             this.btn_LogClear.Text = "清空日志";
             this.btn_LogClear.UseVisualStyleBackColor = true;
             this.btn_LogClear.Click += new System.EventHandler(this.btn_LogClear_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 234);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(789, 383);
-            this.textBox2.TabIndex = 21;
             // 
             // MainForm
             // 
