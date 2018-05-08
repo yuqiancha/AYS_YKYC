@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
@@ -31,6 +32,9 @@ namespace H07_YKYC
         TreeNode node13 = new TreeNode("系统延时遥测");
         TreeNode node14 = new TreeNode("GNC延时遥测");
         TreeNode[] NodeList;
+
+        SQLiteConnection dbConnection = new SQLiteConnection("data source=mydb.db");
+
         public ChartForm()
         {
             InitializeComponent();
@@ -60,11 +64,20 @@ namespace H07_YKYC
 
             Trace.WriteLine("TreeView完成初始化！");
 
+            DateTime timenow = System.DateTime.Now;
+            String temp = timenow.ToString("yyyy-MM-dd HH:mm:ss");
+            dateTimePicker2.Text = temp;
+            DateTime timebefore = timenow.AddDays(-1);
+            String tempbefore = timebefore.ToString("yyyy-MM-dd HH:mm:ss");
+            dateTimePicker1.Text = tempbefore;
 
-            this.z1.GraphPane.Title = "图表";
+
+            z1.GraphPane.Title = "图表";
             z1.GraphPane.XAxis.Title = "时间";
             z1.GraphPane.YAxis.Title = "值";
-
+            z1.GraphPane.XAxis.MinAuto = true;
+            z1.GraphPane.XAxis.MaxAuto = true;
+            z1.GraphPane.XAxis.Type = ZedGraph.AxisType.Date;
         }
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
@@ -74,54 +87,51 @@ namespace H07_YKYC
                 if (treeView1.SelectedNode.Parent == NodeList[i])
                 {
                     Trace.WriteLine(treeView1.SelectedNode.Parent.Text+":"+treeView1.SelectedNode.Text);
-
                     String TableName = "table_" + treeView1.SelectedNode.Parent.Text;
                     String SelectColum = treeView1.SelectedNode.Text;
                     //根据此处的APID-内容，进行下一步解析和处理
 
-                    SQLiteConnection dbConnection = new SQLiteConnection("data source=mydb.db");
-                    string cmd = "Select CreateTime,["+SelectColum+"] From " + TableName ;
-                    Trace.WriteLine(cmd);
+
+                    string Str_Condition_time = "CreateTime >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'"
+                                     + "and CreateTime <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                    
+                    string cmd = "Select CreateTime,["+SelectColum+"] From " + TableName +" where "+ Str_Condition_time;
 
                     SQLiteDataAdapter mAdapter = new SQLiteDataAdapter(cmd, dbConnection);
                     DataTable mTable = new DataTable(); // Don't forget initialize!
                     mAdapter.Fill(mTable);
-                    // 绑定数据到DataGridView
                     dataGridView1.DataSource = mTable;
-
-                    //dbConnection.Open();
-                    //SQLiteCommand sq_cmd = new SQLiteCommand(cmd, dbConnection);
-                    //sq_cmd.CommandType = CommandType.Text;
-                    //SQLiteDataReader dReader = sq_cmd.ExecuteReader();
-
-
-                    this.z1.GraphPane.Title = "图表2";
-
-                    double t1, t2;
+                    
                     double[] x = new double[mTable.Rows.Count];
                     double[] y = new double[mTable.Rows.Count];
 
                     for(int j=0;j< mTable.Rows.Count;j++)
                     {
-                        Trace.WriteLine(mTable.Rows[j]["CreateTime"] + ":" + mTable.Rows[j][SelectColum]);
+                       // Trace.WriteLine(mTable.Rows[j]["CreateTime"] + ":" + mTable.Rows[j][SelectColum]);
 
                         DateTime time = Convert.ToDateTime(mTable.Rows[j]["CreateTime"]);
+                        x[j] = (double)new XDate(time);
 
-                        x[i] = (double)new XDate(time);
-
-                        string value = (string)mTable.Rows[j][SelectColum];
-                
-                        y[i] = Convert.ToInt64(value.Substring(2,value.Length-2),16);
+                        string value = (string)mTable.Rows[j][SelectColum];                
+                        y[j] = Convert.ToInt64(value.Substring(2,value.Length-2),16);
                     }
 
-                    z1.GraphPane.XAxis.Type = ZedGraph.AxisType.Date;
-                    t2 = new XDate(DateTime.Now);
-                    t1 = new XDate(DateTime.Now.AddHours(-1));
-                    z1.GraphPane.XAxis.Max = t2;
-                    z1.GraphPane.XAxis.Min = t1;
-                    z1.GraphPane.AddCurve("lala", x, y, Color.Black, ZedGraph.SymbolType.Default);
+
+
+                    z1.GraphPane.AddCurve(SelectColum, x, y, Color.Black, ZedGraph.SymbolType.Circle);
+
+                    int t = z1.GraphPane.CurveList.Count;
+                    for(int m=0;m<t;m++)
+                    {
+                        CurveItem mycurve = z1.GraphPane.CurveList[m];
+                        Trace.WriteLine(mycurve.Label);                       
+                    }
+
+
                     z1.AxisChange();
                     z1.Invalidate();
+
+                    comboBox1.Items.Add(SelectColum);
                 }             
             }
         }
@@ -129,6 +139,27 @@ namespace H07_YKYC
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowXAxis()
+        {
+            while(true)
+            {
+
+
+
+                Thread.Sleep(1000);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            z1.GraphPane.CurveList.Clear();
         }
     }
 }

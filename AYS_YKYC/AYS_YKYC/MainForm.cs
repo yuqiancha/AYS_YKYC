@@ -112,11 +112,11 @@ namespace H07_YKYC
             Data.sql = new SqLiteHelper("data source=mydb.db");
             //创建名为table数据表
             Data.sql.CreateTable("table_Telemetry",
-                new string[] { "InfoType", "CreateTime", "IP", "VERSION","SCID","VCID","VCIDCount","ReviewTag","Reserved","InsertValue","MPDU_Head", "MPDU_Point","EPDU_Content" },
-                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT","TEXT","TEXT" });
-            Data.sql.CreateTable("table_Epdu", 
-                new string[] { "InfoType", "CreateTime","Version","Type","DataTag","APID","DivTag","BagCount","BagLen","Data" }, 
-                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT"});
+                new string[] { "InfoType", "CreateTime", "IP", "VERSION", "SCID", "VCID", "VCIDCount", "ReviewTag", "Reserved", "InsertValue", "MPDU_Head", "MPDU_Point", "EPDU_Content" },
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" });
+            Data.sql.CreateTable("table_Epdu",
+                new string[] { "InfoType", "CreateTime", "Version", "Type", "DataTag", "APID", "DivTag", "BagCount", "BagLen", "Data" },
+                new string[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" });
             Data.sql.CreateTable("table_Telecmd", new string[] { "InfoType", "CreateTime", "IP", "DetailInfo" }, new string[] { "TEXT", "TEXT", "TEXT", "TEXT" });
 
 
@@ -308,7 +308,7 @@ namespace H07_YKYC
                 mySaveFileThread.FileClose();
 
                 ServerLedThreadTag = false;
-                    ServerLedThreadTag2  = false;
+                ServerLedThreadTag2 = false;
                 Data.ServerConnectEvent.Set();
                 Data.ServerConnectEvent2.Set();
 
@@ -501,7 +501,7 @@ namespace H07_YKYC
 
         private void Fun_RecvFromCRT_Return(ref Data.CRT_STRUCT myCRT, ref ClientAPP.TCP_STRUCT Server_CRT)
         {
-            Trace.WriteLine("++++++++++Entering" + myCRT.CRTName + "Fun_RecvFromCRT_Return!!");                 
+            Trace.WriteLine("++++++++++Entering" + myCRT.CRTName + "Fun_RecvFromCRT_Return!!");
 
             while (Server_CRT.IsConnected)
             {
@@ -525,7 +525,7 @@ namespace H07_YKYC
                         {
                             tempstr += TempRecvBuf[i].ToString("x2");
                         }
-                        Trace.WriteLine("Recvd:"+RecvNum.ToString()+":"+tempstr);
+                        Trace.WriteLine("Recvd:" + RecvNum.ToString() + ":" + tempstr);
                         //this.textBox_SCShow.BeginInvoke(
                         //    new Action(() =>
                         //    {
@@ -910,7 +910,7 @@ namespace H07_YKYC
                         if (apidName == Data.ApidList[i].apidName)
                         {
                             Data.ApidList[i].apidForm.Close();
-                            //    Data.ApidList.Remove(Data.ApidList[i]);
+                           // Data.ApidList.Remove(Data.ApidList[i]);
                             break;
                         }
                     }
@@ -932,7 +932,7 @@ namespace H07_YKYC
         {
 
             TreeNode node;
-            string type="False";
+            string type = "False";
             switch (comboBox1.Text)
             {
                 case "常用指令":
@@ -953,9 +953,9 @@ namespace H07_YKYC
                     break;
             }
             string str = textBox1.Text.Replace(" ", "");
-            if (str.Length == 70 && comboBox1.Text!="False" &&textBox3.Text!="")
+            if (str.Length == 70 && comboBox1.Text != "False" && textBox3.Text != "")
             {
-                DialogResult dr = MessageBox.Show(this, "是否确定添加：" + comboBox1.Text+":"+textBox3.Text + ":" + textBox1.Text, "添加自定义指令", MessageBoxButtons.YesNo);
+                DialogResult dr = MessageBox.Show(this, "是否确定添加：" + comboBox1.Text + ":" + textBox3.Text + ":" + textBox1.Text, "添加自定义指令", MessageBoxButtons.YesNo);
                 if (dr == DialogResult.Yes)
                 {
 
@@ -990,6 +990,50 @@ namespace H07_YKYC
         private void btn_LogClear_Click(object sender, EventArgs e)
         {
             this.richTextBox1.Clear();
+        }
+
+        private void 一键启动APIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+            {
+                DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dataGridView3.Rows[i].Cells[0];
+                checkCell.Value = true;
+
+                string apidName = (string)Data.dtAPID.Rows[i]["名称"];
+
+                bool AlreadyShowTag = false;
+                for (int j = 0; j < Data.ApidList.Count; j++)
+                {
+                    if (apidName == Data.ApidList[j].apidName)
+                    {
+                        AlreadyShowTag = true;
+                        break;
+                    }
+                    else
+                    {
+                        AlreadyShowTag = false;
+                    }
+                }
+
+                if (!AlreadyShowTag)
+                {
+                    APIDForm form = new APIDForm(apidName, this);
+                    form.Show(this.dockPanel1);
+                    form.DockTo(this.dockPanel1, DockStyle.Fill);
+
+                    Data.APID_Struct aPID_Struct = new Data.APID_Struct();
+                    aPID_Struct.apidForm = form;
+                    aPID_Struct.apidName = apidName;
+                    Data.ApidList.Add(aPID_Struct);
+                }
+                else
+                {
+                    Trace.WriteLine("Already show in the dock!");
+                }
+
+            }
+
+
         }
     }
 }

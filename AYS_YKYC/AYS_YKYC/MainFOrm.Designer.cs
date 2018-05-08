@@ -132,6 +132,7 @@
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_LogCtr = new System.Windows.Forms.Button();
             this.btn_LogClear = new System.Windows.Forms.Button();
+            this.一键启动APIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -170,7 +171,8 @@
             this.数据查询和回放ToolStripMenuItem,
             this.运行日志ToolStripMenuItem,
             this.数据库查询ToolStripMenuItem,
-            this.数据分析ToolStripMenuItem});
+            this.数据分析ToolStripMenuItem,
+            this.一键启动APIDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(999, 32);
@@ -1169,6 +1171,13 @@
             this.btn_LogClear.UseVisualStyleBackColor = true;
             this.btn_LogClear.Click += new System.EventHandler(this.btn_LogClear_Click);
             // 
+            // 一键启动APIDToolStripMenuItem
+            // 
+            this.一键启动APIDToolStripMenuItem.Name = "一键启动APIDToolStripMenuItem";
+            this.一键启动APIDToolStripMenuItem.Size = new System.Drawing.Size(96, 28);
+            this.一键启动APIDToolStripMenuItem.Text = "一键启动APID";
+            this.一键启动APIDToolStripMenuItem.Click += new System.EventHandler(this.一键启动APIDToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1314,6 +1323,7 @@
         private System.Windows.Forms.ToolStripMenuItem 数据分析ToolStripMenuItem;
         private System.Windows.Forms.Button btn_LogClear;
         public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ToolStripMenuItem 一键启动APIDToolStripMenuItem;
     }
 }
 
