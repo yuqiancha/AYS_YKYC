@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZedGraph;
 
 namespace H07_YKYC
 {
@@ -60,17 +62,6 @@ namespace H07_YKYC
 
 
             this.z1.GraphPane.Title = "图表";
-            double[] x = new double[100];
-            double[] y = new double[100];
-            for (int i = 0; i < 100; i++)
-            {
-                x[i] = (double)i / 100.0 * Math.PI * 2.0;
-                y[i] = Math.Sin(x[i]);
-            }
-            z1.GraphPane.AddCurve("haha", x, y, Color.Black, ZedGraph.SymbolType.Default);
-            z1.AxisChange();
-            z1.Invalidate();
-
             z1.GraphPane.XAxis.Title = "时间";
             z1.GraphPane.YAxis.Title = "值";
 
@@ -82,11 +73,62 @@ namespace H07_YKYC
             {
                 if (treeView1.SelectedNode.Parent == NodeList[i])
                 {
-                    Trace.WriteLine(treeView1.SelectedNode.Text); 
+                    Trace.WriteLine(treeView1.SelectedNode.Parent.Text+":"+treeView1.SelectedNode.Text);
+
+                    String TableName = "table_" + treeView1.SelectedNode.Parent.Text;
+                    String SelectColum = treeView1.SelectedNode.Text;
                     //根据此处的APID-内容，进行下一步解析和处理
 
+                    SQLiteConnection dbConnection = new SQLiteConnection("data source=mydb.db");
+                    string cmd = "Select CreateTime,["+SelectColum+"] From " + TableName ;
+                    Trace.WriteLine(cmd);
+
+                    SQLiteDataAdapter mAdapter = new SQLiteDataAdapter(cmd, dbConnection);
+                    DataTable mTable = new DataTable(); // Don't forget initialize!
+                    mAdapter.Fill(mTable);
+                    // 绑定数据到DataGridView
+                    dataGridView1.DataSource = mTable;
+
+                    //dbConnection.Open();
+                    //SQLiteCommand sq_cmd = new SQLiteCommand(cmd, dbConnection);
+                    //sq_cmd.CommandType = CommandType.Text;
+                    //SQLiteDataReader dReader = sq_cmd.ExecuteReader();
+
+
+                    this.z1.GraphPane.Title = "图表2";
+
+                    double t1, t2;
+                    double[] x = new double[mTable.Rows.Count];
+                    double[] y = new double[mTable.Rows.Count];
+
+                    for(int j=0;j< mTable.Rows.Count;j++)
+                    {
+                        Trace.WriteLine(mTable.Rows[j]["CreateTime"] + ":" + mTable.Rows[j][SelectColum]);
+
+                        DateTime time = Convert.ToDateTime(mTable.Rows[j]["CreateTime"]);
+
+                        x[i] = (double)new XDate(time);
+
+                        string value = (string)mTable.Rows[j][SelectColum];
+                
+                        y[i] = Convert.ToInt64(value.Substring(2,value.Length-2),16);
+                    }
+
+                    z1.GraphPane.XAxis.Type = ZedGraph.AxisType.Date;
+                    t2 = new XDate(DateTime.Now);
+                    t1 = new XDate(DateTime.Now.AddHours(-1));
+                    z1.GraphPane.XAxis.Max = t2;
+                    z1.GraphPane.XAxis.Min = t1;
+                    z1.GraphPane.AddCurve("lala", x, y, Color.Black, ZedGraph.SymbolType.Default);
+                    z1.AxisChange();
+                    z1.Invalidate();
                 }             
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
