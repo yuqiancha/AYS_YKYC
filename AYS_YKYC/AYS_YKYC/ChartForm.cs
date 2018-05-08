@@ -80,6 +80,15 @@ namespace H07_YKYC
             z1.GraphPane.XAxis.Type = ZedGraph.AxisType.Date;
         }
 
+        int ColorPos = 0;
+        private Color ChooseColor()
+        {
+            Color[] ChoseColorList = new Color[] { Color.Yellow,Color.Black, Color.Red, Color.GreenYellow,Color.Green };
+            ColorPos++;
+            if (ColorPos >= ChoseColorList.Length) ColorPos = 0;
+            return ChoseColorList[ColorPos];
+        }
+        
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
             for (int i = 0; i < NodeList.Count(); i++)
@@ -90,7 +99,6 @@ namespace H07_YKYC
                     String TableName = "table_" + treeView1.SelectedNode.Parent.Text;
                     String SelectColum = treeView1.SelectedNode.Text;
                     //根据此处的APID-内容，进行下一步解析和处理
-
 
                     string Str_Condition_time = "CreateTime >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                                      + "and CreateTime <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'";
@@ -108,7 +116,6 @@ namespace H07_YKYC
                     for(int j=0;j< mTable.Rows.Count;j++)
                     {
                        // Trace.WriteLine(mTable.Rows[j]["CreateTime"] + ":" + mTable.Rows[j][SelectColum]);
-
                         DateTime time = Convert.ToDateTime(mTable.Rows[j]["CreateTime"]);
                         x[j] = (double)new XDate(time);
 
@@ -116,9 +123,17 @@ namespace H07_YKYC
                         y[j] = Convert.ToInt64(value.Substring(2,value.Length-2),16);
                     }
 
+                    for(int m=0;m<z1.GraphPane.CurveList.Count;m++)
+                    {
+                        CurveItem mycurve = z1.GraphPane.CurveList[m];
+                        if(mycurve.Label==SelectColum)
+                        {
+                            z1.GraphPane.CurveList.RemoveAt(m);
+                            break;
+                        }
+                    }
 
-
-                    z1.GraphPane.AddCurve(SelectColum, x, y, Color.Black, ZedGraph.SymbolType.Circle);
+                    z1.GraphPane.AddCurve(SelectColum, x, y, ChooseColor(), ZedGraph.SymbolType.Circle);
 
                     int t = z1.GraphPane.CurveList.Count;
                     for(int m=0;m<t;m++)
@@ -126,7 +141,6 @@ namespace H07_YKYC
                         CurveItem mycurve = z1.GraphPane.CurveList[m];
                         Trace.WriteLine(mycurve.Label);                       
                     }
-
 
                     z1.AxisChange();
                     z1.Invalidate();
@@ -138,12 +152,30 @@ namespace H07_YKYC
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if(button1.Text == "开启实时更新")
+            {
+                button1.Text = "关闭实时更新";
+            }
+            else
+            {
+                button1.Text = "开启实时更新";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            for (int m = 0; m < z1.GraphPane.CurveList.Count; m++)
+            {
+                CurveItem mycurve = z1.GraphPane.CurveList[m];
+                if (mycurve.Label == comboBox1.Text)
+                {
+                    z1.GraphPane.CurveList.RemoveAt(m);
+                    comboBox1.Items.Remove(comboBox1.Text);
+                    z1.AxisChange();
+                    z1.Invalidate();
+                    break;
+                }
+            }
         }
 
         private void ShowXAxis()
@@ -160,6 +192,15 @@ namespace H07_YKYC
         private void button3_Click(object sender, EventArgs e)
         {
             z1.GraphPane.CurveList.Clear();
+            z1.AxisChange();
+            z1.Invalidate();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime timenow = System.DateTime.Now;
+            String temp = timenow.ToString("yyyy-MM-dd HH:mm:ss");
+            dateTimePicker2.Text = temp;
         }
     }
 }

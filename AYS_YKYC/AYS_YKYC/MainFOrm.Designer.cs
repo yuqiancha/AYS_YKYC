@@ -54,6 +54,7 @@
             this.遥控日志ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据库查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据分析ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.一键启动APIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -132,7 +133,6 @@
             this.CheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_LogCtr = new System.Windows.Forms.Button();
             this.btn_LogClear = new System.Windows.Forms.Button();
-            this.一键启动APIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -240,6 +240,13 @@
             this.数据分析ToolStripMenuItem.Size = new System.Drawing.Size(68, 28);
             this.数据分析ToolStripMenuItem.Text = "数据分析";
             this.数据分析ToolStripMenuItem.Click += new System.EventHandler(this.数据分析ToolStripMenuItem_Click);
+            // 
+            // 一键启动APIDToolStripMenuItem
+            // 
+            this.一键启动APIDToolStripMenuItem.Name = "一键启动APIDToolStripMenuItem";
+            this.一键启动APIDToolStripMenuItem.Size = new System.Drawing.Size(96, 28);
+            this.一键启动APIDToolStripMenuItem.Text = "一键启动APID";
+            this.一键启动APIDToolStripMenuItem.Click += new System.EventHandler(this.一键启动APIDToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -1170,13 +1177,6 @@
             this.btn_LogClear.Text = "清空日志";
             this.btn_LogClear.UseVisualStyleBackColor = true;
             this.btn_LogClear.Click += new System.EventHandler(this.btn_LogClear_Click);
-            // 
-            // 一键启动APIDToolStripMenuItem
-            // 
-            this.一键启动APIDToolStripMenuItem.Name = "一键启动APIDToolStripMenuItem";
-            this.一键启动APIDToolStripMenuItem.Size = new System.Drawing.Size(96, 28);
-            this.一键启动APIDToolStripMenuItem.Text = "一键启动APID";
-            this.一键启动APIDToolStripMenuItem.Click += new System.EventHandler(this.一键启动APIDToolStripMenuItem_Click);
             // 
             // MainForm
             // 
