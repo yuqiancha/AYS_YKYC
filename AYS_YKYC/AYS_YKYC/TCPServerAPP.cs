@@ -18,7 +18,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Timers;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public class ServerAPP
     {

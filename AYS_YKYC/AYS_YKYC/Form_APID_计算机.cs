@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class Form1 : WeifenLuo.WinFormsUI.Docking.DockContent
     {

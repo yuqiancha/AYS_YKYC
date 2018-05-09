@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     class Function
     {

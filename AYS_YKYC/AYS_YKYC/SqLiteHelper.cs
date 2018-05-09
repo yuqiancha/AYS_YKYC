@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.SQLite;
 using System.Diagnostics;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     class SqLiteHelper
     {

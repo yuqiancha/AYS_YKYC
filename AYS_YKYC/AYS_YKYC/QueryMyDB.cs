@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class QueryMyDB : Form
     {

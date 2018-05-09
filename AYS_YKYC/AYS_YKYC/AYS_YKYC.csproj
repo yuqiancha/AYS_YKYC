@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{57526786-80EC-4A20-A368-8B3DE8641905}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>H07_YKYC</RootNamespace>
+    <RootNamespace>AYS_YKYC</RootNamespace>
     <AssemblyName>AYS总控软件</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

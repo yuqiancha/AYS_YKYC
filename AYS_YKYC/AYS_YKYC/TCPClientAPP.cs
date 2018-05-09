@@ -9,7 +9,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public class ClientAPP
     {

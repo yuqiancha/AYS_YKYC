@@ -13,7 +13,7 @@ using System.IO;
 using System.Configuration;
 using System.Net.Sockets;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class MainForm : Form
     {
@@ -525,7 +525,7 @@ namespace H07_YKYC
                         {
                             tempstr += TempRecvBuf[i].ToString("x2");
                         }
-                        Trace.WriteLine("Recvd:" + RecvNum.ToString() + ":" + tempstr);
+                        //Trace.WriteLine("Recvd:" + RecvNum.ToString() + ":" + tempstr);
                         //this.textBox_SCShow.BeginInvoke(
                         //    new Action(() =>
                         //    {
@@ -537,8 +537,14 @@ namespace H07_YKYC
                         //    )
                         //    );
 
-                        Data.dtYC.Rows[0]["数量"] = (int)Data.dtYC.Rows[0]["数量"] + 1; //收到总数
-
+                        try
+                        {
+                            Data.dtYC.Rows[0]["数量"] = (int)Data.dtYC.Rows[0]["数量"] + 1; //收到总数
+                        }
+                        catch(Exception ex)
+                        {
+                            MyLog.Error(ex.Message);
+                        }
                         if (RecvNum > 68)
                         {
                             //YCBuf 本次收到的实际遥测数据
@@ -554,7 +560,7 @@ namespace H07_YKYC
                             {
                                 tempstr2 += YCBuf[i].ToString("x2");
                             }
-                            Trace.WriteLine(tempstr2);
+                           // Trace.WriteLine(tempstr2);
 
                             //ushort CRC = 0xffff;
                             //ushort genpoly = 0x1021;
@@ -1033,6 +1039,11 @@ namespace H07_YKYC
 
             }
 
+
+        }
+
+        private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
 
         }
     }

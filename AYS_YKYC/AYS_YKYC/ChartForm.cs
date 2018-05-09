@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class ChartForm : Form
     {

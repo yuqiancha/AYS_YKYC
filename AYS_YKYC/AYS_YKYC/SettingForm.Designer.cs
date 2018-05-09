@@ -1,4 +1,4 @@
-﻿namespace H07_YKYC
+﻿namespace AYS_YKYC
 {
     partial class SettingForm
     {
@@ -380,7 +380,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::H07_YKYC.Properties.Resources.locked;
+            this.pictureBox1.Image = global::AYS_YKYC.Properties.Resources.locked;
             this.pictureBox1.Location = new System.Drawing.Point(48, 50);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";

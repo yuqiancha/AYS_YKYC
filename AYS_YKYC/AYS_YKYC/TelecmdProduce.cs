@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class TelecmdProduce : Form
     {
-        public H07_YKYC.MainForm mform;
+        public AYS_YKYC.MainForm mform;
         String ZhenStr;
-        public TelecmdProduce(H07_YKYC.MainForm parent)
+        public TelecmdProduce(AYS_YKYC.MainForm parent)
         {
             InitializeComponent();
             mform = parent;

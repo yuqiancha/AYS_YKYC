@@ -11,14 +11,14 @@ using System.Configuration;
 using System.IO;
 using System.Diagnostics;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class SettingForm : Form
     {
         public MainForm mform;
 
         String KcmdPath;//K令码表路径
-        public SettingForm(H07_YKYC.MainForm parent)
+        public SettingForm(AYS_YKYC.MainForm parent)
         {
             InitializeComponent();
             mform = parent;

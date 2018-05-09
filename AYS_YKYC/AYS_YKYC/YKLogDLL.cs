@@ -11,7 +11,7 @@ using System.Threading;
 using System.IO;
 using System.Diagnostics;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     class YKLog
     {

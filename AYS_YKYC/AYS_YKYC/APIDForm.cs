@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class APIDForm : WeifenLuo.WinFormsUI.Docking.DockContent
     {
@@ -21,7 +21,7 @@ namespace H07_YKYC
 
 
         public Queue<byte[]> DataQueue = new Queue<byte[]>();   //处理APID对应的Queue
-        public APIDForm(string apidstr, H07_YKYC.MainForm parent)
+        public APIDForm(string apidstr, AYS_YKYC.MainForm parent)
         {
             InitializeComponent();
             this.Text = apidstr;

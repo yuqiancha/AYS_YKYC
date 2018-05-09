@@ -1,4 +1,4 @@
-﻿namespace H07_YKYC
+﻿namespace AYS_YKYC
 {
     partial class SelfTest
     {

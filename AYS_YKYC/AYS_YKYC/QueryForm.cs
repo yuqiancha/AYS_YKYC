@@ -9,12 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class QueryForm : Form
     {
         public MainForm mform;
-        public QueryForm(H07_YKYC.MainForm parent)
+        public QueryForm(AYS_YKYC.MainForm parent)
         {
             InitializeComponent();
             mform = parent;

@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     public partial class SelfTest : Form
     {
         public MainForm mform;
-        public SelfTest(H07_YKYC.MainForm parent)
+        public SelfTest(AYS_YKYC.MainForm parent)
         {
             InitializeComponent();
             mform = parent;

@@ -15,7 +15,7 @@ using System.Net.Sockets;
 using System.Xml.Linq;
 using System.Xml;
 
-namespace H07_YKYC
+namespace AYS_YKYC
 {
     class Data
     {
