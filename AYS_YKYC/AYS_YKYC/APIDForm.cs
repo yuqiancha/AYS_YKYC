@@ -116,7 +116,7 @@ namespace AYS_YKYC
                     //    epdustr += Epdu[i].ToString("x2");
                     //}
 
-                    if (Epdu.Length < TotalLen)
+                    if ((Epdu.Length-6) < TotalLen)
                     {
                         MessageBox.Show(CurrentApidName + "收到EPDU长度错误，无法解析!!");
                     }
@@ -156,7 +156,6 @@ namespace AYS_YKYC
 
                             TempStringList[j + 1] = (string)dtAPid.Rows[j]["值"];
                         }
-
                         
 
                         Data.sql.InsertValues("table_" + CurrentApidName, TempStringList);

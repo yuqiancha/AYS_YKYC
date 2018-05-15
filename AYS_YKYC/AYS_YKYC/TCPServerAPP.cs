@@ -378,7 +378,7 @@ namespace AYS_YKYC
         }
 
         private void DisPatchEpdu()
-        {
+        {//根据APID分配EPDU
             while (Data.AllThreadTag)
             {
                 if (Data.EpduBuf_List.Count > 6)
@@ -398,7 +398,6 @@ namespace AYS_YKYC
                                 break;
                             }
                         }
-
 
                         if (NeedClearTag)
                         {

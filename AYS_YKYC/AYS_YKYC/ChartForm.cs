@@ -96,23 +96,28 @@ namespace AYS_YKYC
                 if (treeView1.SelectedNode.Parent == NodeList[i])
                 {
                     Trace.WriteLine(treeView1.SelectedNode.Parent.Text+":"+treeView1.SelectedNode.Text);
-                    String TableName = "table_" + treeView1.SelectedNode.Parent.Text;
-                    String SelectColum = treeView1.SelectedNode.Text;
+
+                    String TableName = "table_" + treeView1.SelectedNode.Parent.Text;//要查询的数据库的名称
+
+                    String SelectColum = treeView1.SelectedNode.Text;//对应数据库中的列（就是选中的项的名称）
                     //根据此处的APID-内容，进行下一步解析和处理
 
+                    //查询数据库时的限定语句（时间限定）
                     string Str_Condition_time = "CreateTime >= '" + dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'"
                                      + "and CreateTime <= '" + dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss") + "'";
                     
+                    //最终查询数据库的cmd语句
                     string cmd = "Select CreateTime,["+SelectColum+"] From " + TableName +" where "+ Str_Condition_time;
 
                     SQLiteDataAdapter mAdapter = new SQLiteDataAdapter(cmd, dbConnection);
-                    DataTable mTable = new DataTable(); // Don't forget initialize!
-                    mAdapter.Fill(mTable);
-                    dataGridView1.DataSource = mTable;
+                    DataTable mTable = new DataTable(); // Don't forget initialize!新建1个DataTable类型
+                    mAdapter.Fill(mTable);//将数据库中取出内容填到DataTable中
+                    dataGridView1.DataSource = mTable;//将DataTable数据与dataGridview绑定
                     
-                    double[] x = new double[mTable.Rows.Count];
+                    double[] x = new double[mTable.Rows.Count];//x轴
                     double[] y = new double[mTable.Rows.Count];
 
+                    //循环将DataTable中的时间和数值赋予x和y数组
                     for(int j=0;j< mTable.Rows.Count;j++)
                     {
                        // Trace.WriteLine(mTable.Rows[j]["CreateTime"] + ":" + mTable.Rows[j][SelectColum]);
@@ -133,7 +138,7 @@ namespace AYS_YKYC
                         }
                     }
 
-                    z1.GraphPane.AddCurve(SelectColum, x, y, ChooseColor(), ZedGraph.SymbolType.Circle);
+                    z1.GraphPane.AddCurve(SelectColum, x, y, ChooseColor(), ZedGraph.SymbolType.Circle);//显示曲线
 
                     int t = z1.GraphPane.CurveList.Count;
                     for(int m=0;m<t;m++)

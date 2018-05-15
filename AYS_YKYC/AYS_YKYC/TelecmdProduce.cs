@@ -38,8 +38,8 @@ namespace AYS_YKYC
             dataGridView1.Rows[0].Cells[9].Value = "0000";
             this.Column9.ReadOnly = true;
 
-            dataGridView2.Rows[0].Cells[0].Value = "00";
-            dataGridView2.Rows[0].Cells[1].Value = "00";
+            dataGridView2.Rows[0].Cells[0].Value = "401";
+            dataGridView2.Rows[0].Cells[1].Value = "11";
             dataGridView2.Rows[0].Cells[2].Value = "000";
 
 
