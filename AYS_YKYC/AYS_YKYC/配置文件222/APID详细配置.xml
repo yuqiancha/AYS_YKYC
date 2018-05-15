@@ -70,14 +70,14 @@
   <重要遥测 key="存储器4区状态遥测" len="2" fmul="枚举3方式显示"/>
   <重要遥测 key="保留5" len="2"/>
   <重要遥测 key="UV_3.3V供电电流" len="12" fmul="电流1方式显示"/>
-  <重要遥测 key="IMU1供电电压" len="8" fmul="电压2方式显示"/>
-  <重要遥测 key="IMU1供电电流" len="16" fmul="电压2方式显示"/>
-  <重要遥测 key="5V_IMU2_YC" len="8" fmul="电压2方式显示"/>
-  <重要遥测 key="GPS_5V_YC" len="8" fmul="电压2方式显示"/>
-  <重要遥测 key="MTQ_5V_YC" len="8" fmul="电压2方式显示"/>
-  <重要遥测 key="MX-current-YC" len="16" fmul="电压2方式显示"/>
-  <重要遥测 key="MY-current-YC" len="16" fmul="电压2方式显示"/>
-  <重要遥测 key="MZ-current-YC" len="16" fmul="电压2方式显示"/>
+  <重要遥测 key="IMU1供电电压" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="IMU1供电电流" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="5V_IMU2_YC" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="GPS_5V_YC" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="MTQ_5V_YC" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="MX-current-YC" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="MY-current-YC" len="12" fmul="电压2方式显示"/>
+  <重要遥测 key="MZ-current-YC" len="12" fmul="电压2方式显示"/>
   <重要遥测 key="保留6" len="3"/>
   <重要遥测 key="飞轮1速度遥测" len="13" fmul="十进制显示"/>
   <重要遥测 key="保留7" len="3"/>
@@ -155,7 +155,11 @@
   <软件 key="GNSS CAN总线无返回计数" len="4" fmul="十进制显示"/>
   <软件 key="数传机CAN总线无返回计数" len="4" fmul="十进制显示"/>
   <软件 key="软件启动计数" len="4" fmul="十进制显示"/>
-  <软件 key="软件最后错误码" len="8" fmul="十进制显示"/>
+  <软件 key="保留状态位1" len="1"/>
+  <软件 key="保留状态位2" len="1"/>
+  <软件 key="保留状态位3" len="1"/>
+  <软件 key="保留状态位4" len="1"/>
+  <软件 key="软件最后错误码" len="4" fmul="十进制显示"/>
   <软件 key="软件最后错误发生时间" len="32" fmul="2018-5-1 0:0:0开始的秒计数"/>
   <软件 key="ESM错误编号" len="8" fmul="十进制显示"/>
   <软件 key="延时指令剩余条数" len="8" fmul="十进制显示"/>
@@ -194,8 +198,6 @@
   <软件 key="允许自主切换飞轮" len="8" fmul="布尔2显示"/>
   <软件 key="飞轮选择" len="8" fmul="布尔3显示"/>
   <软件 key="遥测下传间隔" len="8" fmul="十进制显示"/>
-  <软件 key="允许GNSS校准系统时间" len="8" fmul="布尔2显示"/>
-  <软件 key="允许自主任务规划" len="8" fmul="布尔2显示"/>
   <GNC key="保留1" len="4"/>
   <GNC key="太敏1" len="12" fmul="电流1方式显示"/>
   <GNC key="保留2" len="4"/>
@@ -458,52 +460,13 @@
   <GNSS key="平台GPS定位速度Vy" len="32" fmul="0.01m/s"/>
   <GNSS key="平台GPS定位速度Vz" len="32" fmul="0.01m/s"/>
   <GNSS key="平台GPS 千周设置" len="8" fmul="0x01，0x02"/>
-  <OBC_B key="射频功率" len="4" fmul="十进制显示"/>
-  <OBC_B key="预留外侧测温点B" len="12" fmul="十进制显示"/>
-  <OBC_B key="射频码速率" len="4" fmul="0:1.2Kbps，1:2.4Kbps，2:4.8Kbps，3:9.6Kbps"/>
-  <OBC_B key="EPS_TEMP_B" len="12" fmul="十进制显示"/>
-  <OBC_B key="射频频点" len="4" fmul="0：频点1,1：频点2，2：频点3,3：频点4"/>
-  <OBC_B key="TEMP-Y" len="12" fmul="十进制显示"/>
-  <OBC_B key="V_BUS" len="16" fmul="十进制显示"/>
-  <OBC_B key="GPS_5V" len="16" fmul="十进制显示"/>
-  <OBC_B key="AIS_3.3V" len="16" fmul="十进制显示"/>
-  <OBC_B key="IMU2_5V" len="16" fmul="十进制显示"/>
-  <OBC_B key="DCS_5V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="DCS_3.3V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="ADS-B_5V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="AIS_3.3V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="UV_3.3V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="UV_5V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="RW2_9V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="RW1_9V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_5V_2_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_5V_1_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_3.3V_2_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_3.3V_1_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_TEMP10" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_TEMP9" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_TEMP8" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_TEMP7" len="16" fmul="十进制显示"/>
-  <OBC_B key="DT_5V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="DT_9V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_9V_YC" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_9V_CUR" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_AI1" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_AI2" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_AI3" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_AI4" len="16" fmul="十进制显示"/>
-  <OBC_B key="SW1" len="16" fmul="十进制显示"/>
-  <OBC_B key="SW2" len="16" fmul="十进制显示"/>
-  <OBC_B key="TEMP+XX" len="16" fmul="十进制显示"/>
-  <OBC_B key="TEMP-XX" len="16" fmul="十进制显示"/>
-  <OBC_B key="TEMP-YY" len="16" fmul="十进制显示"/>
-  <OBC_B key="TEMP-ZZ" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_5V_2_YC" len="16" fmul="十进制显示"/>
-  <OBC_B key="EX_TEMP6" len="16" fmul=""/>
-  <OBC_B key="正确遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC_B key="错误遥控指令计数" len="8" fmul="十进制显示"/>
-  <OBC_B key="CAN接收指令计数" len="8" fmul="十进制显示"/>
-  <OBC_B key="射频接收指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="射频功率" len="3" fmul="十进制显示"/>
+  <OBC_B key="射频码速率" len="2" fmul="0:1.2Kbps，1:2.4Kbps，2:4.8Kbps，3:9.6Kbps"/>
+  <OBC_B key="射频频点" len="2" fmul="0：频点1,1：频点2，2：频点3,3：频点4"/>
+  <OBC_B key="射频正确遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="射频错误遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="CAN接收正确遥控指令计数" len="8" fmul="十进制显示"/>
+  <OBC_B key="CAN接收错误遥控指令计数" len="8" fmul="十进制显示"/>
   <OBC_B key="CAN转发遥控指令计数" len="8" fmul="十进制显示"/>
   <系统延时遥测 key="母线电流" len="16" fmul="电流1方式显示"/>
   <系统延时遥测 key="母线电压" len="8" fmul="电压1方式显示"/>

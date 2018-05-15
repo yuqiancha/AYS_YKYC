@@ -115,3 +115,4 @@ D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.QueryMyDB.resour
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.SelfTest.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.SettingForm.resources
 D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.TelecmdProduce.resources
+D:\CSharpProjects\AYS_YKYC\AYS_YKYC\AYS_YKYC\obj\Debug\AYS_YKYC.csprojResolveAssemblyReference.cache
