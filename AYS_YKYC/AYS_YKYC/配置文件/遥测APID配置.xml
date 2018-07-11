@@ -17,6 +17,7 @@
   <add key="0x501" value="系统延时遥测"/>
   <add key="0x502" value="GNC延时遥测"/>
   <add key="0x601" value="错误日志"/>
+  <add key="0x606" value="错误日志222"/>
   <add key="0x7ff" value="填充帧"/>
 </configuration>
 
